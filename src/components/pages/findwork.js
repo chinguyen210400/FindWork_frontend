@@ -2,16 +2,16 @@ import '../../App.css';
 import React from 'react';
 import Navbar_myjobs  from '../MyJobs/Navbar_myjobs';
 import Footer from '../HomePage/Footer';
-import Cards_myjobs  from '../MyJobs/Cards_myjobs';
+import Cards_findwork from '../FindWork/Cards_findwork';
 
-function myjobs() {
+function findwork() {
     return(
         <>
             <Navbar_myjobs />
-            <Cards_myjobs />
+            <Cards_findwork />
             <Footer />
         </>
     );
 }
 
-export default myjobs;
+export default findwork;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './signin.css';
 import { Link } from "react-router-dom";
-import { Button } from '../Button';
+import { Button } from '../Layouts/Button';
 
 const initialState = {
   email: '',

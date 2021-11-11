@@ -1,17 +1,17 @@
 import '../../App.css';
 import React from 'react';
 import Navbar_myjobs  from '../MyJobs/Navbar_myjobs';
+import UserProfile from '../UserProfile/UserProfile';
 import Footer from '../HomePage/Footer';
-import Cards_myjobs  from '../MyJobs/Cards_myjobs';
 
-function myjobs() {
+function changeprofile() {
     return(
         <>
             <Navbar_myjobs />
-            <Cards_myjobs />
+            <UserProfile />
             <Footer />
         </>
     );
 }
 
-export default myjobs;
+export default changeprofile;

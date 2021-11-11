@@ -1,9 +1,9 @@
 import '../../App.css';
-import Navbar  from '../Navbar';
-import HeroSection from '../HeroSection';
+import Navbar  from '../HomePage/Navbar';
+import HeroSection from '../HomePage/HeroSection';
 import React from 'react';
-import Cards  from '../Cards';
-import Footer from '../Footer';
+import Cards  from '../HomePage/Cards';
+import Footer from '../HomePage/Footer';
 
 function homepage() {
     return(

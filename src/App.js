@@ -7,6 +7,9 @@ import signup from './components/pages/signup';
 import signin_enterprise from './components/pages/signin_enterprise';
 import myjobs from './components/pages/myjobs';
 import findtalent from './components/pages/findtalent';
+import talentdiscover from './components/pages/talentdiscover';
+import findwork from './components/pages/findwork';
+import changeprofile from './components/pages/changeprofile'
 
 function App() {
   return (
@@ -18,7 +21,10 @@ function App() {
           <Route path='/signin_enterprise' exact component={signin_enterprise} />
           <Route path='/signup' exact component={signup} />
           <Route path='/myjobs' exact component={myjobs} />
+          <Route path='/findwork' exact component={findwork} />
           <Route path='/findtalent' exact component={findtalent} />
+          <Route path='/talentdiscover' exact component={talentdiscover} />
+          <Route path='/changeprofile' exact component={changeprofile} />
         </Switch>
     </Router>
       
