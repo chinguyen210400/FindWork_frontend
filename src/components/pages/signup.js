@@ -1,4 +1,6 @@
 import React, { useState, useReducer } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../Layouts/Button';
 import './signin.css';
 
 const initialState = {
@@ -32,7 +34,6 @@ const Register = () => {
 
   function handleClick(e) {
     e.preventDefault();
-    alert(`Hey ${state.name} you have successfully registered!`);
   }
 
   function onChange(e) {
@@ -77,6 +78,14 @@ const Register = () => {
           onChange={onChange}
         />
 
+        <div className = 'signup_role'>
+            <p> I want to :  </p>
+            <div>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' onClick={handleClick}>Hire for a project</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' onClick={handleClick}>Work as a freelancer</Button>
+        </div>
+        </div>
+
         <label className="touCheckboxLabel">
           <input
             className="touCheckbox"
@@ -89,13 +98,14 @@ const Register = () => {
         <p className={!validate(state) ? 'errorMessage' : 'invisible'}>
           The first password dosen't match the second password so please check that!
         </p>
-        <button
+      <Link to='/'>
+        <Button buttonStyle='btn--outline' buttonSize='btn--max'
           className={!validateButton(state) ? 'disabled' : ''}
-          onClick={handleClick}
           disabled={!validateButton(state) } 
         >
-          Sign Up
-        </button>
+          Create My Account
+        </Button>
+      </Link>
       </form>
     </div>
   );

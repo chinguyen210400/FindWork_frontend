@@ -1,0 +1,53 @@
+.billing {
+    float: right;
+    width: 70%;
+    height: 100vh;
+}
+
+.billing_title
+{
+    margin: 50px;
+    
+}
+
+.billing_info {
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    border: 1px solid rgb(35, 87, 117);
+    border-radius: 5px;
+}
+
+.billing_method h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.billing_method {
+    border-bottom: 1px solid rgb(35, 87, 117);
+    height: 10vh;
+    margin: 30px;
+}
+
+.billingForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.billing_textInput {
+    padding-left: 10px;
+    height: 40px;
+    width: 500px;
+    margin-bottom: 30px;
+    align-self: center;
+    font-family: Arial, sans-serif;
+    color: black;
+
+    border-color: rgba(245, 244, 243, 0.842);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.billing_save {
+    margin: 30px;
+}

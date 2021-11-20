@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import ReactPaginate from "react-paginate";
 import { Button } from "../Layouts/Button";
+import { Link } from "react-router-dom";
 import './Cards_findwork.css';
 import WorkItems from './WorkItems'
 
@@ -46,7 +47,7 @@ function Cards_findwork () {
         <div className = 'list_left'> 
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'>Best matches</Button>
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'>Most recent</Button>
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-user" aria-hidden="true"></i>View profile</Button>
+            <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-user" aria-hidden="true"></i>View profile</Button></Link>
         </div>  
                 {findWorkList}
                 <ReactPaginate 

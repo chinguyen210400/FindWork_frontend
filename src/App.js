@@ -10,6 +10,9 @@ import findtalent from './components/pages/findtalent';
 import talentdiscover from './components/pages/talentdiscover';
 import findwork from './components/pages/findwork';
 import changeprofile from './components/pages/changeprofile'
+import billing_employ from './components/pages/billing_employ';
+import security_employ from './components/pages/security_employ';
+import enterpriseprofile from './components/pages/enterpriseprofile';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
           <Route path='/findtalent' exact component={findtalent} />
           <Route path='/talentdiscover' exact component={talentdiscover} />
           <Route path='/changeprofile' exact component={changeprofile} />
+          <Route path='/billing_employ' exact component={billing_employ} />
+          <Route path='/security_employ' exact component={security_employ} />
+          <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
         </Switch>
     </Router>
       

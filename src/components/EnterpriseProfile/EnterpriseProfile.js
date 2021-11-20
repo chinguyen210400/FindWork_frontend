@@ -1,18 +1,17 @@
-import React from "react";
-import {Button} from '../Layouts/Button';
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import './UserProfile.css';
+import { Button } from "../Layouts/Button";
 
-function UserProfile () {
+function Enterprise_Profile() {
     return (
         <div className='profile_container'>
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
                         <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
-                        <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
-                        <Link to='/security_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
-                        <Link to='/billing_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
+                        <Link to='/enterpriseprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Enterprise Profile</Button></Link>
+                        <Link to='/security_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
+                        <Link to='/billing_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
                     </ul>
                 </div>
             </div>
@@ -20,7 +19,6 @@ function UserProfile () {
     
     <div className="profile">
         <h1>Nguyen Yen Chi </h1>
-        <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>
     </div>
 
     <div className = "connect">
@@ -77,7 +75,6 @@ function UserProfile () {
             </div>
         </div>
     );
-
 }
 
-export default UserProfile;
+export default Enterprise_Profile;

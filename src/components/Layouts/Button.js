@@ -2,9 +2,9 @@ import React from 'react';
 import './Button.css';
 import { Link } from 'react-router-dom';
 
-const STYLES = ['btn--primary', 'btn--outline', 'btn--test','btn--findwork','btn--noti'];
+const STYLES = ['btn--primary', 'btn--outline', 'btn--test','btn--findwork','btn--noti','btn--signup'];
 
-const SIZES = ['btn--medium', 'btn--large'];
+const SIZES = ['btn--medium', 'btn--large','btn--mini','btn--max'];
 
 export const Button = ({
   children,
