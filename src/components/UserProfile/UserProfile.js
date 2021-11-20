@@ -1,11 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
+import Contact_Modal from "./Contact_Modal";
 import './UserProfile.css';
 
 function UserProfile () {
+    const [modalOpen, setModalOpen] = useState(false);
     return (
         <div className='profile_container'>
+            {modalOpen && <Contact_Modal setOpenModal={setModalOpen} />}
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
@@ -17,14 +20,13 @@ function UserProfile () {
                 </div>
             </div>
 <div className='profile_user'>
-    
     <div className="profile">
         <h1>Nguyen Yen Chi </h1>
         <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>
     </div>
 
     <div className = "connect">
-        <h2>Contact<i class="fa fa-edit fa-0.5x" ></i></h2>
+        <h2>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setModalOpen(true);}} ></i></h2>
         <ul>
             <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
             <li><p>chi.ny184049@sis.hust.edu.vn</p></li>

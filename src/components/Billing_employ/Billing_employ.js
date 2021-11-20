@@ -26,9 +26,13 @@ function Billing_employ () {
                     </div>
     <div className="billing_element">
       <form className="billingForm">
+        <p>Your Name</p>
         <input className="billing_textInput" type="text" name="name" placeholder="Name"/>
+        <p>Card Number</p>
         <input className="billing_textInput" type="text" name="card_number" placeholder="Card_Number"/>
+        <p>Date value</p>
         <input className="billing_textInput" type="text" name="date" placeholder="Date"/>
+        <p>Password</p>
         <input className="billing_textInput" type="password" name="password" placeholder="Password"/>
       </form>
     </div>

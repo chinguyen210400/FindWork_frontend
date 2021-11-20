@@ -28,7 +28,7 @@ function signin () {
         />
 
     <Link to = '/myjobs' >
-        <Button>
+        <Button buttonStyle='btn--outline' buttonSize='btn--max'>
             Continue
         </Button>
     </Link>
