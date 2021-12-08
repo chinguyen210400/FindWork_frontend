@@ -16,7 +16,7 @@ function HeroSection() {
             </div>
         </div>
         <div className="hero-image">
-            <img src='/images/homepage.png' alt = "work's market" />
+            <img src='/images/homepage.png' alt = "work's market"/>
         </div>
     </div>
     );

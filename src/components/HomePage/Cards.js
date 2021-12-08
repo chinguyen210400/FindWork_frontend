@@ -36,11 +36,11 @@ function Cards() {
             <div className="cards-table">Find opportunities for every stage of your freelancer careeer</div>
             <div className="cards-table">Control when, where, and know you work</div>
             <div className="cards-table">Explore different ways to earn</div>
-            <Link to='/signin'><Button className='btn' buttonSize='large'>FIND TALENT</Button></Link>
+            <Link to='/signin'><Button className='btns' buttonSize='large'>FIND TALENT</Button></Link>
         </ul>
         </div>  
         <div className="cards-image2">
-            <img src="/images/" alt = "work's market" />
+        <img src="/images/find-great-work.webp" alt = "work's market" height = "600"/>
         </div>
     </li>
     <li className="Container">

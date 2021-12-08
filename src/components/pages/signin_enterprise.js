@@ -29,7 +29,7 @@ function signin () {
         />
 
     <Link to = '/findtalent' >
-        <Button>
+        <Button buttonStyle='btn--outline' buttonSize='btn--max'>
             Continue
         </Button>
     </Link>
