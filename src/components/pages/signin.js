@@ -2,6 +2,8 @@ import React from 'react';
 import './signin.css';
 import { Link } from "react-router-dom";
 import { Button } from '../Layouts/Button';
+import Navbar from '../HomePage/Navbar';
+import Footer from '../HomePage/Footer';
 
 const initialState = {
   email: '',
@@ -10,6 +12,8 @@ const initialState = {
 function signin () {
 
   return (
+    <>
+    <Navbar></Navbar>
     <div className="wrapper">
       <h2 className="registerTitle">Sign In</h2>
       <form className="registerForm">
@@ -34,6 +38,9 @@ function signin () {
     </Link>
       </form>
     </div>
+    <Footer></Footer>
+    </>
+    
   );
 };
 

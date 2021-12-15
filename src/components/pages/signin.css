@@ -12,7 +12,11 @@ button:focus {
   margin-left: 520px;
   margin-right: 520px;
   margin-top: 100px;
-
+  margin-bottom: 100px;
+  background-color: rgb(240, 240, 250);
+  border: 1px;
+  border-color: beige;
+  border-style: solid;
 }
 
 .registerForm {
@@ -28,7 +32,7 @@ button:focus {
   align-self: stretch;
   font-family: Arial, sans-serif;
   color: black;
-
+  background-color: transparent;
   border-top-style: none;
   border-left-style: none;
   border-right-style: none;
@@ -36,7 +40,6 @@ button:focus {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgb(0, 0, 0);
-  background-color: transparent;
 }
 
 .textInput::placeholder {

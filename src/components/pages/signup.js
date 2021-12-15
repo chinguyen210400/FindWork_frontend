@@ -1,5 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../HomePage/Footer';
+import Navbar from '../HomePage/Navbar';
 import { Button } from '../Layouts/Button';
 import './signin.css';
 
@@ -43,6 +45,8 @@ const Register = () => {
   }
 
   return (
+    <>
+    <Navbar></Navbar>
     <div className="wrapper">
       <h2 className="registerTitle">Sign Up</h2>
       <form className="registerForm">
@@ -108,6 +112,9 @@ const Register = () => {
       </Link>
       </form>
     </div>
+    <Footer></Footer>
+    </>
+    
   );
 };
 
