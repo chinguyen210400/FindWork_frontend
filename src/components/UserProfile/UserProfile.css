@@ -50,23 +50,32 @@
   }
 
   .connect {
-      margin-top: 100px;
+      margin: 30px;
+      
   }
 
   .skills {
-      margin-top: 30px;
+      margin: 30px;
+      border-bottom: 1px solid rgb(160, 165, 175);
   }
 
   .education {
-    margin-top: 30px;
+    margin: 30px;
+    border-bottom: 1px solid rgb(160, 165, 175);
 }
 
 .experience {
-    margin-top: 30px;
+    margin: 30px;
 }
 
 .objectives {
-    margin-top: 20px;
+    margin: 30px;
+    border-bottom: 1px solid rgb(160, 165, 175);
+}
+
+.profile {
+  text-align: center;
+  
 }
   
   .skills h3 {
@@ -81,9 +90,7 @@
     list-style: none;
   }
   
-  .profile {
-    text-align: center;
-  }
+  
   
   .profile img {
     width: 10rem;
