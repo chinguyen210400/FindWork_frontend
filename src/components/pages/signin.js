@@ -31,7 +31,7 @@ function signin () {
           placeholder="Password"
         />
 
-    <Link to = '/myjobs' >
+    <Link to = '/findwork' >
         <Button buttonStyle='btn--outline' buttonSize='btn--max'>
             Continue
         </Button>

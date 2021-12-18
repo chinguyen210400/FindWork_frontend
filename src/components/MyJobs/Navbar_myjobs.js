@@ -57,11 +57,16 @@ function Navbar() {
               <Link to='/myjobs' className='nav-links' onClick={closeMobileMenu}>
               <i class="fa fa-bell" aria-hidden="true"></i>
               </Link>
-            </li>    
-        </ul>
+            </li>   
+            <li className='nav-item'>
+              
               <Link to='/changeprofile' className='nav-links' onClick={closeMobileMenu}>
                 <i class="fa fa-user-circle" aria-hidden="true"></i>
-              </Link>
+              </Link> 
+            </li>
+            
+        </ul>
+              
         </div>
       </nav>
     </>

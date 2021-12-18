@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 import './Billing_employ.css';
-
+import '../UserProfile/UserProfile.css'
 function Billing_employ () {
     return (
         <div className='profile_container'>
@@ -10,9 +10,9 @@ function Billing_employ () {
                 <div className='profile_list'>
                     <ul className='list_info'>
                         <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
-                        <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
-                        <Link to='/security_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
-                        <Link to='/billing_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
+                        <Link to='/changeprofile'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
+                        <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
+                        <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
                     </ul>
                 </div>
             </div>

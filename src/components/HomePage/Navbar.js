@@ -22,6 +22,9 @@ function Navbar() {
 
   useEffect(() => {
     showButton();
+    return () => {
+      setButton(); // This worked for me
+    };
   }, []);
 
   window.addEventListener('resize', showButton);
@@ -70,7 +73,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Catagory <i className='fas fa-caret-down' />
+                Category <i className='fas fa-caret-down' />
               </Link>
               {dropdown && <Dropdown />}
             </li>
