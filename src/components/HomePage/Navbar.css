@@ -31,6 +31,11 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
+}
+
+.nav-logo:hover {
+  color:#fff
 }
 
 .fa-typo3 {
@@ -65,7 +70,9 @@
 .nav-links:hover {
   border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;
+  color: #fff;
 }
+
 
 .fa-bars {
   color: #fff;
@@ -107,10 +114,13 @@
   border: 1px solid #fff;
   border-radius: 40px;
   height: 50px;
-  margin-top: 5px;
+  margin-bottom: 15px;
   margin-left: 30px;
 }
 
+.fa-user-circle{
+  margin-bottom: 15px;
+}
 
 @media screen and (max-width: 960px) {
   .NavbarItems {

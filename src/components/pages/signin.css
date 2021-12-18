@@ -13,9 +13,8 @@ button:focus {
   margin-right: 520px;
   margin-top: 100px;
   margin-bottom: 100px;
-  background-color: rgb(240, 240, 250);
   border: 1px;
-  border-color: beige;
+  border-color: rgb(35, 87, 117);
   border-style: solid;
 }
 

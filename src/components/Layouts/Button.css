@@ -1,6 +1,4 @@
-
-  
-  .btn {
+ .btn {
     padding: 8px 20px;
     outline: none;
     border: none;
@@ -21,6 +19,7 @@
     border: 1px solid #ffffff;
     transition: all 0.3s ease-out;
     border-radius: 40px;
+    margin-bottom: 15px;
   }
   
   .btn--medium {
@@ -33,6 +32,11 @@
     font-size: 20px;
   }
   
+  .btn--mini {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
   .btn--outline:hover {
     transition: all 0.3s ease-out;
     background: rgb(182, 184, 182);
@@ -93,10 +97,10 @@
     background-color: #ffffff;
     font-family: Arial, sans-serif;
     border: 1px solid rgb(182, 184, 182);
-    margin-top: 20px;
-    margin-bottom: 30px;
     color: rgb(182, 184, 182);
     border-radius: 2px;
+    margin-bottom: 30px;
+    margin-top: 30px;
   }
 
   .btn--signup:hover {
