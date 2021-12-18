@@ -4,13 +4,14 @@ import Footer from '../HomePage/Footer';
 import Navbar from '../HomePage/Navbar';
 import { Button } from '../Layouts/Button';
 import './signin.css';
-
+import axios from 'axios'
 const Register = () => {
   const [registerInput, setRegisterInput] = useState({
     name: '',
-    email: '',
+    username: '',
+    email : '',
     password: '',
-    passwordRepeat: '',
+    confirmPassword: '',
     role : '',
     termsAccepted: false
   })
@@ -22,10 +23,10 @@ const Register = () => {
   function validateButton() {
     return validate() && registerInput.termsAccepted ;
   }
-  function registerSubmit(e) {
+  async function registerSubmit(e) {
     e.preventDefault();
     let item = registerInput
-    let result = fetch('http://localhost:8000/api/register', {
+    let result = await fetch('http://localhost:8000/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,8 +34,8 @@ const Register = () => {
       body: JSON.stringify(item)
     })
 
-    let data = result.json()
-    
+    let data = await result.json()
+    console.log(data.message);
     if (data.success){
       localStorage.setItem('user',JSON.stringify(data.user))
       window.location.href = '/signin'
@@ -42,6 +43,7 @@ const Register = () => {
     else {
       alert(data.message)
     }
+
   }
 
   function handleInput(e) {
@@ -75,6 +77,14 @@ const Register = () => {
         <input
           className="textInput"
           type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleInput}
+        />
+
+        <input
+          className="textInput"
+          type="text"
           name="email"
           placeholder="Email"
           onChange={handleInput}
@@ -91,18 +101,18 @@ const Register = () => {
         <input
           className="textInput"
           type="password"
-          name="passwordRepeat"
+          name="confirmPassword"
           placeholder="Password repeat"
           onChange={handleInput}
         />
 
-        {/* <div className = 'signup_role'>
+        <div className = 'signup_role'>
             <p> I want to :  </p>
             <div>
               <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("employee")}>Hire for a project</Button>
               <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("enterprise")}>Work as a freelancer</Button>
         </div>
-        </div> */}
+        </div>
 
         <label className="touCheckboxLabel">
           <input
@@ -116,14 +126,13 @@ const Register = () => {
         <p className={!validate() ? 'errorMessage' : 'invisible'}>
           The first password dosen't match the second password so please check that!
         </p>
-      <Link to='/'>
         <Button buttonStyle='btn--outline' buttonSize='btn--max'
           className={!validateButton() ? 'disabled' : ''}
-          disabled={!validateButton()} type="submit"
+           type="submit"
         >
           Create My Account
         </Button>
-      </Link>
+      
       </form>
     </div>
     <Footer></Footer>
