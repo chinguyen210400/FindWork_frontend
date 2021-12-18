@@ -4,7 +4,6 @@ import Footer from '../HomePage/Footer';
 import Navbar from '../HomePage/Navbar';
 import { Button } from '../Layouts/Button';
 import './signin.css';
-import axios from 'axios'
 const Register = () => {
   const [registerInput, setRegisterInput] = useState({
     name: '',

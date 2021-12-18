@@ -53,7 +53,6 @@
   }
 
   .btn--test {
-    background-color: white;
     margin: 50px;
     color: #000000;
     display: flex;
@@ -63,7 +62,6 @@
 
   .btn--test:hover {
     transition: all 0.3s ease-out;
-    background: rgb(255, 255, 255);
     border-left: 5px solid rgb(35, 87, 117);
     color: #000000;
     transition: 250ms;
