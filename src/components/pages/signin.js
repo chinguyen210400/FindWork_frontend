@@ -4,24 +4,58 @@ import { Link } from "react-router-dom";
 import { Button } from '../Layouts/Button';
 import Navbar from '../HomePage/Navbar';
 import Footer from '../HomePage/Footer';
+import { useState } from 'react';
 
-const initialState = {
-  email: '',
-  password: '',
-};
-function signin () {
+function SignIn () {
+  const [siginInput, setsiginInput] = useState({
+    login : '',
+    password : ''
+  })
+
+  function handleInput(e) {
+    e.persist()
+    setsiginInput({...siginInput, [e.target.name] : e.target.value})
+  }
+
+  async function signinSubmit(e) {
+    e.preventDefault();
+
+    let item = siginInput;
+    console.log(item);
+
+    let result = await fetch('http://localhost:8000/api/validate_user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
+    });
+
+    let data = await result.json();
+    if (data.success) {
+      localStorage.setItem('user', JSON.stringify(data.user));
+      if (data.user.role === 'admin') {
+        window.location.href = '/findtalent';
+      } else {
+        window.location.href = '/findwork';
+      }
+    } else {
+      alert(data.message);
+    }
+  }
 
   return (
     <>
     <Navbar></Navbar>
     <div className="wrapper">
       <h2 className="registerTitle">Sign In</h2>
-      <form className="registerForm">
+      <form className="registerForm" onSubmit={signinSubmit}>
         <input
           className="textInput"
           type="text"
-          name="email"
-          placeholder="Email"
+          name="login"
+          placeholder="Email/Username"
+          onChange={handleInput}
         />
 
         <input
@@ -29,13 +63,13 @@ function signin () {
           type="password"
           name="password"
           placeholder="Password"
+          onChange={handleInput}
+
         />
 
-    <Link to = '/myjobs' >
-        <Button buttonStyle='btn--outline' buttonSize='btn--max'>
+        <Button buttonStyle='btn--outline' buttonSize='btn--max' type="submit">
             Continue
         </Button>
-    </Link>
       </form>
     </div>
     <Footer></Footer>
@@ -44,4 +78,4 @@ function signin () {
   );
 };
 
-export default signin;
+export default SignIn;

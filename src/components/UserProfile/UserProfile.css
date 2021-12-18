@@ -6,6 +6,7 @@
 
 .profile_container {
     height: 200vh;
+    background-color: rgba(245, 244, 243, 0.842) ;
 }
 
 .profile_left {
@@ -22,6 +23,7 @@
 
 .profile_list{
     margin: 100px;
+    margin-right: 0px;
 }
   
 .profile h1 {
@@ -67,7 +69,9 @@
 .experience {
     margin: 30px;
 }
-
+.link {
+  text-decoration: none;
+}
 .objectives {
     margin: 30px;
     border-bottom: 1px solid rgb(160, 165, 175);

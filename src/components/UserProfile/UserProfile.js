@@ -12,26 +12,35 @@ function UserProfile () {
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
-                        <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
-                        <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
-                        <Link to='/security_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
-                        <Link to='/billing_employ'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
+                        {/* <Button className='btn' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button>  */}
+                        <Link to='/changeprofile' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
+                        <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
+                        <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
                     </ul>
                 </div>
             </div>
 <div className='profile_user'>
     <div className="profile">
         <h1>Nguyen Yen Chi </h1>
-        <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>
+        {/* <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> */}
     </div>
 
     <div className = "connect">
-        <h2>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setModalOpen(true);}} ></i></h2>
-        <ul>
-            <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
-            <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
-            <li><p>0328481395</p></li>
-        </ul>
+        <div className = "card">
+            <div className="card-header">
+            <h5>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setModalOpen(true);}} ></i></h5>
+            </div>
+        
+            <div className="card-body">
+                <ul>
+                <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
+                <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
+                <li><p>0328481395</p></li>
+                </ul>
+            </div>
+        
+        </div>
+        
     </div>
 
     <div className="objectives">

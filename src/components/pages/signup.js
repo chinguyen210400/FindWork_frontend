@@ -4,58 +4,82 @@ import Footer from '../HomePage/Footer';
 import Navbar from '../HomePage/Navbar';
 import { Button } from '../Layouts/Button';
 import './signin.css';
-
-const initialState = {
-  name: '',
-  email: '',
-  password: '',
-  passwordRepeat: '',
-  termsAccepted: false
-};
-
-function reducer(state, action) {
-  if (action.name === 'termsAccepted') {
-    return { ...state, termsAccepted: action.checked };
-  } else {
-    return { ...state, [action.name]: action.value };
-  }
-}
-
-function validate(state) {
-  return state.password === state.passwordRepeat ;
-}
-
-function validateButton(state) {
-  return state.password === state.passwordRepeat && state.termsAccepted ;
-}
-
+import axios from 'axios'
 const Register = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [registerInput, setRegisterInput] = useState({
+    name: '',
+    username: '',
+    email : '',
+    password: '',
+    confirmPassword: '',
+    role : '',
+    termsAccepted: false
+  })
 
-  console.log(state);
-
-  function handleClick(e) {
+  function validate() {
+    return registerInput.password === registerInput.passwordRepeat
+  }
+  
+  function validateButton() {
+    return validate() && registerInput.termsAccepted ;
+  }
+  async function registerSubmit(e) {
     e.preventDefault();
+    let item = registerInput
+    let result = await fetch('http://localhost:8000/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
+    })
+
+    let data = await result.json()
+    console.log(data.message);
+    if (data.success){
+      localStorage.setItem('user',JSON.stringify(data.user))
+      window.location.href = '/signin'
+    }
+    else {
+      alert(data.message)
+    }
+
   }
 
-  function onChange(e) {
-    const { name, value, checked } = e.target;
-    const action = { name, value, checked };
-    dispatch(action);
+  function handleInput(e) {
+    e.persist()
+    setRegisterInput({...registerInput, [e.target.name] : e.target.value})
   }
 
+  function handleCheckBox() {
+    setRegisterInput({...registerInput, termsAccepted : !registerInput.termsAccepted})
+  } 
+
+  const handleClick = btnType => e => {
+      e.preventDefault()
+      setRegisterInput({...registerInput, role: btnType})
+
+  }
   return (
     <>
     <Navbar></Navbar>
     <div className="wrapper">
       <h2 className="registerTitle">Sign Up</h2>
-      <form className="registerForm">
+      <form className="registerForm" onSubmit= {registerSubmit} >
         <input
           className="textInput"
           type="text"
           name="name"
           placeholder="Name"
-          onChange={onChange}
+          onChange={handleInput}
+        />
+
+        <input
+          className="textInput"
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleInput}
         />
 
         <input
@@ -63,7 +87,7 @@ const Register = () => {
           type="text"
           name="email"
           placeholder="Email"
-          onChange={onChange}
+          onChange={handleInput}
         />
 
         <input
@@ -71,22 +95,22 @@ const Register = () => {
           type="password"
           name="password"
           placeholder="Password"
-          onChange={onChange}
+          onChange={handleInput}
         />
 
         <input
           className="textInput"
           type="password"
-          name="passwordRepeat"
+          name="confirmPassword"
           placeholder="Password repeat"
-          onChange={onChange}
+          onChange={handleInput}
         />
 
         <div className = 'signup_role'>
             <p> I want to :  </p>
             <div>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' onClick={handleClick}>Hire for a project</Button>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' onClick={handleClick}>Work as a freelancer</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("employee")}>Hire for a project</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("enterprise")}>Work as a freelancer</Button>
         </div>
         </div>
 
@@ -95,21 +119,20 @@ const Register = () => {
             className="touCheckbox"
             type="checkbox"
             name="termsAccepted"
-            onChange={onChange}
+            onClick={handleCheckBox}
           />
           Accept Terms of Use!
         </label>
-        <p className={!validate(state) ? 'errorMessage' : 'invisible'}>
+        <p className={!validate() ? 'errorMessage' : 'invisible'}>
           The first password dosen't match the second password so please check that!
         </p>
-      <Link to='/'>
         <Button buttonStyle='btn--outline' buttonSize='btn--max'
-          className={!validateButton(state) ? 'disabled' : ''}
-          disabled={!validateButton(state) } 
+          className={!validateButton() ? 'disabled' : ''}
+           type="submit"
         >
           Create My Account
         </Button>
-      </Link>
+      
       </form>
     </div>
     <Footer></Footer>
