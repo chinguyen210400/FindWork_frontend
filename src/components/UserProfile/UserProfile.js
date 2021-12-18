@@ -2,10 +2,12 @@ import React,{useState} from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 import Contact_Modal from "./Contact_Modal";
+import Skills_Modal from "./Skills_Modal";
 import './UserProfile.css';
 
 function UserProfile () {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [contactModalOpen, setContactModalOpen] = useState(false);
+    const [skillsModalOpen, setSkillsModalOpen] = useState(false);
     return (
         <div className='profile_container'>
             <div className='profile_left'>
@@ -27,7 +29,7 @@ function UserProfile () {
     <div className = "connect">
         <div className = "card">
             <div className="card-header">
-            <h5>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setModalOpen(true);}} ></i></h5>
+            <h5>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setContactModalOpen(true);}} ></i></h5>
             </div>
         
             <div className="card-body">
@@ -46,7 +48,7 @@ function UserProfile () {
     <div className="skills">
     <div className = "card">
             <div className="card-header">
-        <h5>Skills <i class="fa fa-edit fa-0.5x" ></i></h5>
+        <h5>Skills <i class="fa fa-edit fa-0.5x" onClick={() => {setSkillsModalOpen(true);}} ></i></h5>
             </div>
             <div className="card-body">
         <ul>
@@ -99,7 +101,8 @@ function UserProfile () {
     </div>
 
             </div>
-            {modalOpen && <Contact_Modal setOpenModal={setModalOpen} />}
+            {contactModalOpen && <Contact_Modal setOpenModal={setContactModalOpen} />}
+            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} />}
         </div>
         
     );
