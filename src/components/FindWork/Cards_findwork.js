@@ -3,9 +3,11 @@ import ReactPaginate from "react-paginate";
 import { Button } from "../Layouts/Button";
 import { Link } from "react-router-dom";
 import './Cards_findwork.css';
-import WorkItems from './WorkItems'
+import WorkItems from './WorkItems';
+import Work_Modal from "./Work_Modal";
 
 function Cards_findwork () {
+    const [modalOpen, setModalOpen] = useState(false);
     const [findWorkItem,setFindWorkItem] = useState([
         {text1: "Job 1", text2: "Development",number:2},
         {text1: "Job 1", text2: "Development",number:5},
@@ -26,12 +28,13 @@ function Cards_findwork () {
 
     const findWorkList = findWorkItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
         return (
-            <WorkItems text1={item.text1} text2={item.text2} number={item.number}/>
+            <WorkItems text1={item.text1} text2={item.text2} number={item.number} click1={() => {setModalOpen(true);}}/>
         );
     }
 )
     return (
         <div className = "findwork_container">
+            {modalOpen && <Work_Modal setOpenModal={setModalOpen} />}
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >Find Work</div>
             <div className="title_search"> 

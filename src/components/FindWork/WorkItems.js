@@ -10,11 +10,10 @@ function WorkItems (props) {
         <>
         <li className='jobs_item'>
             <div className='work_item_info'>
-            <div className='work_item_title'>
+            <div className='work_item_title' onClick={props.click1}>
                 <h5  className='work_item_text'>{props.text1}</h5>
                 <p className='work_item_text'>{props.text2}</p>
                 <div className='rating_star'>
-                    <StarRatings rating={props.number} starDimension="25px" starSpacing="2px" />
                 </div>
             </div> 
             <div className='work_item_button'>
