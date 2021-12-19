@@ -17,7 +17,7 @@ const Register = () => {
   })
 
   function validate() {
-    return registerInput.password === registerInput.passwordRepeat
+    return registerInput.password == registerInput.passwordRepeat
   }
   
   function validateButton() {
@@ -109,8 +109,8 @@ const Register = () => {
         <div className = 'signup_role'>
             <p> I want to :  </p>
             <div>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("employee")}>Hire for a project</Button>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("enterprise")}>Work as a freelancer</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("employee")}>Hire for a project</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("enterprise")}>Work as a freelancer</Button>
         </div>
         </div>
 
