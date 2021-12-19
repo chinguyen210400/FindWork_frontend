@@ -2,19 +2,20 @@ import React,{useState} from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 import Contact_Modal from "./Contact_Modal";
+import Skills_Modal from "./Skills_Modal";
 import './UserProfile.css';
 
 function UserProfile () {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [contactModalOpen, setContactModalOpen] = useState(false);
+    const [skillsModalOpen, setSkillsModalOpen] = useState(false);
     return (
         <div className='profile_container'>
-            {modalOpen && <Contact_Modal setOpenModal={setModalOpen} />}
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
                         {/* <Button className='btn' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button>  */}
                         <Link to='/changeprofile' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
-                        <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
+                        <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'>Password & Security</Button></Link>
                         <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
                     </ul>
                 </div>
@@ -22,13 +23,13 @@ function UserProfile () {
 <div className='profile_user'>
     <div className="profile">
         <h1>Nguyen Yen Chi </h1>
-        {/* <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> */}
+        <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> 
     </div>
 
     <div className = "connect">
         <div className = "card">
             <div className="card-header">
-            <h5>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setModalOpen(true);}} ></i></h5>
+            <h5>Contact<i class="fa fa-edit fa-0.5x" onClick={() => {setContactModalOpen(true);}} ></i></h5>
             </div>
         
             <div className="card-body">
@@ -40,14 +41,16 @@ function UserProfile () {
             </div>
         
         </div>
+
         
     </div>
 
-    <div className="objectives">
-      <p>  I want to learn more IT knowledge and have more interesting experiences.</p>    </div>
-
     <div className="skills">
-        <h2>Skills <i class="fa fa-edit fa-0.5x" ></i></h2>
+    <div className = "card">
+            <div className="card-header">
+        <h5>Skills <i class="fa fa-edit fa-0.5x" onClick={() => {setSkillsModalOpen(true);}} ></i></h5>
+            </div>
+            <div className="card-body">
         <ul>
             <li>
                 <h3> Professional </h3>
@@ -67,10 +70,16 @@ function UserProfile () {
                 </ul>
             </li>
         </ul>
+        </div>
+        </div>
     </div>
 
     <div className="education">
-        <h2>Education <i class="fa fa-edit fa-0.5x" ></i></h2>
+    <div className = "card">
+            <div className="card-header">
+        <h5>Education <i class="fa fa-edit fa-0.5x" ></i></h5>
+        </div>
+        <div className="card-body">
         <ul>
             <li className="event">
                 <p>Hanoi University Science and Technology</p>
@@ -78,15 +87,24 @@ function UserProfile () {
             <li><p>JLPT N3</p></li>
            
         </ul>
+        </div>
+    </div>
     </div>
 
     <div className="experience">
-        <h2>Experience <i class="fa fa-edit fa-0.5x" ></i></h2>
-
+    <div className = "card">
+            <div className="card-header">
+        <h5>Experience <i class="fa fa-edit fa-0.5x" ></i></h5>
+        </div>
+        <div className="card-body"></div>
+    </div>
     </div>
 
             </div>
+            {contactModalOpen && <Contact_Modal setOpenModal={setContactModalOpen} />}
+            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} />}
         </div>
+        
     );
 
 }
