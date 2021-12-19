@@ -32,7 +32,7 @@ function Navbar() {
             FinWork
           </Link>
           <div className='nav-search'>
-            <Link to ='/'><i class="fa fa-fw fa-search"></i></Link><input className="textSearch" placeholder="Search"/>
+            <Link to ='/'><i className="fa fa-fw fa-search"></i></Link><input className="textSearch" placeholder="Search"/>
             </div>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -55,13 +55,13 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link to='/myjobs' className='nav-links' onClick={closeMobileMenu}>
-              <i class="fa fa-bell" aria-hidden="true"></i>
+              <i className="fa fa-bell" aria-hidden="true"></i>
               </Link>
             </li>   
             <li className='nav-item'>
               
               <Link to='/changeprofile' className='nav-links' onClick={closeMobileMenu}>
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <i className="fa fa-user-circle" aria-hidden="true"></i>
               </Link> 
             </li>
             

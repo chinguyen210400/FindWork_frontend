@@ -7,20 +7,20 @@ import Footer from '../HomePage/Footer';
 import { useState } from 'react';
 
 function SignIn () {
-  const [siginInput, setsiginInput] = useState({
+  const [signinInput, setsigninInput] = useState({
     login : '',
     password : ''
   })
 
   function handleInput(e) {
     e.persist()
-    setsiginInput({...siginInput, [e.target.name] : e.target.value})
+    setsigninInput({...signinInput, [e.target.name] : e.target.value})
   }
 
   async function signinSubmit(e) {
     e.preventDefault();
 
-    let item = siginInput;
+    let item = signinInput;
     console.log(item);
 
     let result = await fetch('http://localhost:8000/api/validate_user', {

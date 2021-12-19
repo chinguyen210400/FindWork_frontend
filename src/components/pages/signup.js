@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../HomePage/Footer';
@@ -42,7 +43,7 @@ const Register = () => {
     else {
       alert(data.message)
     }
-
+    
   }
 
   function handleInput(e) {

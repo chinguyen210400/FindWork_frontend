@@ -45,14 +45,17 @@ function Navbar() {
     }
   };
 
-
+  const logoDirect = () => {
+    if (localStorage.getItem.length != 0)
+      return <Link to='/findwork' className='navbar-logo' onClick={closeMobileMenu}/>
+    else 
+      return <Link to='/' className='navbar-logo' onClick={closeMobileMenu}/>
+  }
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            FinWork
-          </Link>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>FinWork</Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>

@@ -6,7 +6,6 @@ button:focus {
 .wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   padding: 80px;
   width: 500px;
   margin-left: 520px;
@@ -20,6 +19,7 @@ button:focus {
 
 .registerForm {
   display: flex;
+  background-color: rgba(255, 255, 255, 0.904);
   flex-direction: column;
   align-items: center;
 }
