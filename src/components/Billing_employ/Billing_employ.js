@@ -9,7 +9,6 @@ function Billing_employ () {
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
-                        <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
                         <Link to='/changeprofile'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>My Profile</Button></Link>
                         <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'>Password & Security</Button></Link>
                         <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
