@@ -9,10 +9,9 @@ function Enterprise_Profile() {
             <div className='enterprise_left'>
                 <div className='enterprise_list'>
                     <ul className='list_info'>
-                        <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
-                        <Link to='/enterpriseprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Enterprise Profile</Button></Link>
-                        <Link to='/security_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
-                        <Link to='/billing_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
+                        <Link to='/enterpriseprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-briefcase " aria-hidden="true"></i>Enterprise Profile</Button></Link>
+                        <Link to='/security_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'><i class="fa fa-lock " aria-hidden="true"></i>Password & Security</Button></Link>
+                        <Link to='/billing_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-cc-paypal" aria-hidden="true"></i>Billing & Payments</Button></Link>
                     </ul>
                 </div>
             </div>

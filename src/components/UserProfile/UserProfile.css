@@ -160,3 +160,24 @@
 .fa-edit:hover {
 	color: rgba(245, 244, 243, 0.842) ;
 }
+
+.fa-lock {
+	margin: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.fa-cc-paypal {
+	margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.fa-user {
+	margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.post_button {
+	
+}
