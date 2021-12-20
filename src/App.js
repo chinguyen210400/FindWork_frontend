@@ -14,6 +14,8 @@ import changeprofile from './components/pages/changeprofile'
 import billing_employ from './components/pages/billing_employ';
 import security_employ from './components/pages/security_employ';
 import enterpriseprofile from './components/pages/enterpriseprofile';
+import security_enterprise from './components/pages/security_enterprise';
+import billing_enterprise from './components/pages/billing_enterprise';
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
           <Route path='/talentdiscover' exact component={talentdiscover} />
           <Route path='/changeprofile' exact component={changeprofile} />
           <Route path='/billing_employ' exact component={billing_employ} />
+          <Route path='/billing_enterprise' exact component={billing_enterprise} />
           <Route path='/security_employ' exact component={security_employ} />
+          <Route path='/security_enterprise' exact component={security_enterprise} />
           <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
         </Switch>
     </Router>
