@@ -3,9 +3,25 @@ import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 import Contact_Modal from "./Contact_Modal";
 import Skills_Modal from "./Skills_Modal";
+import SkillsItems_profile from "./SkillsItems_profile";
 import './UserProfile.css';
 
 function UserProfile () {
+	const [showSkillsProfile,setShowSkillsProfile] = useState(true);
+        const [skillItemProfile,setSkillItemProfile] = useState([
+            {text: "Digital Marketing"},
+            {text: "Ruby on Rails Developer"},
+            {text: "Mobile App Developer"},
+            {text: "Social Media Manager"},
+            
+        ]);
+
+        const  skillsList =skillItemProfile.map((item,index) => {
+            return (
+                <SkillsItems_profile key={index} text={item.text} />
+            );
+        }
+)
     const [contactModalOpen, setContactModalOpen] = useState(false);
     const [skillsModalOpen, setSkillsModalOpen] = useState(false);
     return (
@@ -56,19 +72,7 @@ function UserProfile () {
 				<div class="resume_title">Skills <i class="fa fa-edit fa-0.5x" onClick={() => {setSkillsModalOpen(true);}} ></i></div>
 				<div class="resume_info">
 					<div class="skills_list">
-						<div class="skills_left">HTML</div>
-						
-					</div>
-					<div class="skills_list">
-						<div class="skills_left">CSS</div>
-					</div>
-					<div class="skills_list">
-						<div class="skills_left">Javascript</div>
-						
-					</div>
-					<div class="skills_list">
-						<div class="skills_left">Photoshop</div>
-						
+						<div class="skills_left">{skillsList}</div>	
 					</div>
 				</div>
 			</div>

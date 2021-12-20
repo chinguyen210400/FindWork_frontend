@@ -36,7 +36,7 @@
 
 .resume_wrapper .resume_left{
 	width: 35%;
-	background: #26252d;
+	background: rgb(35, 87, 117);
 }
 
 .resume_wrapper .resume_left .resume_image{
@@ -54,11 +54,11 @@
 	font-weight: 700;
 	font-size: 16px;
 	margin-bottom: 10px;
-	letter-spacing: 4px;
+	letter-spacing: 1px;
 }
 
 .resume_wrapper .resume_left .resume_info{
-	color: #84838b;
+	color: #d0ced8;
 }
 
 .resume_wrapper .resume_left .resume_bottom{
@@ -111,6 +111,7 @@
 	width: 125px;
     height: 20px;
     background: #fff;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -154,4 +155,8 @@
 	font-size: 38px;
 	color: rgb(35, 87, 117);
 	margin-bottom: 10px;
+}
+
+.fa-edit:hover {
+	color: rgba(245, 244, 243, 0.842) ;
 }
