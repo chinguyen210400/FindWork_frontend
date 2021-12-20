@@ -5,10 +5,10 @@ import { Button } from '../Layouts/Button';
 import Navbar from '../HomePage/Navbar';
 import Footer from '../HomePage/Footer';
 import { useState } from 'react';
-
+import axios from 'axios';
 function SignIn () {
   const [signinInput, setsigninInput] = useState({
-    login : '',
+    username : '',
     password : ''
   })
 
@@ -19,29 +19,17 @@ function SignIn () {
 
   async function signinSubmit(e) {
     e.preventDefault();
-
-    let item = signinInput;
-    console.log(item);
-
-    let result = await fetch('http://localhost:8000/api/validate_user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(item)
-    });
-
-    let data = await result.json();
-    if (data.success) {
-      localStorage.setItem('user', JSON.stringify(data.user));
-      if (data.user.role === 'admin') {
-        window.location.href = '/findtalent';
-      } else {
-        window.location.href = '/findwork';
-      }
-    } else {
-      alert(data.message);
+    const data = {
+      username : signinInput.username,
+      password : signinInput.password
     }
+    axios.get('/sanctum/csrf-cookie').then(response => {
+      // Login..
+      axios.post('/api/login', data).then(res => {
+          localStorage.setItem('auth_token',res.data.token)
+          window.location.href = '/findwork'
+      })
+    })      
   }
 
   return (
@@ -53,8 +41,8 @@ function SignIn () {
         <input
           className="textInput"
           type="text"
-          name="login"
-          placeholder="Email/Username"
+          name="username"
+          placeholder="Username"
           onChange={handleInput}
         />
 

@@ -1,6 +1,6 @@
 import React  from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 import homepage from './components/pages/homepage';
 import signin from './components/pages/signin';
@@ -14,16 +14,26 @@ import changeprofile from './components/pages/changeprofile'
 import billing_employ from './components/pages/billing_employ';
 import security_employ from './components/pages/security_employ';
 import enterpriseprofile from './components/pages/enterpriseprofile';
-
+import axios from 'axios';
+import SignIn from './components/pages/signin';
+axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.headers.post["Accept"] = "application/json";
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.withCredentials = true;
 function App() {
   return (
     
     <Router>
         <Switch>
-          <Route path='/' exact component={homepage} />
+
+          <Route path='/' exact component={homepage}>
+            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
+          </Route>
           <Route path='/signin' exact component={signin} />
           <Route path='/signin_enterprise' exact component={signin_enterprise} />
-          <Route path='/signup' exact component={signup} />
+          <Route path='/signup' >
+            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
+          </Route>
           <Route path='/myjobs' exact component={myjobs} />
           <Route path='/findwork' exact component={findwork} />
           <Route path='/findtalent' exact component={findtalent} />

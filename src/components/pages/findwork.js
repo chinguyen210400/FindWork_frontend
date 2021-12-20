@@ -1,5 +1,5 @@
 import '../../App.css';
-import React, { useState } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import Navbar_myjobs  from '../MyJobs/Navbar_myjobs';
 import Footer from '../HomePage/Footer';
 import Cards_findwork from '../FindWork/Cards_findwork';
@@ -11,12 +11,14 @@ import { Button } from "../Layouts/Button";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import '../FindWork/Cards_findwork.css';
+import Work_Modal from '../FindWork/Work_Modal';
 
+const WorkContext = createContext();
 
 function FindWork() {
     const [findWorkItem,setFindWorkItem] = useState([])
     const [loading, setloading] = useState(true)
-
+    const [modalOpen, setModalOpen] = useState(false)
     const [pageNumber, setPageNumber] = useState(0);
     const itemPerPage = 3;
     const pagesVisited = pageNumber * itemPerPage;
@@ -24,13 +26,11 @@ function FindWork() {
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
-
+    const token = localStorage.getItem("auth_token")
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/recent_work`).then(res => {
-            if (res.data.status === 200){
-                setFindWorkItem(res.data.job)
-                console.log(res.data.job)
-            }
+        axios.get(`http://localhost:8000/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            setFindWorkItem(res.data.jobs)
+            // console.log(res.data.jobs)
             setloading(false)
         })
 
@@ -43,14 +43,22 @@ function FindWork() {
     } else {
             findWorkList = findWorkItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <WorkItems key = {item.id} work = {item} />
+                <WorkContext.Provider value = {item}>
+                    <WorkItems key = {item.id} work = {item} click1={() => {setModalOpen(true);}} />
+
+                </WorkContext.Provider>
             );
         })
     }
+
+
     return(
         <>
             <Navbar_myjobs />
             <div className = "findwork_container">
+                {
+                    modalOpen && <Work_Modal setOpenModal={setModalOpen} />
+                }
             <div className = "findwork_title">
                 <div className ="findwork_title_icon" >Find Work</div>
                 <div className="title_search"> 

@@ -7,9 +7,7 @@ import { Button } from '../Layouts/Button';
 import './signin.css';
 const Register = () => {
   const [registerInput, setRegisterInput] = useState({
-    name: '',
     username: '',
-    email : '',
     password: '',
     confirmPassword: '',
     role : '',
@@ -17,32 +15,58 @@ const Register = () => {
   })
 
   function validate() {
-    return registerInput.password == registerInput.passwordRepeat
+    return registerInput.password === registerInput.confirmPassword
   }
   
   function validateButton() {
     return validate() && registerInput.termsAccepted ;
   }
-  async function registerSubmit(e) {
+  function registerSubmit(e) {
     e.preventDefault();
-    let item = registerInput
-    let result = await fetch('http://localhost:8000/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(item)
-    })
+    const data = {
+      username: registerInput.username,
+      password: registerInput.password,
+      role: registerInput.role
+    }
+    axios.get('/sanctum/csrf-cookie').then(response => {
+      axios.post(`api/register`,data).then(res => {      
+        if (res.status === 201){
+          localStorage.setItem('auth_token', res.data.token)
+          console.log(res);
+          if (registerInput.role === 'employee')
+            window.location.href = '/findwork'
+            if (registerInput.role === 'enterprise')
+            window.location.href = '/findtalent'
 
-    let data = await result.json()
-    console.log(data.message);
-    if (data.success){
-      localStorage.setItem('user',JSON.stringify(data.user))
-      window.location.href = '/signin'
-    }
-    else {
-      alert(data.message)
-    }
+        } 
+    })
+    .catch(error => {
+        let errorObj = error.response.data.errors
+        let errorMessage = errorObj[Object.keys(errorObj)[0]]
+        alert(errorMessage[0])
+        // alert(error.data);
+    })
+  })
+   
+    
+    // let item = registerInput
+    // let result = await fetch('http://localhost:8000/api/register', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(item)
+    // })
+
+    // let data = await result.json()
+    // console.log(data.message);
+    // if (data.success){
+    //   localStorage.setItem('user',JSON.stringify(data.user))
+    //   window.location.href = '/signin'
+    // }
+    // else {
+    //   alert(data.message)
+    // }
     
   }
 
@@ -66,27 +90,12 @@ const Register = () => {
     <div className="wrapper">
       <h2 className="registerTitle">Sign Up</h2>
       <form className="registerForm" onSubmit= {registerSubmit} >
-        <input
-          className="textInput"
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleInput}
-        />
 
         <input
           className="textInput"
           type="text"
           name="username"
           placeholder="Username"
-          onChange={handleInput}
-        />
-
-        <input
-          className="textInput"
-          type="text"
-          name="email"
-          placeholder="Email"
           onChange={handleInput}
         />
 
@@ -109,8 +118,8 @@ const Register = () => {
         <div className = 'signup_role'>
             <p> I want to :  </p>
             <div>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("employee")}>Hire for a project</Button>
-              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("enterprise")}>Work as a freelancer</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "enterprise" onClick={handleClick("enterprise")}>Hire for a project</Button>
+              <Button buttonStyle='btn--signup' buttonSize='btn--mini' name = "employee" onClick={handleClick("employee")}>Work as a freelancer</Button>
         </div>
         </div>
 
