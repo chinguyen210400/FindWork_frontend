@@ -1,0 +1,20 @@
+.fa-address-card {
+    margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.fa-tags{
+    margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.talent_list_title {
+	margin-left: 200px;
+	margin-top: 50px;
+}
+
+.list_title p {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

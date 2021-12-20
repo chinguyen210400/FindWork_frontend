@@ -1,0 +1,19 @@
+.skillsitems_container {
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+    background-color: rgba(219, 219, 219, 0.842);
+    border: solid 1px rgb(35, 87, 117);
+    font-size: 15px;
+    border-radius: 40px;
+}
+
+.skillsitems_title {
+    float: left;
+    padding: 10px;  
+}
+
+.skillsitems_button {
+    float: right ;
+    padding: 10px;
+}

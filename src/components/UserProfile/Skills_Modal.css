@@ -1,0 +1,95 @@
+.skill_modalBackground {
+    width: 1000px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+  }
+  
+  .skill_modalContainer {
+    width: 500px;
+    height: 550px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  
+  .skill_titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .skillmodal_header {
+    text-align: center;
+    background-color:  rgba(190, 190, 190, 0.842) ;
+  }
+  
+  .skill_titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .skill_modalContainer .body .skill_list {
+    border: 1px solid rgba(190, 190, 190, 0.842);
+    padding: 20px;
+  }
+
+  .skill_modalContainer .body p {
+    font-size: 15px;
+    text-align :start;
+  }
+  
+  .skill_modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skill_modalContainer .body .add_skill button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    background-color: white;
+    color: rgb(35, 87, 117);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  
+  .skill_modalContainer .body .add_skill button:hover {
+    background-color: rgb(208, 224, 243);
+  }
+  
+  .skill_modalContainer .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(35, 87, 117);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .skill_modalContainer .footer button:hover {
+    background-color: #fff;
+    color: rgb(35, 87, 117);
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  .add_skill {
+    margin-top: 30px;
+  }

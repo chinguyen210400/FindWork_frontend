@@ -1,80 +1,91 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
+import "./EnterpriseProfile.css";
 
 function Enterprise_Profile() {
     return (
-        <div className='profile_container'>
-            <div className='profile_left'>
-                <div className='profile_list'>
+        <div className='enterprise_container'>
+            <div className='enterprise_left'>
+                <div className='enterprise_list'>
                     <ul className='list_info'>
-                        <Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Overview</Button> 
-                        <Link to='/enterpriseprofile'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Enterprise Profile</Button></Link>
-                        <Link to='/security_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Password & Security</Button></Link>
-                        <Link to='/billing_enterprise'><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'>Billing & Payments</Button></Link>
+                        <Link to='/enterpriseprofile' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-briefcase " aria-hidden="true"></i>Enterprise Profile</Button></Link>
+                        <Link to='/security_enterprise' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'><i class="fa fa-lock " aria-hidden="true"></i>Password & Security</Button></Link>
+                        <Link to='/billing_enterprise' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-cc-paypal" aria-hidden="true"></i>Billing & Payments</Button></Link>
+                        <Link to='/'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</Button></Link>
                     </ul>
                 </div>
             </div>
-<div className='profile_user'>
-    
-    <div className="profile">
-        <h1>Nguyen Yen Chi </h1>
+            <div className='enterprise_user'>
+    <div className="enterprise">
+        <h1>Nguyen Chi </h1>
+        <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> 
     </div>
 
     <div className = "connect">
-        <h2>Contact<i class="fa fa-edit fa-0.5x" ></i></h2>
-        <ul>
-            <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
-            <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
-            <li><p>0328481395</p></li>
-        </ul>
+        <div className = "card">
+            <div className="card-header">
+            <h5>Company Acount</h5>
+            </div>
+        
+            <div className="card-body">
+                <ul>
+                <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
+                <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
+                <li><p>0328481395</p></li>
+                </ul>
+            </div>   
+        </div>      
     </div>
 
-    <div className="objectives">
-      <p>  I want to learn more IT knowledge and have more interesting experiences.</p>    </div>
+    <div className = "connect">
+        <div className = "card">
+            <div className="card-header">
+            <h5>Company Contact</h5>
+            </div>
+        
+            <div className="card-body">
+                <ul>
+                <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
+                <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
+                <li><p>0328481395</p></li>
+                </ul>
+            </div>   
+        </div>      
+    </div>
 
     <div className="skills">
-        <h2>Skills <i class="fa fa-edit fa-0.5x" ></i></h2>
-        <ul>
-            <li>
-                <h3> Professional </h3>
-                <ul>
-                    <li><p>Program Language: C/C++, Java, Python</p></li>
-                    <li><p>Language: Japanese, English, Chinese</p> </li>
-                    <li><p>Object Oriented Programming</p></li>
-                    <li><p>Web Programming</p></li>
-                    <li><p>System Programming</p></li>
-                </ul>
-            </li>
-            <li>
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li><p>Teamwork</p></li>
-                    <li><p>Connecting People</p></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div className="education">
-        <h2>Education <i class="fa fa-edit fa-0.5x" ></i></h2>
-        <ul>
-            <li className="event">
-                <p>Hanoi University Science and Technology</p>
-            </li>
-            <li><p>JLPT N3</p></li>
-           
-        </ul>
-    </div>
-
-    <div className="experience">
-        <h2>Experience <i class="fa fa-edit fa-0.5x" ></i></h2>
-
-    </div>
-
+    <div className = "card">
+            <div className="card-header">
+        <h5>Company Details </h5>
             </div>
+            <div className="card-body">
+        <ul>
+            <li>
+                <h3>  </h3>
+                <ul>
+                    <li><p></p></li>
+                    <li><p></p> </li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ul>
+            </li>
+            <li>
+                <h3></h3>
+                <ul>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ul>
+            </li>
+        </ul>
         </div>
+        </div>
+    </div>
+</div>
+</div>
+        
     );
-}
+    }
 
 export default Enterprise_Profile;

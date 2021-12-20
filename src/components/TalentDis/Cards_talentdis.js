@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import TalentItems from "./TalentItems";
 import ReactPaginate from "react-paginate";
-import './Cards_talentdis';
+import './Cards_talentdis.css';
 
 function Cards_talentdis () {
     const [talentItem,setTalentItem] = useState([
@@ -34,10 +34,11 @@ function Cards_talentdis () {
     return (
         <div className = "findwork_container">
         <div className = "findwork_title">
-            <div className ="findwork_title_icon" >Discover</div>
             <div className="title_search">     
-                <table className="list_title">
-                        <th><h1>Talent Skill</h1></th>
+                <table className="talent_list_title">
+                        <th>
+                            <h1>Discover</h1>
+                            <p>Tailored talent matches to help you hire the right person faster</p></th>
                         <div className='post_button'><Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>See more Like This</Button></div>
                 </table>
             </div>
@@ -45,8 +46,8 @@ function Cards_talentdis () {
         <div  className = 'findwork_body'>
         <div className='findwork_item'>
         <div className = 'list_left'> 
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'>Saved Talent</Button>
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'>Saved Project</Button>
+            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-address-card" aria-hidden="true"></i>Saved Talent</Button>
+            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-tags" aria-hidden="true"></i>Saved Project</Button>
         </div>  
                 {talentsList}
                 <ReactPaginate 

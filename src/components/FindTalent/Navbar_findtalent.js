@@ -54,8 +54,8 @@ function Navbar() {
               </Link>
             </li> 
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              <i class="fa fa-briefcase " aria-hidden="true"></i>
+              <Link to='/enterpriseprofile' className='nav-links' onClick={closeMobileMenu}>
+              <i class="fa fa-suitcase" aria-hidden="true"></i>
               </Link>
             </li>   
         </ul>

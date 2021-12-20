@@ -1,17 +1,15 @@
 import React from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
-import './Billing_employ.css';
-import '../UserProfile/UserProfile.css'
-function Billing_employ () {
+function Billing_enterprise () {
     return (
         <div className='profile_container'>
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
-                        <Link to='/changeprofile'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-user" aria-hidden="true"></i>My Profile</Button></Link>
-                        <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'><i class="fa fa-lock" aria-hidden="true"></i>Password & Security</Button></Link>
-                        <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-cc-paypal" aria-hidden="true"></i>Billing & Payments</Button></Link>
+                        <Link to='/enterpriseprofile'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-user" aria-hidden="true"></i>Enterprise Profile</Button></Link>
+                        <Link to='/security_enterprise'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'><i class="fa fa-lock" aria-hidden="true"></i>Password & Security</Button></Link>
+                        <Link to='/billing_enterprise'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-cc-paypal" aria-hidden="true"></i>Billing & Payments</Button></Link>
                         <Link to='/'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</Button></Link>
                     </ul>
                 </div>
@@ -48,4 +46,4 @@ function Billing_employ () {
 
 }
 
-export default Billing_employ;
+export default Billing_enterprise;

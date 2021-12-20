@@ -5,8 +5,9 @@
 }
 
 .profile_container {
-    height: 200vh;
+    height: 230vh;
     background-color: rgba(245, 244, 243, 0.842) ;
+    
 }
 
 .profile_left {
@@ -26,119 +27,157 @@
     margin-right: 0px;
 }
   
-.profile h1 {
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
-  
-  .connect  h2 {
-    font-size: 30px;
-    padding: 0.75rem 0;
-  }
-
-  .skills  h2 {
-    font-size: 30px;
-    padding: 0.75rem 0;
-  }
-
-  .education  h2 {
-    font-size: 30px;
-    padding: 0.75rem 0;
-  }
-
-  .experience  h2 {
-    font-size: 30px;
-    padding: 0.75rem 0;
-  }
-
-  .connect {
-      margin: 30px;
-      
-  }
-
-  .skills {
-      margin: 30px;
-      border-bottom: 1px solid rgb(160, 165, 175);
-  }
-
-  .education {
-    margin: 30px;
-    border-bottom: 1px solid rgb(160, 165, 175);
+.resume_wrapper{
+	display: flex;
+	width: 800px;
+	padding: 10px;
+	background: #fff;
 }
 
-.experience {
-    margin: 30px;
-}
-.link {
-  text-decoration: none;
-}
-.objectives {
-    margin: 30px;
-    border-bottom: 1px solid rgb(160, 165, 175);
+.resume_wrapper .resume_left{
+	width: 35%;
+	background: rgb(35, 87, 117);
 }
 
-.profile {
-  text-align: center;
-  
+.resume_wrapper .resume_left .resume_image{
+	width: 100%;
 }
-  
-  .skills h3 {
-    font-size: 20px;
-    text-transform: uppercase;
-    color: salmon;
-  }
-  
 
-  
-  ul {
-    list-style: none;
-  }
-  
-  
-  
-  .profile img {
-    width: 10rem;
-    height: 10rem;
-  }
-  
-  
-  .contact ul {
-    margin-top: -2rem;
-  }
-  
-  .contact li {
-    text-align: right;
-    text-transform: uppercase;
-    padding: 1rem;
-    color: #888;
-    border-bottom: 1px solid #888;
-    font-size: 0.8rem;
-  }
-  
-  .skills > ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-  }
-  
-  .timeline .event + .event {
-    padding-top: 1rem;
-  }
-  
-  .timeline .event {
-    display: grid;
-    grid-template-columns: 5ch 1fr;
-  }
-  
-  .content {
-    border-left: 1px solid #888;
-    padding-left: 1rem;
-    margin-left: 1rem;
-  }
-  
-  .content > h3 + p {
-    margin-bottom: 1rem;
-    color: #333;
-  }
+.resume_wrapper .resume_left .resume_image img{
+	width: 100%;
+	display: block;
+}
+
+.resume_wrapper .resume_title{
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 16px;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
+.resume_wrapper .resume_left .resume_info{
+	color: #d0ced8;
+}
+
+.resume_wrapper .resume_left .resume_bottom{
+	padding: 20px 30px;
+}
+
+.resume_wrapper .resume_item{
+	padding: 20px 0;
+	border-bottom: 1px solid rgb(35, 87, 117);
+}
+
+.resume_wrapper  .resume_item:last-child{
+	border-bottom: 0;
+}
+
+.resume_wrapper .resume_left .resume_namerole{
+	display: none;
+}
+
+.resume_wrapper .resume_namerole .name{
+	font-size: 20px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-bottom: 5px;
+	letter-spacing: 4px;
+}
+
+.resume_wrapper .resume_left .resume_namerole .role{
+	color: #84838b;
+}
+
+.resume_wrapper .resume_left .resume_contact .resume_info:last-child{
+	 margin-top: 10px;
+}
+
+.resume_wrapper .resume_left .resume_contact .resume_subtitle{
+	color: #fff;
+	margin-bottom: 2px;
+}
+
+.resume_wrapper .resume_left .resume_skills .skills_list{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
+.resume_wrapper .resume_left .resume_skills .skills_list .skills_bar p{
+	position: relative;
+	width: 125px;
+    height: 20px;
+    background: #fff;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 
+.resume_wrapper .resume_right{
+	width: 65%;
+	padding: 20px 40px;
+	color: #26252d;
+}
+
+.resume_wrapper .resume_right .resume_namerole .name{
+	color: #26252d;
+	font-size: 32px;
+}
+
+.resume_wrapper .resume_right .resume_namerole .role{
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.resume_wrapper .resume_right .resume_item .resume_title{
+	color: #26252d;
+}
+
+.resume_wrapper .resume_right .resume_data{
+	display: flex;
+}
+
+.resume_wrapper .resume_right .resume_data .content{
+	padding-left: 35px;
+	margin-bottom: 20px;
+	width: calc(100% - 115px);
+}
+
+.resume_wrapper .resume_right .resmue_interests .resume_info{
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.resume_wrapper .resume_right .resmue_interests .interests .int_icon{
+	font-size: 38px;
+	color: rgb(35, 87, 117);
+	margin-bottom: 10px;
+}
+
+.fa-edit:hover {
+	color: rgba(245, 244, 243, 0.842) ;
+}
+
+.fa-lock {
+	margin: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.fa-cc-paypal {
+	margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.fa-user {
+	margin-top: 5px;
+	margin-right: 5px;
+	color: rgb(35, 87, 117);
+}
+
+.post_button {
+	
+}
