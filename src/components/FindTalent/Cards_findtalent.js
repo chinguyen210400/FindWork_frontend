@@ -55,7 +55,7 @@ function Cards_findtalent () {
         <div className='findwork_item'>
         <div className = 'list_left'> 
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-clock-o" aria-hidden="true"></i>Most recent</Button>
-            <Link to ='/enterpriseprofile'><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-briefcase " aria-hidden="true"></i>View profile</Button></Link>
+            <Link to ='/enterpriseprofile' className = "link"><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-briefcase " aria-hidden="true"></i>View profile</Button></Link>
         </div>  
                 {worksList}
                 <ReactPaginate 

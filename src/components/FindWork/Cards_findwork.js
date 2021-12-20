@@ -50,7 +50,7 @@ function Cards_findwork () {
         <div className = 'list_left'> 
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-snowflake-o" aria-hidden="true"></i>Best matches</Button>
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-clock-o" aria-hidden="true"></i>Most recent</Button>
-            <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-user" aria-hidden="true"></i>View profile</Button></Link>
+            <Link to='/changeprofile' className = "link"><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-user" aria-hidden="true"></i>View profile</Button></Link>
         </div>  
                 {findWorkList}
                 <ReactPaginate 
