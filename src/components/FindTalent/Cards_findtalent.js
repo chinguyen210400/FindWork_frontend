@@ -4,8 +4,12 @@ import { Button } from "../Layouts/Button";
 import'./Cards_findtalent.css';
 import WorkItems from "./WorkItems";
 import ReactPaginate from "react-paginate";
+import Postjob_Modal from "./Postjob_Modal";
 
 function Cards_findtalent () {
+
+    const [postJobModalOpen, setPostJobModalOpen] = useState(false);
+
     const [workItem,setWorkItem] = useState([
         {text1: "Job 1", text2: "Development"},
         {text1: "Job 1", text2: "Development"},
@@ -40,6 +44,7 @@ function Cards_findtalent () {
    
     return (
         <div className = "findwork_container">
+              {postJobModalOpen && <Postjob_Modal setOpenModal={setPostJobModalOpen} />}
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >Job Posting</div>
             <div className="title_search"> 
@@ -47,7 +52,7 @@ function Cards_findtalent () {
                 <div className="search_title">Advanced Search</div>
                 <table className="list_title">
                         <th><h1>Uploaded Jobs</h1></th>
-                        <div className='post_button'><Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'><i class="fa fa-plus" aria-hidden="true"></i>Post a New Job</Button></div>
+                        <div className='post_button'><Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large' onClick={() => {setPostJobModalOpen(true);}}><i class="fa fa-plus" aria-hidden="true"></i>Post a New Job</Button></div>
                 </table>
             </div>
         </div>

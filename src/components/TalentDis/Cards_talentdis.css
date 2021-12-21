@@ -11,10 +11,20 @@
 }
 
 .talent_list_title {
-	margin-left: 200px;
-	margin-top: 50px;
+	margin-left: 300px;
+	margin-top: 20px;
+}
+
+.talent_list_title p {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .list_title p {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.talent_list_title_right {
+	float: right;
+	margin-top: 30px;
+	margin-right: -150px;
 }

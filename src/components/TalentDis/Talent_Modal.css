@@ -34,7 +34,8 @@
   .box-cv-wrapper {
   display: flex;
   min-height: 100%;
-  overflow-y: auto; }
+  overflow-y: auto; 
+}
 
 .box-sidebar {
   width: 400px;

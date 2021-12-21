@@ -38,12 +38,17 @@ function Cards_talentdis () {
              {talentModalOpen && <Talent_Modal setOpenModal={setTalentModalOpen} />}
         <div className = "findwork_title">
             <div className="title_search">     
-                <table className="talent_list_title">
-                        <th>
+                <div className="talent_list_title">
+                    <div className="talent_list_title_left">
                             <h1>Discover</h1>
-                            <p>Tailored talent matches to help you hire the right person faster</p></th>
-                        <div className='post_button'><Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>See more Like This</Button></div>
-                </table>
+                            <p>Tailored talent matches to help you hire the right person faster</p>
+                    </div>
+                    <div className="talent_list_title_right">
+                             <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>See more Like This</Button>
+                    </div>
+                           
+                       
+                </div>
             </div>
         </div>
         <div  className = 'findwork_body'>
