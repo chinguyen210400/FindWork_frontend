@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import './App.css';
 import homepage from './components/pages/homepage';
 import signin from './components/pages/signin';
-import signup from './components/pages/signup';
+import Register from './components/pages/signup';
 import signin_enterprise from './components/pages/signin_enterprise';
 import myjobs from './components/pages/myjobs';
 import findtalent from './components/pages/findtalent';
@@ -34,7 +34,7 @@ function App() {
           <Route path='/signin' exact component={signin} />
           <Route path='/signin_enterprise' exact component={signin_enterprise} />
           <Route path='/signup' >
-            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
+            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <Register/>}
           </Route>
           <Route path='/myjobs' exact component={myjobs} />
           <Route path='/findwork' exact component={findwork} />
