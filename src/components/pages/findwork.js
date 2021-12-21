@@ -13,16 +13,21 @@ import ReactPaginate from "react-paginate";
 import '../FindWork/Cards_findwork.css';
 import Work_Modal from '../FindWork/Work_Modal';
 
-const WorkContext = createContext();
+// const WorkContext = createContext({
+//     workItemModal : '' ,
+//     setworkItemModal : () => {}
+// });
 
 function FindWork() {
     const [findWorkItem,setFindWorkItem] = useState([])
     const [loading, setloading] = useState(true)
     const [modalOpen, setModalOpen] = useState(false)
     const [pageNumber, setPageNumber] = useState(0);
+    const [workItemModal, setworkItemModal] = useState({})
+    // const value = {workItemModal, setworkItemModal}
     const itemPerPage = 3;
     const pagesVisited = pageNumber * itemPerPage;
-
+    
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
@@ -33,6 +38,7 @@ function FindWork() {
             // console.log(res.data.jobs)
             setloading(false)
         })
+        
 
     },[])
 
@@ -43,21 +49,19 @@ function FindWork() {
     } else {
             findWorkList = findWorkItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <WorkContext.Provider value = {item}>
-                    <WorkItems key = {item.id} work = {item} click1={() => {setModalOpen(true);}} />
-
-                </WorkContext.Provider>
+                // <WorkContext.Provider value = {value}>
+                    <WorkItems key = {item.id} work = {item} click1= {() => {setModalOpen(true); setworkItemModal(item)}} />
+                // </WorkContext.Provider>
             );
         })
     }
-
-
+     console.log(workItemModal);
     return(
         <>
             <Navbar_myjobs />
             <div className = "findwork_container">
                 {
-                    modalOpen && <Work_Modal setOpenModal={setModalOpen} />
+                    modalOpen && <Work_Modal setOpenModal={setModalOpen} workItem = {workItemModal} />
                 }
             <div className = "findwork_title">
                 <div className ="findwork_title_icon" >Find Work</div>

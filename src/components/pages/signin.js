@@ -27,6 +27,8 @@ function SignIn () {
       // Login..
       axios.post('/api/login', data).then(res => {
           localStorage.setItem('auth_token',res.data.token)
+          localStorage.setItem('user_id',res.data.user_id)
+          localStorage.setItem('role',res.data.role)
           window.location.href = '/findwork'
       })
     })      

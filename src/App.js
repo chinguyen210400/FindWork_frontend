@@ -18,6 +18,7 @@ import axios from 'axios';
 import SignIn from './components/pages/signin';
 import Billing_enterprise from './components/Billing_enterprise/Billing_enterprise';
 import Security_employ from './components/Security_employ/Security_Employ';
+import Register from './components/pages/signup';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -27,14 +28,13 @@ function App() {
     
     <Router>
         <Switch>
-
           <Route path='/' exact component={homepage}>
             {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
           </Route>
           <Route path='/signin' exact component={signin} />
           <Route path='/signin_enterprise' exact component={signin_enterprise} />
           <Route path='/signup' >
-            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
+            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> :   <Route path='/' exact component={homepage}/>}
           </Route>
           <Route path='/myjobs' exact component={myjobs} />
           <Route path='/findwork' exact component={findwork} />
