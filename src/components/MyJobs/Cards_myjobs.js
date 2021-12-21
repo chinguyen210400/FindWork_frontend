@@ -1,48 +1,64 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../../App.css';
 import'./Cards_myjobs.css';
 import { Button } from "../Layouts/Button";
 import JobItems from "./JobItems";
 import Job_Modal from "./Job_Modal";
 import ReactPaginate from "react-paginate";
+import axios from "axios";
 
 function Cards_myjobs () {
     const [modalOpen, setModalOpen] = useState(false);
-    const [jobItem,setJobItem] = useState([
-        {text1: "Job 1", text2: "Development", text3: "Declined"},
-        {text1: "Job 1", text2: "Development", text3: "Declined"},
-        {text1: "Job 1", text2: "Development", text3: "Declined"},
-        {text1: "Job 1", text2: "Development", text3: "Declined"},
-    ])
+    const [jobItem,setJobItem] = useState([])
+    const [jobItemModal, setjobItemModal] = useState({})
+    const [loading, setloading] = useState(true)
+    const user_id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("auth_token")
 
     const [pageNumber, setPageNumber] = useState(0);
-
     const itemPerPage = 3;
     const pagesVisited = pageNumber * itemPerPage;
-
-    const pageCount = Math.ceil(jobItem.length / itemPerPage);
-
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
 
+
+    useEffect(() => {
+        // console.log(user_id);
+       axios.get(`/api/employee/${user_id}/jobs`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            // setJobItem(res.data.employeeJobs)
+            const employeeJob = res.data.employeeJobs
+            console.log(employeeJob);
+            setloading(false)
+            // console.log(res.data.employeeJobs);
+       })
+    }, [])
+
+   
+
+    const pageCount = Math.ceil(jobItem.length / itemPerPage);
     const deleteJobItem = (jobIndex) => {
         console.log(jobIndex);
         const newjobItem = [...jobItem];
         newjobItem.splice(jobIndex,1);
         setJobItem(newjobItem);
     }
-
-    const  jobsList = jobItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
-                    return (
-                        <JobItems key={index} click1={() => deleteJobItem(index)} click2={() => {setModalOpen(true);}} text1={item.text1} text2={item.text2} text3={item.text3} />
-                    );
-                }
+    var jobsList
+    if (loading)
+    return (
+        <h4>Loading</h4>
     )
-    
+    else{
+        jobsList = jobItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
+            return (
+                <JobItems key={item.id} click1={() => deleteJobItem(item.id)} click2={() => {setModalOpen(true); setjobItemModal(item) }} text1={item.employee_id} text2={item.job_id} text3={item.status} />
+            );
+    })
+    }
+       
     return(
         <div className = "findwork_container">
-            {modalOpen && <Job_Modal setOpenModal={setModalOpen} />}
+            {modalOpen && <Job_Modal setOpenModal={setModalOpen} jobItem = {jobItemModal} />}
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >My Jobs</div>
             <div className="title_search"> 

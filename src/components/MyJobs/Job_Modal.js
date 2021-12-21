@@ -1,15 +1,16 @@
 import React from "react";
 import "./Job_Modal.css";
 
-function Modal({ setOpenModal }) {
+function Modal(props) {
+  const myJob = props
   return (
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
-          <button onClick={() => { setOpenModal(false);}}>X</button>
+          <button onClick={() => { props.setOpenModal(false);}}>X</button>
         </div>
         <div className="title">
-          <h1>HVAC Technician</h1>
+          <h1>prop</h1>
         </div>
         <div className="body">
           <div className="body_left">

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 import Contact_Modal from "./Contact_Modal";
@@ -9,17 +9,17 @@ import axios from "axios";
 
 function UserProfile () {
 	const [showSkillsProfile,setShowSkillsProfile] = useState(true);
-        const [skillItemProfile,setSkillItemProfile] = useState([
-            {text: "Digital Marketing"},
-            {text: "Ruby on Rails Developer"},
-            {text: "Mobile App Developer"},
-            {text: "Social Media Manager"},
-            
-        ]);
+    const [skillItemProfile,setSkillItemProfile] = useState([]);
 
-        const  skillsList =skillItemProfile.map((item,index) => {
+		useEffect(() => {
+			axios.get(`api/employee/${localStorage.getItem("user_id")}/skills`, {headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+				setSkillItemProfile(res.data.employeeSkills)
+			})
+		}, [skillItemProfile.length])
+
+        const  skillsList = skillItemProfile.map((item) => {
             return (
-                <SkillsItems_profile key={index} text={item.text} />
+                <SkillsItems_profile key={item.skill_id} text={item.years_of_experience} />
             );
         }
 )

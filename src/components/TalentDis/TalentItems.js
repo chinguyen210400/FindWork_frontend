@@ -7,7 +7,7 @@ function TalentItems (props) {
         <>
         <li className='jobs_item'>
             <div className='talent_item_info'>
-            <div className='talent_item_title' onClick={props.click1}>
+            <div className='talent_item_title'>
                 <h5  className='talent_item_text'>{props.text1}</h5>
                 <p className='talent_item_text'>{props.text2}</p> 
                 <p className='talent_item_text'><i class="fa fa-star" aria-hidden="true"></i></p>

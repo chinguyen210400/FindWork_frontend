@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import TalentItems from "./TalentItems";
 import ReactPaginate from "react-paginate";
-import Talent_Modal from "./Talent_Modal";
 import './Cards_talentdis.css';
 
 function Cards_talentdis () {
-    const [talentModalOpen, setTalentModalOpen] = useState(false);
     const [talentItem,setTalentItem] = useState([
         {text1: "Job 1", text2: "Development"},
         {text1: "Job 1", text2: "Development"},
@@ -28,14 +26,13 @@ function Cards_talentdis () {
 
     const  talentsList = talentItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
                     return (
-                        <TalentItems key={index}  text1={item.text1} text2={item.text2} click1={() => {setTalentModalOpen(true);}}/>
+                        <TalentItems key={index}  text1={item.text1} text2={item.text2} />
                     );
                 }
     )
    
     return (
         <div className = "findwork_container">
-             {talentModalOpen && <Talent_Modal setOpenModal={setTalentModalOpen} />}
         <div className = "findwork_title">
             <div className="title_search">     
                 <div className="talent_list_title">

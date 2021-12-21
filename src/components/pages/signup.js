@@ -26,6 +26,7 @@ const Register = () => {
     const data = {
       username: registerInput.username,
       password: registerInput.password,
+      password_confirmation : registerInput.confirmPassword,
       role: registerInput.role
     }
     axios.get('/sanctum/csrf-cookie').then(response => {

@@ -2,11 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import "./Work_Modal.css";
-import { useContext } from "react";
+import { useState } from "react";
 import WorkContext from '../pages/findwork'
+import axios from "axios";
 function Work_Modal(props) {
-    const work = props.work;
-    console.log(work);
+    const work = props.workItem;
+    const data = {job_id : work.id}
+    const [submit, setSubmit] = useState(false)
+    // console.log(work);
+    const submitHandle = e =>{
+      e.persist()
+      axios.post(`/api/employee/${localStorage.getItem("user_id")}/job`,data,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+        alert("Add success\n")
+        setSubmit(true)
+      })
+      .catch(err => {
+          alert("Failed")
+      })
+    }
+
+    const cancelHandle = e => {
+      e.persist()
+      axios.delete(`/api/employee/${localStorage.getItem("user_id")}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+        alert("Cancel proposal success\n")
+        setSubmit(false)
+      })
+      .catch(err => {
+          alert("Failed")
+      })
+    }
+
     return (
         <div className="work_modalBackground">
         <div className="work_modalContainer">
@@ -16,30 +41,31 @@ function Work_Modal(props) {
         <div className = "work_card">
             <div className="card-header"><h1>HVAC Technician</h1></div>
             <div className="card-body">
-        <div className="work_body_left">
-        <p></p>
-            <p>Remote Work Level:</p>
+            <div className="work_body_right">
+            <p>{work.title}</p>
+            <p>{work.enterprise_id}</p>
+            <p>{work.location}</p>
+            <p>{work.salary}</p>
+            <p>{work.number_of_employees}</p>
+            <p>{work.type}</p>
+            <p>{work.description}</p>
+            {/* <p>Company:</p> */}
+        </div>
+          <div className="work_body_left">
+            <p>Job Name</p>
+            <p>Enterprise name</p>
             <p>Location:</p>
             <p>Job Type:</p>
-            <p>Job Description</p>
-            <p>Number of employee</p>
-            <p>Salary per hour</p>
-            <p>Company:</p>
-           
-        </div>
-          <div className="work_body_right">
-            <p></p>
-            <p></p>
-            <p>{work.location}</p>
-            <p>work.type</p>
-            <p>work.description</p>
-            <p>work.number_of_employees</p>
-            <p>work.salary</p>
-            <p></p>
+            <p>Salary</p>
+            <p>Number of employees</p>
+            <p>Type</p>
+            <p>Description</p>
           </div>
         </div>
-        <Link to='/'><Button className='btns' buttonStyle='btn--outline' buttonSize='btn--max'>Submit a Prosopal</Button></Link> 
-        <Link to='/'><Button className='btns' buttonStyle='btn--primary' buttonSize='btn--max'>Save a Job</Button></Link> 
+        { !submit && <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--max' onClick={submitHandle}>Submit a Proposal</Button>}
+        { 
+          submit && <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--max' onClick = {cancelHandle}>Cancel Proposal</Button>
+        }
         </div>
       </div>
     </div>
