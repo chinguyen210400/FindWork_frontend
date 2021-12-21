@@ -5,10 +5,13 @@ import'./Cards_findtalent.css';
 import WorkItems from "./WorkItems";
 import ReactPaginate from "react-paginate";
 import Postjob_Modal from "./Postjob_Modal";
+import Proposal_Modal from "./Proposal_Modal";
 
 function Cards_findtalent () {
 
     const [postJobModalOpen, setPostJobModalOpen] = useState(false);
+    const [proposalModalOpen, setProposalModalOpen] = useState(false);
+
 
     const [workItem,setWorkItem] = useState([
         {text1: "Job 1", text2: "Development"},
@@ -37,7 +40,7 @@ function Cards_findtalent () {
 
     const  worksList = workItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
                     return (
-                        <WorkItems key={index} click1={() => deleteWorkItem(index)} text1={item.text1} text2={item.text2} />
+                        <WorkItems key={index} click1={() => deleteWorkItem(index)} text1={item.text1} text2={item.text2} click2={() => {setProposalModalOpen(true)}}/>
                     );
                 }
     )
@@ -45,6 +48,7 @@ function Cards_findtalent () {
     return (
         <div className = "findwork_container">
               {postJobModalOpen && <Postjob_Modal setOpenModal={setPostJobModalOpen} />}
+              {proposalModalOpen && <Proposal_Modal setOpenModal={setProposalModalOpen} />}
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >Job Posting</div>
             <div className="title_search"> 
