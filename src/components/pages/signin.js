@@ -29,7 +29,13 @@ function SignIn () {
           localStorage.setItem('auth_token',res.data.token)
           localStorage.setItem('user_id',res.data.user_id)
           localStorage.setItem('role',res.data.role)
-          window.location.href = '/findwork'
+          if (res.data.role == "employee")
+            window.location.href = '/findwork'
+          else 
+            window.location.href = '/findtalent'
+      })
+      .catch(err => {
+        alert(err.message)
       })
     })      
   }

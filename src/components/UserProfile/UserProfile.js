@@ -36,6 +36,9 @@ function UserProfile () {
 		const token = localStorage.getItem('auth_token');
 		axios.get(`/api/logout`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
 			localStorage.removeItem('auth_token');
+			localStorage.removeItem('role')
+			localStorage.removeItem('user_id')
+			
 			// swal("Success", res.data.message, "success");
 			window.location.href = '/'
 		})
@@ -51,7 +54,7 @@ function UserProfile () {
                         <Link to='/changeprofile' className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i className="fa fa-user" aria-hidden="true"></i>My Profile</Button></Link>
                         <Link to='/security_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--mini'><i className="fa fa-lock " aria-hidden="true"></i>Password & Security</Button></Link>
                         <Link to='/billing_employ'  className = "link"><Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i className="fa fa-cc-paypal" aria-hidden="true"></i>Billing & Payments</Button></Link>
-						<Button className='btns' buttonStyle='btn--test' buttonSize='btn--large'><i className="fa fa-sign-out" aria-hidden="true" onClick = {logOutSubmit}></i>Log out</Button>
+						<Button className='btns'  onClick = {logOutSubmit} buttonStyle='btn--test' buttonSize='btn--large'><i className="fa fa-sign-out" aria-hidden="true"></i>Log out</Button>
                     </ul>
                 </div>
             </div>

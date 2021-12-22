@@ -33,6 +33,9 @@ const Register = () => {
       axios.post(`api/register`,data).then(res => {      
         if (res.status === 201){
           localStorage.setItem('auth_token', res.data.token)
+          localStorage.setItem('user_id', res.data.user_id)
+          localStorage.setItem('role', res.data.role)
+
           console.log(res);
           if (registerInput.role === 'employee')
             window.location.href = '/findwork'

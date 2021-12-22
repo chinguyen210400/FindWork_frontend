@@ -4,7 +4,7 @@ import Navbar_findtalent  from '../FindTalent/Navbar_findtalent';
 import Cards_findtalent  from '../FindTalent/Cards_findtalent';
 import Footer from '../HomePage/Footer';
 
-function findtalent () {
+function FindTalent () {
     return (
         <>
         <Navbar_findtalent />
@@ -14,4 +14,4 @@ function findtalent () {
     );
 }
 
-export default findtalent;
+export default FindTalent;

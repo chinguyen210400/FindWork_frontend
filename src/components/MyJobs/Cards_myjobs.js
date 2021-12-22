@@ -28,6 +28,7 @@ function Cards_myjobs () {
        axios.get(`/api/employee/${user_id}/jobs`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             // setJobItem(res.data.employeeJobs)
             const employeeJob = res.data.employeeJobs
+            setJobItem(employeeJob)
             console.log(employeeJob);
             setloading(false)
             // console.log(res.data.employeeJobs);

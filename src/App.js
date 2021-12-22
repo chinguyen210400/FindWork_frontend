@@ -20,6 +20,8 @@ import Billing_enterprise from './components/Billing_enterprise/Billing_enterpri
 import Security_employ from './components/Security_employ/Security_Employ';
 import Register from './components/pages/signup';
 import FindWork from './components/pages/findwork';
+import FindTalent from './components/pages/findtalent';
+import HomePage from './components/pages/homepage';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -30,21 +32,24 @@ function App() {
     <Router>
         <Switch>
           <Route path='/' exact component={homepage}>
-            {localStorage.getItem('auth_token') && localStorage.getItem('role') === "employee" ? <Redirect to = '/findwork'/>: <Route path='/' exact component={homepage}/> }
-            {localStorage.getItem('auth_token') && localStorage.getItem('role') === "enterprise" ? <Redirect to = '/findwork'/>: <Route path='/' exact component={homepage}/> }
+            {localStorage.getItem("auth_token") && <HomePage/>}
+            {/* {localStorage.getItem('role') === "employee" ? <Redirect to = '/findwork'/>: <Redirect to = '/findtalent'/> } */}
           </Route>
+
+
           <Route path='/signin' exact component={signin} >
            
           </Route>
-          <Route path='/signin_enterprise' exact component={signin_enterprise} />
           <Route path='/signup' >
-            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> :   <Route path='/' exact component={homepage}/>}
+            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <Register/>}
           </Route>
           <Route path='/myjobs' exact component={myjobs} />
           <Route path='/findwork'>
-            {localStorage.getItem('auth_token') ? <FindWork/> : <SignIn/>}
+            {localStorage.getItem('auth_token') ? <FindWork/> : <Redirect to = '/signin'/>}
           </Route>
-          <Route path='/findtalent' exact component={findtalent} />
+          <Route path='/findtalent' exact component={findtalent} >
+            {localStorage.getItem('auth_token') ? <FindTalent/> : <Redirect to = '/signin'/>}
+          </Route>
           <Route path='/talentdiscover' exact component={talentdiscover} />
           <Route path='/changeprofile' exact component={changeprofile} />
           <Route path='/billing_employ' exact component={billing_employ} />

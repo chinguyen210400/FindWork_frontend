@@ -5,7 +5,7 @@ import React from 'react';
 import Cards  from '../HomePage/Cards';
 import Footer from '../HomePage/Footer';
 
-function homepage() {
+function HomePage() {
     return(
         <>
             <Navbar />
@@ -16,4 +16,4 @@ function homepage() {
     );
 }
 
-export default homepage;
+export default HomePage;

@@ -45,12 +45,7 @@ function Navbar() {
     }
   };
 
-  const logoDirect = () => {
-    if (localStorage.getItem('auth_token'))
-      return <Link to='/findwork' className='navbar-logo' onClick={closeMobileMenu}/>
-    else 
-      return <Link to='/' className='navbar-logo' onClick={closeMobileMenu}/>
-  }
+
   return (
     <>
       <nav className='navbar'>
