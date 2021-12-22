@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import'./Cards_findtalent.css';
@@ -6,44 +6,50 @@ import WorkItems from "./WorkItems";
 import ReactPaginate from "react-paginate";
 import Postjob_Modal from "./Postjob_Modal";
 import Proposal_Modal from "./Proposal_Modal";
-
+import axios from 'axios'
 function Cards_findtalent () {
 
     const [postJobModalOpen, setPostJobModalOpen] = useState(false);
     const [proposalModalOpen, setProposalModalOpen] = useState(false);
 
-
-    const [workItem,setWorkItem] = useState([
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
-    ])
-
+    const [enterpriseJobList, setenterpriseJobList] = useState([])
+    const [loading, setloading] = useState(true)
     const [pageNumber, setPageNumber] = useState(0);
-
+    const [jobItemModal, setjobItemModal] = useState({})
     const itemPerPage = 3;
     const pagesVisited = pageNumber * itemPerPage;
-
-    const pageCount = Math.ceil(workItem.length / itemPerPage);
 
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
-    
-    const deleteWorkItem = (workIndex) => {
-        console.log(workIndex);
-        const newWorkItem = [...workItem];
-        newWorkItem.splice(workIndex,1);
-        setWorkItem(newWorkItem);
-    }
+    const token = localStorage.getItem("auth_token")
+    const enterprise_id = localStorage.getItem("user_id")
+    useEffect(() => {
+        axios.get(`/api/enterprise/${enterprise_id}/jobs`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            setenterpriseJobList(res.data.jobs);
+            // console.log(res.data.jobs)
+            setloading(false)
+        })
+        
 
-    const  worksList = workItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
-                    return (
-                        <WorkItems key={index} click1={() => deleteWorkItem(index)} text1={item.text1} text2={item.text2} click2={() => {setProposalModalOpen(true)}}/>
-                    );
-                }
-    )
+    },[])
+    const deleteJobItem = (jobIndex) => {
+        console.log(jobIndex);
+        const newJobItem = [...enterpriseJobList];
+        newJobItem.splice(jobIndex,1);
+        setenterpriseJobList(newJobItem);
+    }
+    const pageCount = Math.ceil(enterpriseJobList.length / itemPerPage);
+    var jobsList;
+    if (loading){
+        return <h3> Loading </h3>
+    } else {
+        jobsList = enterpriseJobList.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
+            return (
+                <WorkItems key={item.id} click1={() => deleteJobItem(item.id)} job = {item} click2={() => {setProposalModalOpen(true)}}/>
+            );
+        })
+    }
    
     return (
         <div className = "findwork_container">
@@ -66,7 +72,7 @@ function Cards_findtalent () {
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-clock-o" aria-hidden="true"></i>Most recent</Button>
             <Link to ='/enterpriseprofile' className = "link"><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-briefcase " aria-hidden="true"></i>View profile</Button></Link>
         </div>  
-                {worksList}
+                {jobsList}
                 <ReactPaginate 
                     previousLabel={<i class="fa fa-chevron-left" aria-hidden="true"></i>}
                     nextLabel={<i class="fa fa-chevron-right" aria-hidden="true"></i>}

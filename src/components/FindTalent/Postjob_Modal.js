@@ -2,8 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import "./Postjob_Modal.css";
-
+import { useEffect , useState} from "react";
+import axios from "axios";
 function Postjob_Modal(props) {
+    const [categoryList, setcategoryList] = useState([])
+    const [skillList,setskillList] = useState([]);
+    const token = localStorage.getItem("auth_token")
+
+    useEffect(() => {
+        // const token = localStorage.getItem("auth_token")
+        axios.get(`api/category`,{headers : {"Authorization" : `Bearer ${token}`}} ).then(res => {
+            console.log(res.data.categories);
+            setcategoryList(res.data.categories);
+        })
+    })
+
     return (
         <div className="postjob_modalBackground" >
         <div className="postjob_modalContainer"  >
@@ -13,29 +26,29 @@ function Postjob_Modal(props) {
         <div className="postjob_container" role='dialog'>
             <div className="postjob_title">
             <div className="postjob_button">
-                <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--mini'>Post a Job Now</Button> 
+                <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--mini'>Submit</Button> 
                 </div>
-                <h2>Now just finish and review your job post.</h2>
+                <h2>Post a new job now</h2>
                 
             </div>
             <div className="postjob_header">
                 <div className="postjob_header_title">
-                    <h6>Headline</h6>
+                    <h6>Title</h6>
                 </div>
                 <div className="postjob_header_input">
-                    <input className="headline_textInput" type="text" name="headline" placeholder=""/>
+                    <input className="headline_textInput" type="text" name="title" placeholder=""/>
                 </div>
             </div>
             <div className="postjob_body">
                 <div className="postjob_describe">
                 <div className="postjob_describe_title">
                     <h6>Describe your job</h6>
-                    <p>This is how talent figures out what you need and why you’re great to work with!Include your expectations about the task or deliverable, what you’re looking for in a work relationship, and anything unique about your project, team, or company. Here are several examples that illustrate best practices for effective job posts.</p>
                 </div>
                 <div className="postjob_describe_input">
-                <input className="describe_textInput" type="text" name="describe" placeholder="Have a job description ?"/>
+                <textarea className="describe_textInput" type="textarea" name="description" placeholder="Have a job description ?"/>
                 </div>
                 </div>
+                
                 <div className="postjob_element">
                 <div className="postjob_body_title">
                     <h6>Skills</h6>
@@ -50,6 +63,7 @@ function Postjob_Modal(props) {
                     <input className="budget_textInput" type="text" name="skill" placeholder=""/>
                 </div>
                 </div>
+
             </div>
         </div>
       </div>

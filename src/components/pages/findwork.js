@@ -33,13 +33,11 @@ function FindWork() {
     };
     const token = localStorage.getItem("auth_token")
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+        axios.get(`/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             setFindWorkItem(res.data.jobs)
             // console.log(res.data.jobs)
             setloading(false)
         })
-        
-
     },[])
 
     const pageCount = Math.ceil(findWorkItem.length / itemPerPage);

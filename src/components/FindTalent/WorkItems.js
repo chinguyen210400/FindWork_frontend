@@ -10,8 +10,8 @@ function WorkItems (props) {
         <li className='jobs_item'>
             <div className='work_item_info'>
             <div className='work_item_title'>
-                <h5  className='work_item_text'>{props.text1}</h5>
-                <p className='work_item_text'>{props.text2}</p>
+                <h5  className='work_item_text'>{props.job.title}</h5>
+                <p className='work_item_text'>{props.job.description}</p>
                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View Proposals</Button>
             </div> 
             <div className='work_item_button'>

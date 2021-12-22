@@ -13,7 +13,13 @@ function UserProfile () {
 
 		useEffect(() => {
 			axios.get(`api/employee/${localStorage.getItem("user_id")}/skills`, {headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
-				setSkillItemProfile(res.data.employeeSkills)
+				const employeeSkill = res.data.employeeSkills
+				// const  skillsList = skillItemProfile.map((item) => {
+				// 	axios.get
+				// 	return (
+				// 		<SkillsItems_profile key={item.skill_id} text={item.years_of_experience} />
+				// 	);
+				// }
 			})
 		}, [skillItemProfile.length])
 

@@ -19,6 +19,7 @@ import SignIn from './components/pages/signin';
 import Billing_enterprise from './components/Billing_enterprise/Billing_enterprise';
 import Security_employ from './components/Security_employ/Security_Employ';
 import Register from './components/pages/signup';
+import FindWork from './components/pages/findwork';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -29,15 +30,20 @@ function App() {
     <Router>
         <Switch>
           <Route path='/' exact component={homepage}>
-            {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> : <SignIn/>}
+            {localStorage.getItem('auth_token') && localStorage.getItem('role') === "employee" ? <Redirect to = '/findwork'/>: <Route path='/' exact component={homepage}/> }
+            {localStorage.getItem('auth_token') && localStorage.getItem('role') === "enterprise" ? <Redirect to = '/findwork'/>: <Route path='/' exact component={homepage}/> }
           </Route>
-          <Route path='/signin' exact component={signin} />
+          <Route path='/signin' exact component={signin} >
+           
+          </Route>
           <Route path='/signin_enterprise' exact component={signin_enterprise} />
           <Route path='/signup' >
             {localStorage.getItem('auth_token') ? <Redirect to = '/findwork'/> :   <Route path='/' exact component={homepage}/>}
           </Route>
           <Route path='/myjobs' exact component={myjobs} />
-          <Route path='/findwork' exact component={findwork} />
+          <Route path='/findwork'>
+            {localStorage.getItem('auth_token') ? <FindWork/> : <SignIn/>}
+          </Route>
           <Route path='/findtalent' exact component={findtalent} />
           <Route path='/talentdiscover' exact component={talentdiscover} />
           <Route path='/changeprofile' exact component={changeprofile} />

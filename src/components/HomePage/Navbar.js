@@ -55,7 +55,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-         {logoDirect}
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}/>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
