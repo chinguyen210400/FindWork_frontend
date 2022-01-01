@@ -22,7 +22,6 @@ function Cards_myjobs () {
         setPageNumber(selected);
     };
 
-
     useEffect(() => {
         // console.log(user_id);
        axios.get(`/api/employee/${user_id}/jobs`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
@@ -31,7 +30,6 @@ function Cards_myjobs () {
             setJobItem(employeeJob)
             console.log(employeeJob);
             setloading(false)
-            // console.log(res.data.employeeJobs);
        })
     }, [])
 
@@ -52,7 +50,7 @@ function Cards_myjobs () {
     else{
         jobsList = jobItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <JobItems key={item.id} click1={() => deleteJobItem(item.id)} click2={() => {setModalOpen(true); setjobItemModal(item) }} text1={item.employee_id} text2={item.job_id} text3={item.status} />
+                <JobItems key={item.id} click1={() => deleteJobItem(item.id)} click2={() => {setModalOpen(true); setjobItemModal(item) }} job = {item} />
             );
     })
     }
@@ -63,7 +61,7 @@ function Cards_myjobs () {
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >My Jobs</div>
             <div className="title_search"> 
-                <div className='search_box'><input className="textSearch_findwork" placeholder="Search"/><button className="search_button"><i class="fa fa-search"></i></button></div>
+                <div className='search_box'><input className="textSearch_findwork" placeholder="Search"/><button className="search_button"><i className="fa fa-search"></i></button></div>
                 <div className="search_title">Advanced Search</div>
             </div>
         </div>
@@ -73,8 +71,8 @@ function Cards_myjobs () {
         </div>  
                 {jobsList}
                 <ReactPaginate 
-                    previousLabel={<i class="fa fa-chevron-left" aria-hidden="true"></i>}
-                    nextLabel={<i class="fa fa-chevron-right" aria-hidden="true"></i>}
+                    previousLabel={<i className="fa fa-chevron-left" aria-hidden="true"></i>}
+                    nextLabel={<i className="fa fa-chevron-right" aria-hidden="true"></i>}
                     pageCount={pageCount}
                     onPageChange={changePage}
                     containerClassName={"paginationBttns"}

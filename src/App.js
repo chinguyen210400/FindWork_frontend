@@ -22,6 +22,9 @@ import Register from './components/pages/signup';
 import FindWork from './components/pages/findwork';
 import FindTalent from './components/pages/findtalent';
 import HomePage from './components/pages/homepage';
+import SecurityEnterprise from './components/Security_enterprise/Security_enterprise';
+import security_enterprise from './components/pages/security_enterprise';
+import billing_enterprise from './components/pages/billing_enterprise';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -53,9 +56,9 @@ function App() {
           <Route path='/talentdiscover' exact component={talentdiscover} />
           <Route path='/changeprofile' exact component={changeprofile} />
           <Route path='/billing_employ' exact component={billing_employ} />
-          <Route path='/billing_enterprise' exact component={Billing_enterprise} />
+          <Route path='/billing_enterprise' exact component={billing_enterprise} />
           <Route path='/security_employ' exact component={security_employ} />
-          <Route path='/security_enterprise' exact component={Security_employ} />
+          <Route path='/security_enterprise' exact component={security_enterprise} />
           <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
         </Switch>
     </Router>

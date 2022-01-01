@@ -6,7 +6,7 @@ function SkillsItems_profile (props) {
     return (
         <div className="skillsitems_profile_container" >
             <div className="skillsitems_profile_title">
-                {props.text}
+                {props.skill.skillName}
             </div>
         </div>
     );

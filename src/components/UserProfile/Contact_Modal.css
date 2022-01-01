@@ -9,8 +9,8 @@
   }
   
   .modalContainer {
-    width: 500px;
-    height: 550px;
+    width: 800px;
+    height: 90vh;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -84,7 +84,7 @@
     padding-left: 10px;
     height: 40px;
     width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     align-self: center;
     font-family: Arial, sans-serif;
     color: black;

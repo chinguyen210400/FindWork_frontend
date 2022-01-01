@@ -37,30 +37,14 @@ function Enterprise_Profile() {
     <div className = "connect">
         <div className = "card">
             <div className="card-header">
-            <h5>Company Acount</h5>
-            </div>
-        
-            <div className="card-body">
-                <ul>
-                <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
-                <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
-                <li><p>0328481395</p></li>
-                </ul>
-            </div>   
-        </div>      
-    </div>
-
-    <div className = "connect">
-        <div className = "card">
-            <div className="card-header">
             <h5>Company Contact</h5>
             </div>
         
             <div className="card-body">
                 <ul>
-                <p>Ngoc Ha, Ba Dinh, Ha Noi</p>
-                <li><p>chi.ny184049@sis.hust.edu.vn</p></li>
-                <li><p>0328481395</p></li>
+                <li><p>Location : Ngoc Ha, Ba Dinh, Ha Noi</p></li>
+                <li><p>Email : chi.ny184049@sis.hust.edu.vn</p></li>
+                <li><p>Phone: 0328481395</p></li>
                 </ul>
             </div>   
         </div>      
@@ -72,27 +56,16 @@ function Enterprise_Profile() {
         <h5>Company Details </h5>
             </div>
             <div className="card-body">
-        <ul>
-            <li>
                 <h3>  </h3>
                 <ul>
+                    <li><p>Website Url: </p></li>
+                    <li><p>Overview: </p> </li>
                     <li><p></p></li>
-                    <li><p></p> </li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                </ul>
-            </li>
-            <li>
-                <h3></h3>
-                <ul>
                     <li><p></p></li>
                     <li><p></p></li>
                 </ul>
-            </li>
-        </ul>
-        </div>
-        </div>
+            </div>
+    </div>
     </div>
 </div>
 </div>

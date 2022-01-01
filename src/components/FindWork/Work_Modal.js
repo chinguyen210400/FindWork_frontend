@@ -8,9 +8,34 @@ import axios from "axios";
 function Work_Modal(props) {
     const work = props.workItem;
     const data = {job_id : work.id}
+    const [jobSkill, setJobSkill] = useState([])
+    const [skill, setSkill] = useState([])
     const [submit, setSubmit] = useState(false)
     const [loading, setloading] = useState(true)
     const user_id = localStorage.getItem("user_id")
+
+
+    useEffect(() => {
+      axios.get(`/api/job/${work.id}/skills`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+          setJobSkill(res.data.jobSkills)
+          console.log(res.data.jobSkills);
+      })
+    }, [])
+
+    // useEffect(() => {
+    //   var data = []
+    //   // if (!jobSkill){
+    //     jobSkill.map((item) => {
+    //       var skill_id = item.skill_id
+    //       axios.get(`/api/skill/${skill_id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+    //         data = data.append({...item, 'skillName': res.data.skill.name})
+    //     })
+    //     })
+    //   // }
+    //   setSkill(data)
+    // }, [])
+
+
     useEffect(() => {
       axios.get(`/api/employee/${user_id}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
           const employeeJob = res.data.employeeJob
@@ -64,8 +89,19 @@ function Work_Modal(props) {
                 </tr>
                 <tr>
                   <th scope="row">Skill</th>
-                  <td></td>
+                  {/* <td>{job.}</td> */}
+                  {jobSkill.map(item => {
+                  return  (
+                  <tr>
+                    <th>Skill name</th>
+                    <td>
+                    {item.skill_id }
+                    </td>
+                  </tr>)
+                })}
                 </tr>
+
+               
                 <tr>
                   <th scope="row">Salary</th>
                   <td>{work.salary}</td>

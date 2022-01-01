@@ -1,35 +1,40 @@
 import React, { useState ,useEffect } from "react";
-import SkillsItems from "./SkillsItems";
+import SkillsItems from "../UserProfile/SkillsItems";
 import { Button } from "../Layouts/Button";
-import "./Skills_Modal.css";
+import "../UserProfile/Skills_Modal.css"
 import axios from "axios";
 
-function Skills_Modal({ setOpenModal }) {
+function JobSkill_Modal(props) {
+        const jobItem = props.job
         const [showSkills,setShowSkills] = useState(true);
+        const [jobSkillList, setjobSkillList] = useState([]);
         const [skillList,setskillList] = useState([]);
         const [categoryList, setcategoryList] = useState([])
         const [skillInput, setskillInput] = useState({
             skill_id : '',
             level : '',
-            years_of_experience : ''
-
         })
         const [skillItem, setskillItem] = useState([])
         const token = localStorage.getItem("auth_token")
         const user_id = localStorage.getItem("user_id")
+        const [loading, setloading] = useState(true)
         useEffect(() => {
             // const token = localStorage.getItem("auth_token")
             axios.get(`api/category`,{headers : {"Authorization" : `Bearer ${token}`}} ).then(res => {
-                console.log(res.data.categories);
+                // console.log(res.data.categories);
                 setcategoryList(res.data.categories);
            })
-
-        //    axios.get(`api/employee/${employee}/skills`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
-
-        //    })
         }, [])
 
+        useEffect(() => {
+            axios.get(`api/job/${jobItem.id}/skills`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                console.log(res.data.jobSkills);
+                setjobSkillList(res.data.jobSkills)
+                setloading(false)
+           }).catch(err => alert(err))
+        }, [])
 
+        console.log(jobSkillList);
         function handleCategoryInput(e) {
             e.persist()
             let categoryId = e.target.value
@@ -48,9 +53,9 @@ function Skills_Modal({ setOpenModal }) {
         function submitAddSkill(e){
             e.persist()
             console.log(user_id);
-            axios.post(`api/employee/${user_id}/skill`,skillInput,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            axios.post(`api/job/${jobItem.id}/skill`,skillInput,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
                 alert("Success\n")
-            })
+            }).catch(err => alert(err.message))
         }
         const deleteskillList = (skillIndex) => {
             console.log(skillIndex);
@@ -59,22 +64,15 @@ function Skills_Modal({ setOpenModal }) {
             setskillList(newskillList);
         }
 
-        const  skillsList = skillList.map((item) => {
-            return (
-                <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  text={item.name} />
-            );
-            })
+        // const  skillsList = jobSkillList.map((item) => {
+        //     return (
+        //         <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  skill={item} />
+        //     );
+        //     })
         function buildOptions() {
             var arr = []
             for (let i = 1; i <= 5; i++) {
                 arr.push(<option key= {i} value={i} >{i}</option>)
-            }
-            return arr; 
-        }
-        function buildOptions2() {
-            var arr = []
-            for (let i = 1; i <= 50; i++) {
-                arr.push(<option key={i} value= {i}>{i}</option>)
             }
             return arr; 
         }
@@ -83,14 +81,19 @@ function Skills_Modal({ setOpenModal }) {
         <div className="skill_modalBackground">
           <div className="skill_modalContainer">
             <div className="skill_titleCloseBtn">
-              <button onClick={() => {setOpenModal(false);}}>X</button>
+              <button onClick={() => {props.setOpenModal(false);}}>X</button>
             </div>
         <div className="skillmodal_header">
             <h1>Skill List</h1>
         </div>
-        <div className="body">
+        {loading ? <h5>Loading </h5> : 
+          <div className="body">
           <div className="skill_list">
-            {/* {skillsList} */}
+            { jobSkillList.map((item) => {
+            return (
+                <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  skill={item} />
+            )})
+            }
             </div>
             <div className="add_skill">
                 <label>Select Category</label>
@@ -122,22 +125,17 @@ function Skills_Modal({ setOpenModal }) {
                             buildOptions()
                         }
                     </select>  
-                    <label>Select Year of Experience</label>
-                    <select name ="years_of_experience"  value = {skillInput.years_of_experience} onChange = {handleSkillInput} className ="form-control">
-                        <option> Select Level</option>
-                        {
-                            buildOptions2()
-                        }
-                    </select>   
                 <button onClick={submitAddSkill}>+ Add Skill</button>
             </div>
         </div>
-        <div className="footer">
+        }
+      
+        {/* <div className="footer">
             <button>Save</button>
-        </div>
+        </div> */}
       </div>
     </div>
     );
 }
 
-export default Skills_Modal;
+export default JobSkill_Modal;

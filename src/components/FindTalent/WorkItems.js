@@ -15,7 +15,7 @@ function WorkItems (props) {
                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View Proposals</Button>
             </div> 
             <div className='work_item_button'>
-                <i class="fas fa-edit fa-lg"></i>
+                <i class="fas fa-edit fa-lg" onClick={props.click3}></i>
                 <div className='delete_icon'>
                 <i class="fa fa-trash fa-lg" onClick={props.click1} ></i>
             </div>

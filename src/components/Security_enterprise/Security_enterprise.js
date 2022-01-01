@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
 
-function Security_enterprise () {
+function SecurityEnterprise () {
     return (
         <div className='profile_container'>
             <div className='profile_left'>
@@ -41,4 +41,4 @@ function Security_enterprise () {
 
 }
 
-export default Security_enterprise;
+export default SecurityEnterprise;

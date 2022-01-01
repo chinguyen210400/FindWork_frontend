@@ -20,7 +20,7 @@ function WorkItems (props) {
                 <h5  className='work_item_text'>{props.work.title}</h5>
                 <p className='work_item_text'>{props.work.description}</p>
                 <div className='rating_star'>
-                 {/* <StarRatings rating={props.work.id} starDimension="25px" starSpacing="2px" /> */}
+                {/* <StarRatings rating={props.work.id} starDimension="25px" starSpacing="2px" /> */}
                 </div>
             </div> 
                 <div className='work_item_button'>

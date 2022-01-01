@@ -7,11 +7,13 @@ import ReactPaginate from "react-paginate";
 import Postjob_Modal from "./Postjob_Modal";
 import Proposal_Modal from "./Proposal_Modal";
 import axios from 'axios'
+import JobSkill_Modal from "./JobSkill_Modal";
+import Skills_Modal from "../UserProfile/Skills_Modal";
 function Cards_findtalent () {
 
     const [postJobModalOpen, setPostJobModalOpen] = useState(false);
     const [proposalModalOpen, setProposalModalOpen] = useState(false);
-
+    const [skillModalOpen, setskillModalOpen] = useState(false)
     const [enterpriseJobList, setenterpriseJobList] = useState([])
     const [loading, setloading] = useState(true)
     const [pageNumber, setPageNumber] = useState(0);
@@ -46,7 +48,8 @@ function Cards_findtalent () {
     } else {
         jobsList = enterpriseJobList.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <WorkItems key={item.id} click1={() => deleteJobItem(item.id)} job = {item} click2={() => {setProposalModalOpen(true)}}/>
+                <WorkItems key={item.id} click1={() => deleteJobItem(item.id)} job = {item} click2={() => {setProposalModalOpen(true); setjobItemModal(item)}} 
+                click3 = {() => {setskillModalOpen(true);  setjobItemModal(item)}}/>
             );
         })
     }
@@ -54,7 +57,10 @@ function Cards_findtalent () {
     return (
         <div className = "findwork_container">
               {postJobModalOpen && <Postjob_Modal setOpenModal={setPostJobModalOpen} />}
-              {proposalModalOpen && <Proposal_Modal setOpenModal={setProposalModalOpen} />}
+              {proposalModalOpen && <Proposal_Modal setOpenModal={setProposalModalOpen} 
+              job = {jobItemModal}/>}
+              {skillModalOpen && <JobSkill_Modal setOpenModal = {setskillModalOpen} 
+              job = {jobItemModal}></JobSkill_Modal>}
         <div className = "findwork_title">
             <div className ="findwork_title_icon" >Job Posting</div>
             <div className="title_search"> 
