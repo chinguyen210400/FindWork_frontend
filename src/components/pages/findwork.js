@@ -35,6 +35,7 @@ function FindWork() {
     useEffect(() => {
         axios.get(`/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             setFindWorkItem(res.data.jobs)
+            console.log(res.data.jobs);
             // console.log(res.data.jobs)
             setloading(false)
         })

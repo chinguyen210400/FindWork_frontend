@@ -90,6 +90,18 @@
     padding: 8px 20px;
     border-radius: 5px;
   }
+  .btn--green {
+    background-color: green;
+    color:rgb(255, 255, 255);
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+  .btn--yellow {
+    background-color: rgba(217, 231, 14, 0.815);
+    color:rgb(255, 255, 255);
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
   
   .btn--signup {
     background-color: #ffffff;

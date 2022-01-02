@@ -33,8 +33,6 @@ function Cards_myjobs () {
        })
     }, [])
 
-   
-
     const pageCount = Math.ceil(jobItem.length / itemPerPage);
     const deleteJobItem = (jobIndex) => {
         console.log(jobIndex);
