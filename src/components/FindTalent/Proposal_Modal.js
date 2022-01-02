@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
+import Candidates_Modal from "./Candidates_Modal";
 import "./Proposal_Modal.css";
 import { useState } from "react";
 import axios from "axios";
@@ -11,6 +12,8 @@ function Proposal_Modal(props) {
   const [employeeList, setemployeeList] = useState([])
   const [loading, setloading] = useState(true)
   const [status, setstatus] = useState("pending")
+
+  const [candidatesModalOpen, setCandidatesModalOpen] = useState(false);
 
   useEffect(() => {
     axios.get(`api/job/${jobId}/employees`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
@@ -62,6 +65,7 @@ function Proposal_Modal(props) {
   }
     return (
         <div className="work_modalBackground">
+           {candidatesModalOpen && <Candidates_Modal setOpenModal={setCandidatesModalOpen} />}
         <div className="work_modalContainer">
         <div className="work_titleCloseBtn">
         <Link className="fa fa-angle-left fa-3x link" aria-hidden="true" onClick={() => { props.setOpenModal(false); setloading(true)}}></Link> 
@@ -89,7 +93,7 @@ function Proposal_Modal(props) {
                       <td>{item.employee.address}</td>
                       <td>{item.employee.language}</td>
                       <td>{item.employee.overview}</td>
-                      <td><Button>View</Button></td>
+                      <td><Button onClick={() => {setCandidatesModalOpen(true);}}>View</Button></td>
                       {displayButton(item.status, item.employee.user_id)}
                      
                       <td></td>
