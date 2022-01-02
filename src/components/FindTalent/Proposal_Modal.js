@@ -56,8 +56,8 @@ function Proposal_Modal(props) {
     if (status == "pending"){
       return (
         <div>
-        <td><Button onClick={(e) => handleAccept(e, employeeId)}>Accept</Button></td>
-        <td><Button onClick={(e) => handleDecline(e, employeeId)}>Decline</Button></td>
+        <td><Button className='btns' buttonStyle='btn--accept' buttonSize='btn--medium' onClick={(e) => handleAccept(e, employeeId)}>Accept</Button></td>
+        <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium' onClick={(e) => handleDecline(e, employeeId)} >Decline</Button></td>
         </div>
       )
     }
@@ -93,7 +93,7 @@ function Proposal_Modal(props) {
                       <td>{item.employee.address}</td>
                       <td>{item.employee.language}</td>
                       <td>{item.employee.overview}</td>
-                      <td><Button onClick={() => {setCandidatesModalOpen(true);}}>View</Button></td>
+                      <td><Button className='btns' buttonStyle='btn--view' buttonSize='btn--medium'  onClick={() => {setCandidatesModalOpen(true);}}>View more</Button></td>
                       {displayButton(item.status, item.employee.user_id)}
                      
                       <td></td>

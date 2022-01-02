@@ -90,6 +90,20 @@
     padding: 8px 20px;
     border-radius: 5px;
   }
+
+  .btn--view {
+    background-color: rgb(42, 130, 146);
+    color:rgb(0, 0, 0);
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+
+  .btn--accept {
+    background-color: rgb(44, 139, 57);
+    color:rgb(255, 255, 255);
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
   
   .btn--signup {
     background-color: #ffffff;

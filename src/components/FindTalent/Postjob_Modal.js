@@ -60,7 +60,7 @@ function Postjob_Modal(props) {
         const data = jobInput
         axios.post(`/api/job`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             alert("Add success \n");
-            <Link to = '/findtalent'></Link>
+           // <Link to = '/findtalent'></Link>
         }).catch(err => {
             alert(err.message)
         })

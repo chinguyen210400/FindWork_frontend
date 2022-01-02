@@ -5,15 +5,16 @@ import TalentItems from "./TalentItems";
 import ReactPaginate from "react-paginate";
 import Talent_Modal from "./Talent_Modal";
 import './Cards_talentdis.css';
+import "./TalentItems.css";
 
 function Cards_talentdis () {
     const [talentModalOpen, setTalentModalOpen] = useState(false);
 
     const [talentItem,setTalentItem] = useState([
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
-        {text1: "Job 1", text2: "Development"},
+        {name: "Job 1", description: "Development"},
+        {name: "Job 1", description: "Development"},
+        {name: "Job 1", description: "Development"},
+        {name: "Job 1", description: "Development"},
     ])
 
     const [pageNumber, setPageNumber] = useState(0);
@@ -29,7 +30,7 @@ function Cards_talentdis () {
 
     const  talentsList = talentItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
                     return (
-                        <TalentItems key={index}  text1={item.text1} text2={item.text2} click1={() => {setTalentModalOpen(true);}}/>
+                        <TalentItems key={index}  name={item.name} description={item.description} click1={() => {setTalentModalOpen(true);}}/>
                     );
                 }
     )
@@ -58,7 +59,9 @@ function Cards_talentdis () {
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-address-card" aria-hidden="true"></i>Saved Talent</Button>
             <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-tags" aria-hidden="true"></i>Saved Project</Button>
         </div>  
+        
                 {talentsList}
+
                 <ReactPaginate 
                     previousLabel={<i class="fa fa-chevron-left" aria-hidden="true"></i>}
                     nextLabel={<i class="fa fa-chevron-right" aria-hidden="true"></i>}
@@ -73,6 +76,7 @@ function Cards_talentdis () {
         </div>   
         </div>  
         </div>
+        
     );
 }
 

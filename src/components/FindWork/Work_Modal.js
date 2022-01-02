@@ -36,16 +36,16 @@ function Work_Modal(props) {
     // }, [])
 
 
-    useEffect(() => {
-      axios.get(`/api/employee/${user_id}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
-          const employeeJob = res.data.employeeJob
-          if (employeeJob.employee_id == user_id){
-            setSubmit(true)
-            setloading(false)
-          }
-          console.log(employeeJob);
-      })
-    }, [])
+   // useEffect(() => {
+     // axios.get(`/api/employee/${user_id}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
+       //   const employeeJob = res.data.employeeJob
+         // if (employeeJob.employee_id == user_id){
+           // setSubmit(true)
+            //setloading(false)
+         // }
+         // console.log(employeeJob);
+      //})
+    //}, [])
     // console.log(work);
     const submitHandle = e =>{
       e.persist()
