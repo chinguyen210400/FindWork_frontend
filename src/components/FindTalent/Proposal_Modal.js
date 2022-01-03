@@ -12,7 +12,7 @@ function Proposal_Modal(props) {
   const [employeeList, setemployeeList] = useState([])
   const [loading, setloading] = useState(true)
   const [status, setstatus] = useState("pending")
-
+  const [employeeInfo, setemployeeInfo] = useState({})
   const [candidatesModalOpen, setCandidatesModalOpen] = useState(false);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ function Proposal_Modal(props) {
     thisClicked.innerText = "Accepting"
     axios.put(`/api/job/${jobId}/employee/${employeeId}`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
       alert(res.data.message)
+
     }).catch(err => 
       {
         alert("Cannot accept")
@@ -56,16 +57,15 @@ function Proposal_Modal(props) {
     if (status == "pending"){
       return (
         <div>
-        <td><Button className='btns' buttonStyle='btn--accept' buttonSize='btn--medium' onClick={(e) => handleAccept(e, employeeId)}>Accept</Button></td>
-        <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium' onClick={(e) => handleDecline(e, employeeId)} >Decline</Button></td>
+        <td><Button className='btns' buttonStyle='btn--accept' buttonSize='btn--medium' onClick={(e) => {handleAccept(e, employeeId); status = "accepted"}}>Accept</Button></td>
+        <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium' onClick={(e) => {handleDecline(e, employeeId); status = "rejected"}} >Decline</Button></td>
         </div>
       )
     }
-   
   }
     return (
         <div className="work_modalBackground">
-           {candidatesModalOpen && <Candidates_Modal setOpenModal={setCandidatesModalOpen} />}
+           {candidatesModalOpen && <Candidates_Modal setOpenModal={setCandidatesModalOpen} employeeInfo = {employeeInfo}/>}
         <div className="work_modalContainer">
         <div className="work_titleCloseBtn">
         <Link className="fa fa-angle-left fa-3x link" aria-hidden="true" onClick={() => { props.setOpenModal(false); setloading(true)}}></Link> 
@@ -89,11 +89,11 @@ function Proposal_Modal(props) {
                 return (
                   <tbody>
                       <th scope = "row">{item.employee.user_id}</th>
-                      <td>{item.employee.first_name + item.employee.last_name}  </td>
+                      <td>{item.employee.first_name +" "+  item.employee.last_name}  </td>
                       <td>{item.employee.address}</td>
                       <td>{item.employee.language}</td>
                       <td>{item.employee.overview}</td>
-                      <td><Button className='btns' buttonStyle='btn--view' buttonSize='btn--medium'  onClick={() => {setCandidatesModalOpen(true);}}>View more</Button></td>
+                      <td><Button className='btns' buttonStyle='btn--view' buttonSize='btn--medium'  onClick={() => {setCandidatesModalOpen(true); setemployeeInfo(item)}}>View more</Button></td>
                       {displayButton(item.status, item.employee.user_id)}
                      
                       <td></td>

@@ -1,0 +1,114 @@
+/* .invitation_modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(200, 200, 200);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+  }
+  
+  .invitation_modalContainer {
+    width:  80vw;
+    height: 100vh;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-left: -300px;
+  }
+  
+  .invitation_titleCloseBtn .title {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .invitation_titleCloseBtn {
+    display: flex;
+    justify-content:start;
+  }
+
+  .invitationmodal_header {
+    text-align: center;
+    background-color:  rgba(190, 190, 190, 0.842) ;
+  }
+  
+  .invitation_titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .invitation_modalContainer .invitation_body .invitation_list {
+    border: 1px solid rgba(190, 190, 190, 0.842);
+    padding: 20px;
+  }
+
+  .invitation_modalContainer .invitation_body p {
+    font-size: 15px;
+    text-align :start;
+  }
+  
+  .invitation_modalContainer .invitation_footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .invitation_modalContainer .invitation_body .jobadd_skill button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    background-color: white;
+    color: rgb(35, 87, 117);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  
+  .invitation_modalContainer .invitation_body .jobadd_skill button:hover {
+    background-color: rgb(208, 224, 243);
+  }
+  
+  .invitation_modalContainer .invitation_footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(35, 87, 117);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .invitation_modalContainer .invitation_footer button:hover {
+    background-color: #fff;
+    color: rgb(35, 87, 117);
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  .jobadd_skill {
+    margin-top: 30px;
+  }
+
+  .jobadd_skill p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  .invitation_label {
+    margin-top: 30px;
+  }
+
+  .invitation_button {
+    margin-top: 20px;
+  } */

@@ -10,7 +10,7 @@ function SkillsItems (props) {
                 <i class="fa fa-minus fa-0.5x" aria-hidden="true" onClick={props.click}></i>
             </div>
             <div className="skillsitems_title">
-                {props.skill.skill_id}
+                {props.text}
             </div>
 
         </div>

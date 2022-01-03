@@ -136,7 +136,7 @@ function JobSkill_Modal(props) {
             <button>Save</button>
         </div> */}
       </div>
-    </div>
+        </div>
     );
 }
 

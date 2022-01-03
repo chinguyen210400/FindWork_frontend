@@ -16,41 +16,6 @@ function Work_Modal(props) {
     const [loading, setloading] = useState(true)
     const [loading2, setloading2] = useState(true)
     const user_id = localStorage.getItem("user_id")
-<<<<<<< HEAD
-
-
-    useEffect(() => {
-      axios.get(`/api/job/${work.id}/skills`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
-          setJobSkill(res.data.jobSkills)
-          console.log(res.data.jobSkills);
-      })
-    }, [])
-
-    // useEffect(() => {
-    //   var data = []
-    //   // if (!jobSkill){
-    //     jobSkill.map((item) => {
-    //       var skill_id = item.skill_id
-    //       axios.get(`/api/skill/${skill_id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
-    //         data = data.append({...item, 'skillName': res.data.skill.name})
-    //     })
-    //     })
-    //   // }
-    //   setSkill(data)
-    // }, [])
-
-
-   // useEffect(() => {
-     // axios.get(`/api/employee/${user_id}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
-       //   const employeeJob = res.data.employeeJob
-         // if (employeeJob.employee_id == user_id){
-           // setSubmit(true)
-            //setloading(false)
-         // }
-         // console.log(employeeJob);
-      //})
-    //}, [])
-=======
     const [status, setstatus] = useState("pending")
     useEffect(() => {
       axios.get(`/api/employee/${user_id}/job/${work.id}`,{headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
@@ -72,7 +37,6 @@ function Work_Modal(props) {
     })
     }, [])
 
->>>>>>> 41509c8467a457dadc0e14154f222301fca0d010
     // console.log(work);
     const submitHandle = e =>{
       e.persist()

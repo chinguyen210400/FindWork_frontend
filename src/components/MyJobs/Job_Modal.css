@@ -1,5 +1,5 @@
 .modalBackground {
-  width: 200vw;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(200, 200, 200);
   position: fixed;
@@ -10,8 +10,8 @@
 }
 
 .modalContainer {
-  width:  200vw;
-  height: 500px;
+  width: 100vw;
+  height: 100vh;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -27,7 +27,7 @@
 
 .titleCloseBtn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .titleCloseBtn button {

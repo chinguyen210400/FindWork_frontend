@@ -21,7 +21,7 @@ function UserProfile () {
 			setuserid(res.data.employee.user_id)
 			console.log(userProfile)
 		})
-	}, [userid])
+	}, [userProfile.email])
 
 	useEffect(() => {
 		axios.get(`api/employee/${localStorage.getItem("user_id")}/skills`, {headers : {"Authorization" : `Bearer ${localStorage.getItem("auth_token")}`}}).then(res => {
@@ -67,7 +67,7 @@ function UserProfile () {
             </div>
     <div className="resume_wrapper">
 			{contactModalOpen && <Contact_Modal setOpenModal={setContactModalOpen} />}
-            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} />}  
+            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} skillList = {skillItemProfile} />}  
 	<div className="resume_left">
 		<div className="resume_image">
         <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>

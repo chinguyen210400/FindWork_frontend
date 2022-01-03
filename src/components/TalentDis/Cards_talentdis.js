@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import TalentItems from "./TalentItems";
@@ -6,21 +6,25 @@ import ReactPaginate from "react-paginate";
 import Talent_Modal from "./Talent_Modal";
 import './Cards_talentdis.css';
 import "./TalentItems.css";
+import axios from "axios";
+import TalentInvitation from "./TalentInvitation";
 
 function Cards_talentdis () {
+    const token = localStorage.getItem("auth_token")
     const [talentModalOpen, setTalentModalOpen] = useState(false);
 
     const [talentItem,setTalentItem] = useState([
-        {url:"/images/talent1.jpg", name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
-        {name: "Job 1", description: "Development"},
     ])
 
+    const [talentModaltem, setTalentModalItem] = useState({})
+    useEffect(() => {
+        axios.get(`/api/employee`, {headers : {"Authorization" : `Bearer ${token}`}}).then(
+            res => {
+                console.log(res.data.employees);
+                setTalentItem(res.data.employees)
+            }
+        )
+    }, [])
     const [pageNumber, setPageNumber] = useState(0);
 
     const itemPerPage = 6;
@@ -34,14 +38,14 @@ function Cards_talentdis () {
 
     const  talentsList = talentItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
                     return (
-                        <TalentItems key={index}  name={item.name} description={item.description} url={item.url} click1={() => {setTalentModalOpen(true);}}/>
+                        <TalentItems key={index} talentInfo = {item} click1={() => {setTalentModalOpen(true); setTalentModalItem(item) }}/>
                     );
                 }
     )
    
     return (
         <div className = "talent_container">
-             {talentModalOpen && <Talent_Modal setOpenModal={setTalentModalOpen} />}
+             {talentModalOpen && <Talent_Modal setOpenModal={setTalentModalOpen} talentInfo = {talentModaltem} />}
         <div className = "findwork_title">
             <div className="title_search">     
                 <div className="talent_list_title">

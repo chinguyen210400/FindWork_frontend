@@ -4,8 +4,10 @@ import { Button } from "../Layouts/Button";
 import "./Skills_Modal.css";
 import axios from "axios";
 
-function Skills_Modal({ setOpenModal }) {
+function Skills_Modal(props) {
         const [showSkills,setShowSkills] = useState(true);
+        const [employeeSkillList, setemployeeSkillList] = useState(props.skillList)
+        console.log(employeeSkillList);
         const [skillList,setskillList] = useState([]);
         const [categoryList, setcategoryList] = useState([])
         const [skillInput, setskillInput] = useState({
@@ -52,16 +54,23 @@ function Skills_Modal({ setOpenModal }) {
                 alert("Success\n")
             })
         }
-        const deleteskillList = (skillIndex) => {
+        const deleteskillList = (item) => {
+            const skillIndex = employeeSkillList.indexOf(item)
             console.log(skillIndex);
-            const newskillList = [...skillList];
-            newskillList.splice(skillIndex,1);
-            setskillList(newskillList);
+            const newskillList = [...employeeSkillList]
+            const skillID = item.skill.skill.id
+            if (window.confirm("Do you want to delete this skill") == true)
+            {
+                axios.delete(`/api/employee/${user_id}/skill/${skillID}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                    alert('Delete success')
+                })
+                newskillList.splice(skillIndex,1)
+                setemployeeSkillList(newskillList)
+            }
         }
-
-        const  skillsList = skillList.map((item) => {
+        const  skillsList = employeeSkillList.map((item) => {
             return (
-                <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  text={item.name} />
+                <SkillsItems key={item.skillName} click={() => deleteskillList(item )}  text={item.skillName} />
             );
             })
         function buildOptions() {
@@ -83,14 +92,14 @@ function Skills_Modal({ setOpenModal }) {
         <div className="skill_modalBackground">
           <div className="skill_modalContainer" role='dialog'>
             <div className="skill_titleCloseBtn">
-              <button onClick={() => {setOpenModal(false);}}>X</button>
+              <button onClick={() => {props.setOpenModal(false); window.location.reload()}}>X</button>
             </div>
         <div className="skillmodal_header">
             <h1>Skill List</h1>
         </div>
         <div className="skill_body">
           <div className="skill_list">
-            {/* {skillsList} */}
+            {skillsList}
             </div>
             <div className="add_skill">
                 <label className="skill_label"><p>Select Category</p></label>
