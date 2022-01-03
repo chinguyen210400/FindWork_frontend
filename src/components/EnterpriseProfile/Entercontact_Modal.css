@@ -1,0 +1,99 @@
+.enter_modalBackground {
+    width: 1100px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .enter_modalContainer {
+    width: 800px;
+    height: 70vh;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  
+  .enter_modalContainer .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .enter_modalContainer .title p {
+    font-size: 25px;
+  }
+  
+  .enter_titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .enter_titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .enter_modalContainer .body {
+    margin-top: 20px;
+    flex: 50%;
+  }
+
+  .enter_modalContainer .body p {
+    font-size: 15px;
+    text-align :start;
+  }
+  
+  .enter_modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .enter_modalContainer .enter_footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(35, 87, 117);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .enter_contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.enter_ContactForm  {
+  font-size: 25px;
+}
+
+.contact_textInput {
+    padding-left: 10px;
+    height: 40px;
+    width: 300px;
+    margin-bottom: 10px;
+    align-self: center;
+    font-family: Arial, sans-serif;
+    color: black;
+
+    border-color: rgba(245, 244, 243, 0.842);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.contact_textInput {
+  font-size: 15px;
+}

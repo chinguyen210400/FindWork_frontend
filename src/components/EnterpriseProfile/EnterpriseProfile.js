@@ -1,9 +1,18 @@
 import React, {useState} from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
+import Entercontact_Modal from "./Entercontact_Modal";
+import Enterdetails_Modal from "./Enterdetails_Modal";
 import "./EnterpriseProfile.css";
 import axios from "axios";
+
 function Enterprise_Profile() {
+
+    const [entercontactModalOpen, setEntercontactModalOpen] = useState(false);
+
+    const [enterdetailsModalOpen, setEnterdetailsModalOpen] = useState(false);
+
     const logOutSubmit = e => {
 		e.preventDefault()
 		const token = localStorage.getItem('auth_token');
@@ -29,33 +38,37 @@ function Enterprise_Profile() {
                 </div>
             </div>
             <div className='enterprise_user'>
+            {entercontactModalOpen && <Entercontact_Modal setOpenModal={setEntercontactModalOpen} />}  
+            {enterdetailsModalOpen && <Enterdetails_Modal setOpenModal={setEnterdetailsModalOpen} />}  
     <div className="enterprise">
         <h1>Nguyen Chi </h1>
         <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> 
     </div>
 
+    
     <div className = "connect">
-        <div className = "card">
-            <div className="card-header">
-            <h5>Company Contact</h5>
+        <div className = "enterprise_card">
+            <div className="enterprise_card-header">
+            <h5>Company Contact <i className="fa fa-edit fa-0.5x" onClick={() => {setEntercontactModalOpen(true);}}></i></h5>
+           
             </div>
         
-            <div className="card-body">
+            <div className="enterprise_card-body">
                 <ul>
                 <li><p>Location : Ngoc Ha, Ba Dinh, Ha Noi</p></li>
                 <li><p>Email : chi.ny184049@sis.hust.edu.vn</p></li>
                 <li><p>Phone: 0328481395</p></li>
                 </ul>
             </div>   
-        </div>      
+        </div>  
+         
     </div>
-
     <div className="skills">
-    <div className = "card">
-            <div className="card-header">
-        <h5>Company Details </h5>
+    <div className = "enterprise_card">
+            <div className="enterprise_card-header">
+        <h5>Company Details <i className="fa fa-edit fa-0.5x" onClick={() => {setEnterdetailsModalOpen(true);}}></i></h5>
             </div>
-            <div className="card-body">
+            <div className="enterprise_card-body">
                 <h3>  </h3>
                 <ul>
                     <li><p>Website Url: </p></li>
@@ -67,9 +80,8 @@ function Enterprise_Profile() {
             </div>
     </div>
     </div>
+</div> 
 </div>
-</div>
-        
     );
     }
 
