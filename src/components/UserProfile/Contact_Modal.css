@@ -1,5 +1,5 @@
-.modalBackground {
-    width: 1000px;
+.contact_modalBackground {
+    width: 1100px;
     height: 100vh;
     background-color: rgb(255, 255, 255);
     position: fixed;
@@ -8,57 +8,59 @@
     align-items: center;
   }
   
-  .modalContainer {
+  .contact_modalContainer {
     width: 800px;
-    height: 90vh;
+    height: 80vh;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     padding: 25px;
+    overflow-y: auto;
+    margin-top: -100px;
   }
   
-  .modalContainer .title {
+  .contact_modalContainer .title {
     display: inline-block;
     text-align: center;
     margin-top: 10px;
   }
 
-  .modalContainer .title p {
+  .contact_modalContainer .title p {
     font-size: 25px;
   }
   
-  .titleCloseBtn {
+  .contact_titleCloseBtn {
     display: flex;
     justify-content: flex-end;
   }
   
-  .titleCloseBtn button {
+  .contact_titleCloseBtn button {
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
   }
   
-  .modalContainer .body {
+  .contact_modalContainer .body {
     margin-top: 20px;
     flex: 50%;
   }
 
-  .modalContainer .body p {
+  .contact_modalContainer .contact_body p {
     font-size: 15px;
     text-align :start;
   }
   
-  .modalContainer .footer {
+  .contact_modalContainer .contact_footer {
     flex: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .modalContainer .footer button {
+  .contact_modalContainer .contact_footer button {
     width: 150px;
     height: 45px;
     margin: 10px;
@@ -70,13 +72,13 @@
     cursor: pointer;
   }
 
-  .contactForm {
+  .contact_contactForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
-.ContactForm  {
+.contact_ContactForm  {
   font-size: 25px;
 }
 
@@ -96,4 +98,15 @@
 
 .contact_textInput {
   font-size: 15px;
+}
+
+.form_control {
+  align-self: center;
+  font-family: Arial, sans-serif;
+  border-color: rgba(245, 244, 243, 0.842);
+    border-radius: 5px;
+    background-color: transparent;
+}
+.right_form {
+  float: right;
 }

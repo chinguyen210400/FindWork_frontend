@@ -1,23 +1,24 @@
 .skill_modalBackground {
-    width: 1000px;
+    width: 1100px;
     height: 100vh;
     background-color: rgb(255, 255, 255);
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 300px;
   }
   
   .skill_modalContainer {
-    width: 500px;
-    height: 550px;
+    width: 800px;
+    height: 80vh;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     padding: 25px;
+    overflow-y: auto;
+    margin-top: -100px;
   }
   
   .skill_titleCloseBtn {
@@ -37,24 +38,24 @@
     cursor: pointer;
   }
   
-  .skill_modalContainer .body .skill_list {
+  .skill_modalContainer .skill_body .skill_list {
     border: 1px solid rgba(190, 190, 190, 0.842);
     padding: 20px;
   }
 
-  .skill_modalContainer .body p {
+  .skill_modalContainer .skill_body p {
     font-size: 15px;
     text-align :start;
   }
   
-  .skill_modalContainer .footer {
+  .skill_modalContainer .skill_footer {
     flex: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .skill_modalContainer .body .add_skill button {
+  .skill_modalContainer .skill_body .add_skill button {
     width: 100px;
     height: 40px;
     margin: 10px;
@@ -68,11 +69,11 @@
   }
 
   
-  .skill_modalContainer .body .add_skill button:hover {
+  .skill_modalContainer .skill_body .add_skill button:hover {
     background-color: rgb(208, 224, 243);
   }
   
-  .skill_modalContainer .footer button {
+  .skill_modalContainer .skill_footer button {
     width: 150px;
     height: 45px;
     margin: 10px;
@@ -84,7 +85,7 @@
     cursor: pointer;
   }
 
-  .skill_modalContainer .footer button:hover {
+  .skill_modalContainer .skill_footer button:hover {
     background-color: #fff;
     color: rgb(35, 87, 117);
     border: 1px solid rgb(35, 87, 117);
@@ -92,4 +93,17 @@
 
   .add_skill {
     margin-top: 30px;
+  }
+
+  .add_skill p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  .skill_label {
+    margin-top: 30px;
+  }
+
+  .skill_button {
+    margin-top: 20px;
   }

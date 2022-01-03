@@ -81,19 +81,19 @@ function Skills_Modal({ setOpenModal }) {
 
         return (
         <div className="skill_modalBackground">
-          <div className="skill_modalContainer">
+          <div className="skill_modalContainer" role='dialog'>
             <div className="skill_titleCloseBtn">
               <button onClick={() => {setOpenModal(false);}}>X</button>
             </div>
         <div className="skillmodal_header">
             <h1>Skill List</h1>
         </div>
-        <div className="body">
+        <div className="skill_body">
           <div className="skill_list">
             {/* {skillsList} */}
             </div>
             <div className="add_skill">
-                <label>Select Category</label>
+                <label className="skill_label"><p>Select Category</p></label>
                     <select name ="category_id" onChange={handleCategoryInput} value = {categoryList.id} className ="form-control">
                         <option> Select category</option>
                         {
@@ -104,7 +104,7 @@ function Skills_Modal({ setOpenModal }) {
                             })
                         }
                     </select>   
-                    <label>Select Skill</label>
+                    <label className="skill_label"><p>Select Skill</p></label>
                     <select name ="skill_id"  value = {skillInput.id} onChange = {handleSkillInput} className ="form-control">
                         <option> Select skill</option>
                         {
@@ -115,24 +115,26 @@ function Skills_Modal({ setOpenModal }) {
                             })
                         }
                     </select> 
-                    <label>Select Level</label>
+                    <label className="skill_label"><p>Select Level</p></label>
                     <select name ="level"  value = {skillInput.level} onChange = {handleSkillInput} className ="form-control">
                         <option> Select Level</option>
                         {
                             buildOptions()
                         }
                     </select>  
-                    <label>Select Year of Experience</label>
+                    <label className="skill_label"><p>Select Year of Experience</p></label>
                     <select name ="years_of_experience"  value = {skillInput.years_of_experience} onChange = {handleSkillInput} className ="form-control">
                         <option> Select Level</option>
                         {
                             buildOptions2()
                         }
                     </select>   
-                <button onClick={submitAddSkill}>+ Add Skill</button>
+                    <div className="skill_button">
+                <button onClick={submitAddSkill} >+ Add Skill</button>
+                </div>
             </div>
         </div>
-        <div className="footer">
+        <div className="skill_footer">
             <button>Save</button>
         </div>
       </div>
