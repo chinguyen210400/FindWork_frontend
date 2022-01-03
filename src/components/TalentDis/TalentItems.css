@@ -1,36 +1,58 @@
-.card__body {
-  font-family: Oxygen, sans-serif;
-  margin: 2rem;
+.talent_item {
+  background-color: #fff;
+  border: 2px solid rgba(245, 244, 243, 0.842) ;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  gap: 2rem;
-  justify-content: center;
+.talent_item:hover {
+  border: 1px solid rgb(45, 99, 133);
 }
 
-.card {
-  overflow: hidden;
-  box-shadow: 0 2px 20px  #e1e5ee;
-  border-radius: 0.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 200ms ease-in;
+.talent_item_info {
+ 
 }
 
-  .card__image {
-    height: 12rem;
-    width: 100%;
-    object-fit: cover;
-  }
+.talent_item_image {
+  
+}
 
-  .card__title {
-    padding: 1rem;
-  }
 
-  .card__description {
-    padding: 0 1rem;
-  }
+
+.talent_item_img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  
+}
+
+.talent_item_title {
+  padding: 20px 30px 30px;
+  
+}
+
+.talent_item_title h5 {
+
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.talent_item_title p {
+  font-size: 15px;
+  margin: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.talent_item_text {
+  color: #252e48;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+.fa-star {
+  color: #ffe920;
+}
