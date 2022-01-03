@@ -27,7 +27,7 @@ function FindWork() {
     // const value = {workItemModal, setworkItemModal}
     const itemPerPage = 3;
     const pagesVisited = pageNumber * itemPerPage;
-    
+    const [searchInput, setsearchInput] = useState("")
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
@@ -41,6 +41,35 @@ function FindWork() {
         })
     },[])
 
+    const handleSearchInput = e => {
+        e.persist()
+        setsearchInput(e.target.value)
+        console.log(searchInput);
+    }
+
+    const searchSubmit = e => {
+        e.preventDefault()
+        const keyword = searchInput;
+        if (keyword == ""){
+            axios.get(`/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                setFindWorkItem(res.data.jobs)
+                console.log(res.data.jobs);
+                // console.log(res.data.jobs)
+                setloading(false)
+            })
+        }
+        else {
+            axios.get(`/api/job/search/${keyword}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                setFindWorkItem(res.data.job)
+                console.log(res.data.job);
+                // console.log(res.data.jobs)
+                setloading(false)  
+            }).catch(err => {
+                alert("Cannot find this job")
+            })
+        }
+        
+    }
     const pageCount = Math.ceil(findWorkItem.length / itemPerPage);
     var findWorkList;
     if (loading){
@@ -54,7 +83,7 @@ function FindWork() {
             );
         })
     }
-     console.log(workItemModal);
+    // console.log(workItemModal);
     return(
         <>
             <Navbar_myjobs />
@@ -65,7 +94,12 @@ function FindWork() {
             <div className = "findwork_title">
                 <div className ="findwork_title_icon" >Find Work</div>
                 <div className="title_search"> 
-                    <div className='search_box'><input className="textSearch_findwork" placeholder="Search"/><button className="search_button"><i className="fa fa-search"></i></button></div>
+                    <div className='search_box'>
+                        <form onSubmit={searchSubmit}>
+                        <input className="textSearch_findwork" name ="searchInput" onChange = {handleSearchInput} placeholder="Search"/>
+                        <button className="search_button" type = "submit"><i className="fa fa-search"></i></button>
+                        </form>
+                    </div>
                     <div className="search_title">Advanced Search</div>
                     <table className="list_title">
                         <thead>

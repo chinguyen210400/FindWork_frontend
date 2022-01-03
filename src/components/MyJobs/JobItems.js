@@ -27,7 +27,9 @@ function JobItems (props) {
                 <div className='job_item_title'>
                 <h5  className='job_item_text'>{jobItem.job.title}</h5>
                 <p className='job_item_text'>{jobItem.job.description}</p>
-                <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'>Rating</Button>
+                { jobItem.status == "accepted" &&
+                    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'>Rating</Button>
+                }
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>Report</Button>
             </div> 
             <div className='job_item_button' >
@@ -41,8 +43,7 @@ function JobItems (props) {
                  {
                      jobItem.status == "accepted" && <Button onClick={props.click1} className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>ACCEPTED</Button>
                  }  
-                 
-                 
+                
             </div>
                
             </div> 
