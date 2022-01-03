@@ -31,8 +31,17 @@ function JobItems (props) {
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>Report</Button>
             </div> 
             <div className='job_item_button' >
-                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View</Button>     
-                 <Button onClick={props.click1} className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>{jobItem.status}</Button>
+                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View</Button>
+                 {
+                     jobItem.status == "pending" && <Button onClick={props.click1} className='btns' buttonStyle='btn--yellow' buttonSize='btn--medium'>PENDING</Button>
+                 }    
+                {
+                     jobItem.status == "rejected" && <Button onClick={props.click1} className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>REJECTED</Button>
+                 }   
+                 {
+                     jobItem.status == "accepted" && <Button onClick={props.click1} className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>ACCEPTED</Button>
+                 }  
+                 
                  
             </div>
                

@@ -90,6 +90,7 @@
     padding: 8px 20px;
     border-radius: 5px;
   }
+<<<<<<< HEAD
 
   .btn--view {
     background-color: rgb(42, 130, 146);
@@ -100,6 +101,16 @@
 
   .btn--accept {
     background-color: rgb(44, 139, 57);
+=======
+  .btn--green {
+    background-color: green;
+    color:rgb(255, 255, 255);
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+  .btn--yellow {
+    background-color: rgba(217, 231, 14, 0.815);
+>>>>>>> 41509c8467a457dadc0e14154f222301fca0d010
     color:rgb(255, 255, 255);
     padding: 8px 20px;
     border-radius: 5px;
