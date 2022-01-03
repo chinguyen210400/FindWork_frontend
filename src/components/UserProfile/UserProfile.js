@@ -54,8 +54,6 @@ function UserProfile () {
 	}
     return (
         <div className='profile_container'>
-            {contactModalOpen && <Contact_Modal setOpenModal={setContactModalOpen} />}
-            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} />}  
             <div className='profile_left'>
                 <div className='profile_list'>
                     <ul className='list_info'>
@@ -68,6 +66,8 @@ function UserProfile () {
                 </div>
             </div>
     <div className="resume_wrapper">
+			{contactModalOpen && <Contact_Modal setOpenModal={setContactModalOpen} />}
+            {skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} />}  
 	<div className="resume_left">
 		<div className="resume_image">
         <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>

@@ -26,5 +26,58 @@
 .talent_list_title_right {
 	float: right;
 	margin-top: 30px;
-	margin-right: -150px;
+
 }
+
+.list_right {
+	float: right;
+	display: grid;
+	grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 400px 400px 50px;
+	width: 80%;
+	margin-top: 100px;
+}
+
+.talent_container {
+	height: 170vh;
+	background-color: rgba(245, 244, 243, 0.842) ;
+
+}
+
+.talent_pagi {
+	margin-top: 100px;
+}
+
+.talent_paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center; 
+	
+  }
+  
+  .talent_paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    color: rgb(35, 87, 117);
+    cursor: pointer;
+  }
+  
+  .talent_paginationBttns a:hover {
+    color: white;
+    background-color: #a6a7af;
+  }
+  
+  .talent_paginationActive a {
+    color: white;
+    background-color: rgb(35, 87, 117);
+  }
+  
+  .talent_paginationDisabled a {
+    color: rgb(255, 255, 255);
+    background-color: grey;
+  }
+

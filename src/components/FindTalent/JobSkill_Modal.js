@@ -1,7 +1,7 @@
 import React, { useState ,useEffect } from "react";
 import SkillsItems from "../UserProfile/SkillsItems";
 import { Button } from "../Layouts/Button";
-import "../UserProfile/Skills_Modal.css"
+import "./JobSkill_Modal.css";
 import axios from "axios";
 
 function JobSkill_Modal(props) {
@@ -78,25 +78,25 @@ function JobSkill_Modal(props) {
         }
 
         return (
-        <div className="skill_modalBackground">
-          <div className="skill_modalContainer">
-            <div className="skill_titleCloseBtn">
+        <div className="jobskill_modalBackground">
+          <div className="jobskill_modalContainer" role='dialog'>
+            <div className="jobskill_titleCloseBtn">
               <button onClick={() => {props.setOpenModal(false);}}>X</button>
             </div>
-        <div className="skillmodal_header">
+        <div className="jobskillmodal_header">
             <h1>Skill List</h1>
         </div>
         {loading ? <h5>Loading </h5> : 
-          <div className="body">
-          <div className="skill_list">
+          <div className="jobskill_body">
+          <div className="jobskill_list">
             { jobSkillList.map((item) => {
             return (
                 <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  skill={item} />
             )})
             }
             </div>
-            <div className="add_skill">
-                <label>Select Category</label>
+            <div className="jobadd_skill">
+                <label className="jobskill_label"><p>Select Category</p></label>
                     <select name ="category_id" onChange={handleCategoryInput} value = {categoryList.id} className ="form-control">
                         <option> Select category</option>
                         {
@@ -107,7 +107,7 @@ function JobSkill_Modal(props) {
                             })
                         }
                     </select>   
-                    <label>Select Skill</label>
+                    <label className="jobskill_label"><p>Select Skill</p></label>
                     <select name ="skill_id"  value = {skillInput.id} onChange = {handleSkillInput} className ="form-control">
                         <option> Select skill</option>
                         {
@@ -118,14 +118,16 @@ function JobSkill_Modal(props) {
                             })
                         }
                     </select> 
-                    <label>Select Level</label>
+                    <label className="jobskill_label"><p>Select Level</p></label>
                     <select name ="level"  value = {skillInput.level} onChange = {handleSkillInput} className ="form-control">
                         <option> Select Level</option>
                         {
                             buildOptions()
                         }
                     </select>  
+                    <div className="jobskill_button">
                 <button onClick={submitAddSkill}>+ Add Skill</button>
+                </div>
             </div>
         </div>
         }

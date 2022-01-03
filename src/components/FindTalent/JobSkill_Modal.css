@@ -1,14 +1,15 @@
-.skill_modalBackground {
-    width: 1100px;
+.jobskill_modalBackground {
+    width: 1000px;
     height: 100vh;
     background-color: rgb(255, 255, 255);
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 300px;
   }
   
-  .skill_modalContainer {
+  .jobskill_modalContainer {
     width: 800px;
     height: 80vh;
     border-radius: 12px;
@@ -21,41 +22,41 @@
     margin-top: -100px;
   }
   
-  .skill_titleCloseBtn {
+  .jobskill_titleCloseBtn {
     display: flex;
     justify-content: flex-end;
   }
 
-  .skillmodal_header {
+  .jobskillmodal_header {
     text-align: center;
     background-color:  rgba(190, 190, 190, 0.842) ;
   }
   
-  .skill_titleCloseBtn button {
+  .jobskill_titleCloseBtn button {
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
   }
   
-  .skill_modalContainer .skill_body .skill_list {
+  .jobskill_modalContainer .jobskill_body .jobskill_list {
     border: 1px solid rgba(190, 190, 190, 0.842);
     padding: 20px;
   }
 
-  .skill_modalContainer .skill_body p {
+  .jobskill_modalContainer .jobskill_body p {
     font-size: 15px;
     text-align :start;
   }
   
-  .skill_modalContainer .skill_footer {
+  .jobskill_modalContainer .jobskill_footer {
     flex: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .skill_modalContainer .skill_body .add_skill button {
+  .jobskill_modalContainer .jobskill_body .jobadd_skill button {
     width: 100px;
     height: 40px;
     margin: 10px;
@@ -69,11 +70,11 @@
   }
 
   
-  .skill_modalContainer .skill_body .add_skill button:hover {
+  .jobskill_modalContainer .jobskill_body .jobadd_skill button:hover {
     background-color: rgb(208, 224, 243);
   }
   
-  .skill_modalContainer .skill_footer button {
+  .jobskill_modalContainer .jobskill_footer button {
     width: 150px;
     height: 45px;
     margin: 10px;
@@ -85,25 +86,25 @@
     cursor: pointer;
   }
 
-  .skill_modalContainer .skill_footer button:hover {
+  .jobskill_modalContainer .jobskill_footer button:hover {
     background-color: #fff;
     color: rgb(35, 87, 117);
     border: 1px solid rgb(35, 87, 117);
   }
 
-  .add_skill {
+  .jobadd_skill {
     margin-top: 30px;
   }
 
-  .add_skill p{
+  .jobadd_skill p{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 15px;
   }
 
-  .skill_label {
+  .jobskill_label {
     margin-top: 30px;
   }
 
-  .skill_button {
+  .jobskill_button {
     margin-top: 20px;
   }

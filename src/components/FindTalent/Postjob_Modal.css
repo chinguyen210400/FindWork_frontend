@@ -10,7 +10,7 @@
   
   .postjob_modalContainer {
     width:  80vw;
-    height: 100vh;
+    height: 80vh;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -18,6 +18,7 @@
     flex-direction: column;
     padding: 25px;
     overflow-y: auto;
+    margin-top: -100px;
     
   }
   
@@ -33,16 +34,16 @@
 
   .postjob_container {
     width:  75vw;
-    height: 75vh;
     justify-content: center;
-    align-items: center;
-    border: 2px solid rgb(243, 237, 237);
-    
+    align-items: center;    
+
   }
 
   .postjob_title {
     height: 5vw;
     border-bottom: 2px solid rgb(243, 237, 237);
+    border: 2px solid rgb(243, 237, 237);
+
   }
 
   .postjob_button {
@@ -60,6 +61,17 @@
     height: 7vw;
     border-bottom: 2px solid rgb(243, 237, 237);
     padding: 15px;
+    border: 2px solid rgb(243, 237, 237);
+
+  }
+
+  .postjob_body {
+    border: 2px solid rgb(243, 237, 237);
+  }
+
+  .postjob_element {
+    border-bottom: 2px solid rgb(243, 237, 237);
+
   }
 
   .headline_textInput {
@@ -70,7 +82,7 @@
   }
 
   .postjob_describe {
-    height: 7vw;
+    height: 10vw;
     border-bottom: 2px solid rgb(243, 237, 237);
     padding: 15px;
   }
@@ -87,7 +99,7 @@
   }
 
   .postjob_element {
-    height: 11vw;
+    height: 8vw;
     padding: 15px;
   }
 
@@ -107,5 +119,9 @@
 
   .fa-close {
     color: rgb(35, 87, 117);
+  }
+
+  .postjob_footer {
+    height: 5vw;
   }
 

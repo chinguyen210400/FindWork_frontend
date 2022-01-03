@@ -60,18 +60,18 @@ function Postjob_Modal(props) {
         const data = jobInput
         axios.post(`/api/job`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             alert("Add success \n");
-            <Link to = '/findtalent'></Link>
+           // <Link to = '/findtalent'></Link>
         }).catch(err => {
             alert(err.message)
         })
     }
     return (
         <div className="postjob_modalBackground" >
-        <div className="postjob_modalContainer"  >
+        <div className="postjob_modalContainer"  role='dialog'>
         <div className="postjob_titleCloseBtn">
         <Link className="fa fa-close fa-2x link"  aria-hidden="true" onClick={() => { props.setOpenModal(false);}}></Link> 
         </div>
-        <div className="postjob_container" role='dialog'>
+        <div className="postjob_container">
             <form className="postJobForm" onSubmit = {submitPostJob}>
             <div className="postjob_title">
             <div className="postjob_button">
@@ -106,19 +106,24 @@ function Postjob_Modal(props) {
                 <div className="postjob_body_input">
                     <input className="budget_textInput" type="text" onChange = {handleInput} name="salary" placeholder=""/>
                 </div>
+                </div>
+                <div className="postjob_element">
                 <div className="postjob_body_title">
                     <h6>Number of employee</h6>
                 </div>
                 <div className="postjob_body_input">
                     <input className="budget_textInput" onChange = {handleInput} type="text" name="number_of_employees" placeholder=""/>
                 </div>
+                </div>
+                <div className="postjob_element">
                 <div className="postjob_body_title">
                     <h6>Location</h6>
                 </div>
                 <div className="postjob_body_input">
                     <input className="budget_textInput" onChange = {handleInput} type="text" name="location" placeholder=""/>
                 </div>
-
+                </div>
+                <div className="postjob_element">
                 <div className="postjob_body_title">
                     <h6>Type</h6>
                 </div>
@@ -130,10 +135,8 @@ function Postjob_Modal(props) {
                 </select>
                 </div>
                 </div>
-
             </div>
             </form>
-            
         </div>
       </div>
     </div>
