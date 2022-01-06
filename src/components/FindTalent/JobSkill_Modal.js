@@ -1,11 +1,12 @@
 import React, { useState ,useEffect } from "react";
-import SkillsItems from "../UserProfile/SkillsItems";
+import SkillsItems from "./SkillsItems"
 import { Button } from "../Layouts/Button";
 import "./JobSkill_Modal.css";
 import axios from "axios";
 
 function JobSkill_Modal(props) {
         const jobItem = props.job
+        // console.log(jobItem);
         const [showSkills,setShowSkills] = useState(true);
         const [jobSkillList, setjobSkillList] = useState([]);
         const [skillList,setskillList] = useState([]);
@@ -55,20 +56,28 @@ function JobSkill_Modal(props) {
             console.log(user_id);
             axios.post(`api/job/${jobItem.id}/skill`,skillInput,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
                 alert("Success\n")
+                window.location.reload()
             }).catch(err => alert(err.message))
         }
-        const deleteskillList = (skillIndex) => {
+        const deleteskillList = (item) => {
+            const skillIndex = jobSkillList.indexOf(item)
             console.log(skillIndex);
-            const newskillList = [...skillList];
-            newskillList.splice(skillIndex,1);
-            setskillList(newskillList);
+            const newskillList = [...jobSkillList];
+            if (window.confirm("Do you want to delete this skill") == true)
+            {
+                axios.delete(`/api/job/${jobItem.id}/skill/${item.skill.id}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                    alert('Delete success')
+                })
+                newskillList.splice(skillIndex,1)
+                setjobSkillList(newskillList);
+            }
         }
 
-        // const  skillsList = jobSkillList.map((item) => {
-        //     return (
-        //         <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  skill={item} />
-        //     );
-        //     })
+        const  skillsList = jobSkillList.map((item) => {
+            return (
+                <SkillsItems key={item.id} click={() => deleteskillList(item)}  skill={item} />
+            );
+            })
         function buildOptions() {
             var arr = []
             for (let i = 1; i <= 5; i++) {
@@ -89,10 +98,8 @@ function JobSkill_Modal(props) {
         {loading ? <h5>Loading </h5> : 
           <div className="jobskill_body">
           <div className="jobskill_list">
-            { jobSkillList.map((item) => {
-            return (
-                <SkillsItems key={item.id} click={() => deleteskillList(item.id)}  skill={item} />
-            )})
+            { 
+                skillsList
             }
             </div>
             <div className="jobadd_skill">

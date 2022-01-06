@@ -70,7 +70,7 @@ function Skills_Modal(props) {
         }
         const  skillsList = employeeSkillList.map((item) => {
             return (
-                <SkillsItems key={item.skillName} click={() => deleteskillList(item )}  text={item.skillName} />
+                <SkillsItems key={item.skillName} click={() => deleteskillList(item)}  text={item.skillName} />
             );
             })
         function buildOptions() {

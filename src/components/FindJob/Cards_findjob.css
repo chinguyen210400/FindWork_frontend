@@ -1,16 +1,16 @@
-.findwork_container{
+.findjob_container{
     height: 150vh;
     background-color: rgba(245, 244, 243, 0.842) ;
 }
 
-.findwork_title {
+.findjob_title {
     height: 30vh;
     width: 100%;
     background-color: rgba(245, 244, 243, 0.842) ;
     display: flex;
 }
 
-.findwork_title_icon {
+.findjob_title_icon {
     font-size:50px;
     margin-left: 80px;
     margin-top: 70px;
@@ -29,7 +29,7 @@
     padding-right: 8px;
 }
 
-.findwork_body {
+.findjob_body {
     height: 100vh;
     background-color: rgba(245, 244, 243, 0.842) ;
     display: flex;
@@ -39,17 +39,17 @@
     width: 100%;
 }
 
-.findwork_item {
+.findjob_item {
     width: 100%;
     height: 30vh;
     list-style-type: none;
 }
 
-.findwork_item_info {
+.findjob_item_info {
     margin-top: 50px;
 }
 
-.findwork_item_title {
+.findjob_item_title {
     font-size: 50px;
     background-color: #fff;
     border-bottom: 1px solid rgba(219, 219, 219, 0.842);
@@ -57,23 +57,23 @@
     height: 30vh;
 }
 
-.findwork_item_title h5 {
+.findjob_item_title h5 {
     margin: 20px;
     font-size: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.findwork_item_title p {
+.findjob_item_title p {
     font-size: 20px;
     margin: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.findwork_item_info .btn {
+.findjob_item_info .btn {
     margin: 10px;
 }
 
-.findwork_item_button {
+.findjob_item_button {
     width: 30%;
     height: 30vh;
     float: right;

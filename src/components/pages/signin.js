@@ -30,7 +30,7 @@ function SignIn () {
           localStorage.setItem('user_id',res.data.user_id)
           localStorage.setItem('role',res.data.role)
           if (res.data.role == "employee")
-            window.location.href = '/findwork'
+            window.location.href = '/findjob'
           else 
             window.location.href = '/findtalent'
       })

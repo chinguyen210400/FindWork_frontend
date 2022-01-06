@@ -46,7 +46,7 @@ function Cards_talentdis () {
     return (
         <div className = "talent_container">
              {talentModalOpen && <Talent_Modal setOpenModal={setTalentModalOpen} talentInfo = {talentModaltem} />}
-        <div className = "findwork_title">
+        <div className = "findjob_title">
             <div className="title_search">     
                 <div className="talent_list_title">
                     <div className="talent_list_title_left">
@@ -61,16 +61,16 @@ function Cards_talentdis () {
                 </div>
             </div>
         </div>
-        <div  className = 'findwork_body'>
-        <div className='findwork_item'>
+        <div  className = 'findjob_body'>
+        <div className='findjob_item'>
         <div class = "list_right">
         
         {talentsList}
         </div>
 
         <div className = 'list_left'> 
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-address-card" aria-hidden="true"></i>Saved Talent</Button>
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-tags" aria-hidden="true"></i>Saved Project</Button>
+            <Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'><i class="fa fa-address-card" aria-hidden="true"></i>Saved Talent</Button>
+            <Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'><i class="fa fa-tags" aria-hidden="true"></i>Saved Project</Button>
         </div>  
         <div className="talent_pagi">
         <ReactPaginate 

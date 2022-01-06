@@ -53,25 +53,48 @@ function Proposal_Modal(props) {
       // 
   }
 
-  const displayButton = (status, employeeId) => {
-    if (status == "pending"){
+  const displayButton = (item) => {
+    const status = item.status
+    const direction = item.offer_direction
+    const employeeId = item.employee.user_id
+    if (status == "pending" && direction == "employee"){
       return (
         <div>
-        <td><Button className='btns' buttonStyle='btn--accept' buttonSize='btn--medium' onClick={(e) => {handleAccept(e, employeeId); status = "accepted"}}>Accept</Button></td>
+        <td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium' onClick={(e) => {handleAccept(e, employeeId); status = "accepted"}}>Accept</Button></td>
         <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium' onClick={(e) => {handleDecline(e, employeeId); status = "rejected"}} >Decline</Button></td>
         </div>
       )
     }
+    if (direction == "enterprise"){
+      // return (
+      //   <div>
+      //     <td>Hello</td>
+      //     <td>Hi</td>
+      //   </div>
+      // )
+      if (status == "pending"){
+        return (
+          <div>
+             <td><Button className='btns' buttonStyle='btn--yellow' buttonSize='btn--medium' ><i>Waiting</i></Button></td>
+             {/* <td>Hi</td> */}
+          </div>
+       ) 
+      }
+      else if (status == "accepted")
+        return  (<td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>Accepted</Button></td>)
+      else 
+        return  (<td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>Rejected</Button></td>)
+    }
   }
     return (
-        <div className="work_modalBackground">
+        <div className="job_modalBackground">
            {candidatesModalOpen && <Candidates_Modal setOpenModal={setCandidatesModalOpen} employeeInfo = {employeeInfo}/>}
-        <div className="work_modalContainer">
-        <div className="work_titleCloseBtn">
+        <div className="job_modalContainer">
+        <div className="job_titleCloseBtn">
         <Link className="fa fa-angle-left fa-3x link" aria-hidden="true" onClick={() => { props.setOpenModal(false); setloading(true)}}></Link> 
         </div>
         {loading ? <h5>Loading </h5> :
-        <div className = "work_card">
+        <div className = "job_card">
         <div className="card-header"><h1>{props.job.title}</h1></div>
         <div className="card-body">
         <table class="table table-striped">
@@ -80,7 +103,7 @@ function Proposal_Modal(props) {
               <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Location</th>
-              <th scope="col">Language</th>
+              <th scope="col">Type</th>
               <th scope="col">Overview</th>
             </tr>
           </thead>
@@ -91,10 +114,10 @@ function Proposal_Modal(props) {
                       <th scope = "row">{item.employee.user_id}</th>
                       <td>{item.employee.first_name +" "+  item.employee.last_name}  </td>
                       <td>{item.employee.address}</td>
-                      <td>{item.employee.language}</td>
+                      <td>{item.offer_direction == "employee" ? "Request" : "Invite"} </td>
                       <td>{item.employee.overview}</td>
                       <td><Button className='btns' buttonStyle='btn--view' buttonSize='btn--medium'  onClick={() => {setCandidatesModalOpen(true); setemployeeInfo(item)}}>View more</Button></td>
-                      {displayButton(item.status, item.employee.user_id)}
+                      {displayButton(item)}
                      
                       <td></td>
 

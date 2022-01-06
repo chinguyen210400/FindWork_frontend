@@ -38,7 +38,7 @@ const Register = () => {
 
           console.log(res);
           if (registerInput.role === 'employee')
-            window.location.href = '/findwork'
+            window.location.href = '/findjob'
             if (registerInput.role === 'enterprise')
             window.location.href = '/findtalent'
 

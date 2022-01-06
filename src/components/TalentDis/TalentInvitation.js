@@ -24,6 +24,8 @@ function TalentInvitation(props) {
         const data = {employee_id :props.employeeId }
         axios.post(`/api/job/${jobInput}/employee`,data,{headers : {"Authorization" : `Bearer ${token}`}} ).then(res => {
             alert(res.data.message)
+        }).catch(err => {
+            alert("Error");
         })
     }
     return (

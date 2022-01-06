@@ -29,7 +29,7 @@
     width: 500px;
 }
 
-.textSearch_findwork {
+.textSearch_findjob {
     padding: 6px;
     margin-top: 5px;
     margin-left: 10px;
@@ -74,20 +74,20 @@
     display: flex;
 }
 
-.work_item {
+.job_item {
     width: 100%;
     justify-content: center;
     align-items: center;
     height: 30vh;
 }
 
-.work_item_info {
+.job_item_info {
     margin-top: 50px;
     margin-left: 350px;
     margin-right: 350px;   
 }
 
-.work_item_title {
+.job_item_title {
     font-size: 50px;
     width: 90%;
     background-color: #fff;
@@ -97,23 +97,23 @@
     
 }
 
-.work_item_title h5 {
+.job_item_title h5 {
     margin: 20px;
     font-size: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.work_item_title p {
+.job_item_title p {
     font-size: 20px;
     margin: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.work_item_info .btn {
+.job_item_info .btn {
     margin: 10px;
 }
 
-.work_item_button {
+.job_item_button {
     width: 10%;
     height: 30vh;
     float: right;

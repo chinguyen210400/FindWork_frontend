@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import '../../App.css';
-import'./Cards_myjobs.css';
+import'./Cards_invitedjobs.css';
 import { Button } from "../Layouts/Button";
 import JobItems from "./JobItems";
 import Job_Modal from "./Job_Modal";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 
-function Cards_myjobs () {
+function Cards_invitedjobs () {
     const [modalOpen, setModalOpen] = useState(false);
     const [jobItem,setJobItem] = useState([])
     const [jobItemModal, setjobItemModal] = useState({})
@@ -24,9 +24,9 @@ function Cards_myjobs () {
 
     useEffect(() => {
         // console.log(user_id);
-       axios.get(`/api/employee/${user_id}/jobs`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+       axios.get(`/api/employee/${user_id}/invited`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
             // setJobItem(res.data.employeeJobs)
-            const employeeJob = res.data.employeeJobs
+            const employeeJob = res.data.invitedJobs
             setJobItem(employeeJob)
             console.log(employeeJob);
             setloading(false)
@@ -85,4 +85,4 @@ function Cards_myjobs () {
     );
 }
 
-export default Cards_myjobs;
+export default Cards_invitedjobs;

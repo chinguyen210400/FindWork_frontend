@@ -18,6 +18,7 @@ function Talent_Modal(props) {
             setloading(false)
         })
     }, [])
+    
     return (
         <div className="talent_modalBackground">
              {inviteModalOpen && <TalentInvitation setOpenModal={setinviteModalOpen} employeeId = {talentInfo.user_id}/>}
@@ -51,7 +52,6 @@ function Talent_Modal(props) {
                 <Button onClick={() => setinviteModalOpen(true)}>Invite</Button>
              </div>
              <div class="box-content">
-     
                  <div class="main-title">Skill</div>
                  {
                      talentSkill.map((item) => {
@@ -62,8 +62,6 @@ function Talent_Modal(props) {
                                      <div class="name-company">{item.skill.name}</div>
                                      <div class="pos">Level {item.level}</div>
                                      <div class="pos">Experience {item. years_of_experience} years</div>
-     
-                                    
                                  </div>
                              </div>
                              </div>

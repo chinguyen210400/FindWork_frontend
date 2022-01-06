@@ -1,6 +1,7 @@
 import React from "react";
 import "./Job_Modal.css";
 import { useState, useEffect } from "react";
+import { Button } from "../Layouts/Button";
 import axios from "axios";
 function Modal(props) {
   const [jobInfo, setjobInfo] = useState({})
@@ -10,22 +11,28 @@ function Modal(props) {
   const user_id = localStorage.getItem('user_id')
 
   useEffect(() => {
-  
     axios.get(`api/job/${props.jobItem.job_id}`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
-      console.log(res.data.job);
+      // console.log(res.data.job);
       setjobInfo(res.data.job)
       axios.get(`api/enterprise/${res.data.job.enterprise_id}`, {headers : {"Authorization" : `Bearer ${token}`}}).then( res=> {
-  
-      console.log(res.data.enterprise);
+        console.log(res.data.enterprise);
         setenterpriseInfo(res.data.enterprise)
       setloading(false)
     })
     })
     // console.log(jobInfo.enterprise_id);
-  
   }, [])
-  // const jobInfo = props.jobItem
-  // console.log(jobInfo);
+  const acceptSubmit = (e,job_id) => {
+    e.preventDefault()
+    const data = { status : 'accepted'}
+    axios.put(`/api/employee/${user_id}/job/${job_id}`,data, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+      alert("Update success");
+      window.location.reload()
+    })
+    .catch(err => {
+      alert("Update fail");
+    })
+  } 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -44,7 +51,7 @@ function Modal(props) {
            <tbody>
              <tr>
                <th scope="row">Enterprise name</th>
-               <td>{enterpriseInfo.name}</td>
+               <td>{jobInfo.name}</td>
              </tr>
              <tr>
                <th scope="row">Location</th>
@@ -91,8 +98,21 @@ function Modal(props) {
              </tr>
            </tbody>
             </table>
-            <div className="footer">
-            </div>
+           
+            
+            {
+                 props.jobItem.status == "pending" ? 
+                 <div className="footer">
+                   <Button onClick={(e) => acceptSubmit(e, jobInfo.id)} className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>ACCEPT</Button>
+                   <Button  className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>REFUSE</Button>
+                </div> :
+                <div className="footer">
+                </div>
+
+                  
+            }
+           
+            
         </div>
       }
         

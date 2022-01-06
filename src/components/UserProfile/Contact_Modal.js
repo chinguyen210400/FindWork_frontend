@@ -34,7 +34,7 @@ function Contact_Modal({ setOpenModal }) {
     <div className="contact_modalBackground">
       <div className="contact_modalContainer" role='dialog'>
         <div className="contact_titleCloseBtn">
-          <button onClick={() => {setOpenModal(false);}}>X</button>
+          <button onClick={() => {setOpenModal(false); window.location.reload()}}>X</button>
         </div>
         <div className="contact_title">
          <h3>Change Profile </h3>

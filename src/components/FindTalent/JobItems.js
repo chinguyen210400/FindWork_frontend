@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import './Cards_findtalent';
 
-function WorkItems (props) {
+function JobItems (props) {
 
     return (
         <>
         <li className='jobs_item'>
-            <div className='work_item_info'>
-            <div className='work_item_title'>
-                <h5  className='work_item_text'>{props.job.title}</h5>
-                <p className='work_item_text'>{props.job.description}</p>
+            <div className='job_item_info'>
+            <div className='job_item_title'>
+                <h5  className='job_item_text'>{props.job.title}</h5>
+                <p className='job_item_text'>{props.job.description}</p>
                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View Proposals</Button>
             </div> 
-            <div className='work_item_button'>
+            <div className='job_item_button'>
                 <i class="fas fa-edit fa-lg" onClick={props.click3}></i>
                 <div className='delete_icon'>
                 <i class="fa fa-trash fa-lg" onClick={props.click1} ></i>
@@ -26,4 +26,4 @@ function WorkItems (props) {
     );
 }
 
-export default WorkItems;
+export default JobItems;

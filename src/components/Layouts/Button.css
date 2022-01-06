@@ -67,7 +67,7 @@
     transition: 250ms;
   }
 
-  .btn--findwork {
+  .btn--findjob {
     background-color: rgba(245, 244, 243, 0.842) ;
     height: 50px;
     margin: 50px;
@@ -76,7 +76,7 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-  .btn--findwork:hover {
+  .btn--findjob:hover {
     transition: all 0.3s ease-out;
     background: rgba(245, 244, 243, 0.842) ;
     border-left: 5px solid rgb(35, 87, 117);
@@ -88,6 +88,7 @@
     background-color: rgb(133, 46, 46);
     color:rgb(255, 255, 255);
     padding: 8px 20px;
+    margin: 10px 10px 10px 10px;
     border-radius: 5px;
   }
   .btn--green {

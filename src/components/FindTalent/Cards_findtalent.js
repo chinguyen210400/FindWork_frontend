@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import'./Cards_findtalent.css';
-import WorkItems from "./WorkItems";
+import JobItems from "./JobItems";
 import ReactPaginate from "react-paginate";
 import Postjob_Modal from "./Postjob_Modal";
 import Proposal_Modal from "./Proposal_Modal";
@@ -35,11 +35,20 @@ function Cards_findtalent () {
         
 
     },[])
-    const deleteJobItem = (jobIndex) => {
-        console.log(jobIndex);
+    const deleteJobItem = (item) => {
+        const jobIndex = enterpriseJobList.indexOf(item)
         const newJobItem = [...enterpriseJobList];
-        newJobItem.splice(jobIndex,1);
-        setenterpriseJobList(newJobItem);
+        const job_id = item.id
+        if (window.confirm("Do you want to delete this job") == true){
+            axios.delete(`/api/job/${job_id}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+                alert("Delete success");
+                window.location.reload()
+            }).catch(err => {
+                alert("Cannot delete");
+            })
+        }
+        // newJobItem.splice(jobIndex,1);
+        // setenterpriseJobList(newJobItem);
     }
     const pageCount = Math.ceil(enterpriseJobList.length / itemPerPage);
     var jobsList;
@@ -48,23 +57,23 @@ function Cards_findtalent () {
     } else {
         jobsList = enterpriseJobList.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <WorkItems key={item.id} click1={() => deleteJobItem(item.id)} job = {item} click2={() => {setProposalModalOpen(true); setjobItemModal(item)}} 
+                <JobItems key={item.id} click1={() => deleteJobItem(item)} job = {item} click2={() => {setProposalModalOpen(true); setjobItemModal(item)}} 
                 click3 = {() => {setskillModalOpen(true);  setjobItemModal(item)}}/>
             );
         })
     }
    
     return (
-        <div className = "findwork_container">
+        <div className = "findjob_container">
               {postJobModalOpen && <Postjob_Modal setOpenModal={setPostJobModalOpen} />}
               {proposalModalOpen && <Proposal_Modal setOpenModal={setProposalModalOpen} 
               job = {jobItemModal}/>}
               {skillModalOpen && <JobSkill_Modal setOpenModal = {setskillModalOpen} 
               job = {jobItemModal}></JobSkill_Modal>}
-        <div className = "findwork_title">
-            <div className ="findwork_title_icon" >Job Posting</div>
+        <div className = "findjob_title">
+            <div className ="findjob_title_icon" >Job Posting</div>
             <div className="title_search"> 
-                <div className='search_box'><input className="textSearch_findwork" placeholder="Search jobs posting"/><button className="search_button"><i class="fa fa-search"></i></button></div>
+                <div className='search_box'><input className="textSearch_findjob" placeholder="Search jobs posting"/><button className="search_button"><i class="fa fa-search"></i></button></div>
                 <div className="search_title">Advanced Search</div>
                 <table className="list_title">
                         <th><h1>Uploaded Jobs</h1></th>
@@ -72,11 +81,11 @@ function Cards_findtalent () {
                 </table>
             </div>
         </div>
-        <div  className = 'findwork_body'>
-        <div className='findwork_item'>
+        <div  className = 'findjob_body'>
+        <div className='findjob_item'>
         <div className = 'list_left'> 
-            <Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-clock-o" aria-hidden="true"></i>Most recent</Button>
-            <Link to ='/enterpriseprofile' className = "link"><Button className='btns' buttonStyle='btn--findwork' buttonSize='btn--medium'><i class="fa fa-briefcase " aria-hidden="true"></i>View profile</Button></Link>
+            <Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'><i class="fa fa-clock-o" aria-hidden="true"></i>Most recent</Button>
+            <Link to ='/enterpriseprofile' className = "link"><Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'><i class="fa fa-briefcase " aria-hidden="true"></i>View profile</Button></Link>
         </div>  
                 {jobsList}
                 <ReactPaginate 

@@ -1,4 +1,4 @@
-.work_modalBackground {
+.job_modalBackground {
     width: 100vw;
     height: 100vh;
     background-color: rgba(200, 200, 200);
@@ -9,7 +9,7 @@
     margin-left: 300px;
   }
   
-  .work_modalContainer {
+  .job_modalContainer {
     width:  80vw;
     height: 100vh;
     border-radius: 12px;
@@ -26,14 +26,14 @@
     margin-top: 10px;
   }
   
-  .work_titleCloseBtn {
+  .job_titleCloseBtn {
     display: flex;
     justify-content:start;
   }
   
 
   
-  .work_body_right p {
+  .job_body_right p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
@@ -50,15 +50,15 @@
     align-items: center;
   }
 
-  .work_body_right {
+  .job_body_right {
       float : right;
       width: 80%;
   }
 
-  .work_body_left {
+  .job_body_left {
     width: 20%;
   }
 
-  .work_card {
+  .job_card {
       margin-top: 30px;
   }
