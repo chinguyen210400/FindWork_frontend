@@ -48,9 +48,8 @@ function Proposal_Modal(props) {
     }).catch(err => 
       {
         alert("Cannot decline")
-      })
-
-      // 
+      }
+      )
   }
 
   const displayButton = (item) => {

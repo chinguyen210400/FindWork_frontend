@@ -114,3 +114,7 @@
 	margin-right: 5px;
 	color: rgb(35, 87, 117);
 }
+
+.link-button {
+    text-decoration: none;
+}

@@ -9,7 +9,7 @@ import ReactPaginate from "react-paginate";
 import './Cards_findjob.css';
 import Job_Modal from './Job_Modal';
 
-function Cards_findjob (jobList) {
+function Cards_findjob_match (jobList) {
     const [findJobItem,setFindJobItem] = useState([])
     const [loading, setloading] = useState(true)
     const [modalOpen, setModalOpen] = useState(false)
@@ -23,10 +23,12 @@ function Cards_findjob (jobList) {
         setPageNumber(selected);
     };
     const token = localStorage.getItem("auth_token")
+    const employee_id = localStorage.getItem("user_id")
+    
     useEffect(() => {
-        axios.get(`/api/job`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
-            setFindJobItem(res.data.jobs)
-            console.log(res.data.jobs);
+        axios.get(`/api/employee/${employee_id}/jobs/match`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            setFindJobItem(res.data.job)
+            console.log(res.data.job);
             // console.log(res.data.jobs)
             setloading(false)
         })
@@ -102,8 +104,12 @@ function Cards_findjob (jobList) {
         <div  className = 'findjob_body'>
         <div className='findjob_item'>
         <div className = 'list_left'> 
-            <Link to = '/findjob_recent' className='link-button'><Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'>Most recent</Button></Link>
-            <Link to = '/findjob_match' className='link-button'><Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'>Best matches</Button></Link>
+            <Link to = '/findjob_match' className='link-button'>
+                <Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'>Best matches</Button>
+            </Link>
+            <Link to = '/findjob_recent' className='link-button'>
+                <Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'>Most recent</Button>
+            </Link>
             <Link to='/changeprofile'><Button className='btns' buttonStyle='btn--findjob' buttonSize='btn--medium'><i className="fa fa-user" aria-hidden="true"></i>View profile</Button></Link>
         </div>  
                 {findJobList}
@@ -124,4 +130,4 @@ function Cards_findjob (jobList) {
     );
 }
 
-export default Cards_findjob;
+export default Cards_findjob_match;

@@ -26,6 +26,8 @@ import SecurityEnterprise from './components/Security_enterprise/Security_enterp
 import security_enterprise from './components/pages/security_enterprise';
 import billing_enterprise from './components/pages/billing_enterprise';
 import invitedjobs from './components/pages/invitedjobs';
+import FindJobRecent from './components/pages/findjobrecent';
+import FindJobMatch from './components/pages/findjobmatch';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -52,6 +54,13 @@ function App() {
           <Route path='/findjob'>
             {localStorage.getItem('auth_token') ? <FindJob/> : <Redirect to = '/signin'/>}
           </Route>
+          <Route path='/findjob_recent'>
+            {localStorage.getItem('auth_token') ? <FindJobRecent/> : <Redirect to = '/signin'/>}
+          </Route>
+          <Route path='/findjob_match'>
+            {localStorage.getItem('auth_token') ? <FindJobMatch/> : <Redirect to = '/signin'/>}
+          </Route>
+          
           <Route path='/findtalent' exact component={findtalent} >
             {localStorage.getItem('auth_token') ? <FindTalent/> : <Redirect to = '/signin'/>}
           </Route>
