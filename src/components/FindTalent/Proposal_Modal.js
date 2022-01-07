@@ -31,7 +31,6 @@ function Proposal_Modal(props) {
     thisClicked.innerText = "Accepting"
     axios.put(`/api/job/${jobId}/employee/${employeeId}`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
       alert(res.data.message)
-
     }).catch(err => 
       {
         alert("Cannot accept")
@@ -59,31 +58,32 @@ function Proposal_Modal(props) {
     if (status == "pending" && direction == "employee"){
       return (
         <div>
-        <td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium' onClick={(e) => {handleAccept(e, employeeId); status = "accepted"}}>Accept</Button></td>
+        <td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium' onClick={(e) => {handleAccept(e, employeeId)}}>Accept</Button></td>
         <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium' onClick={(e) => {handleDecline(e, employeeId); status = "rejected"}} >Decline</Button></td>
         </div>
       )
     }
-    if (direction == "enterprise"){
-      // return (
-      //   <div>
-      //     <td>Hello</td>
-      //     <td>Hi</td>
-      //   </div>
-      // )
       if (status == "pending"){
         return (
           <div>
              <td><Button className='btns' buttonStyle='btn--yellow' buttonSize='btn--medium' ><i>Waiting</i></Button></td>
-             {/* <td>Hi</td> */}
+             <td></td>
           </div>
        ) 
       }
       else if (status == "accepted")
-        return  (<td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>Accepted</Button></td>)
+        return  (
+        <div>
+          <td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>Accepted</Button></td>
+          <td></td>
+        </div>
+        )
       else 
-        return  (<td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>Rejected</Button></td>)
-    }
+        return  (
+        <div>
+          <td><Button className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>Rejected</Button></td>
+          <td></td>
+        </div>)
   }
     return (
         <div className="job_modalBackground">

@@ -38,8 +38,8 @@ function App() {
     <Router>
         <Switch>
           <Route path='/' exact component={homepage}>
-            {localStorage.getItem("auth_token") && <HomePage/>}
-            {/* {localStorage.getItem('role') === "employee" ? <Redirect to = '/findwork'/>: <Redirect to = '/findtalent'/> } */}
+            {/* {localStorage.getItem("auth_token") && <HomePage/>} */}
+            {localStorage.getItem('role') === "employee" ? <Redirect to = '/findjob'/>: <Redirect to = '/findtalent'/> }
           </Route>
 
 
