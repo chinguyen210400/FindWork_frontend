@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
@@ -12,7 +12,17 @@ function Enterprise_Profile() {
     const [entercontactModalOpen, setEntercontactModalOpen] = useState(false);
 
     const [enterdetailsModalOpen, setEnterdetailsModalOpen] = useState(false);
-
+    const [enterpriseProfile, setenterpriseProfile] = useState({})
+    const [loading, setloading] = useState(true)
+    useEffect(() => {
+        const id =  localStorage.getItem("user_id") 
+        const token = localStorage.getItem('auth_token');
+		axios.get(`/api/enterprise/${id}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            console.log(res.data.enterprise);
+            setenterpriseProfile(res.data.enterprise)
+            setloading(false)
+		})
+    }, [])
     const logOutSubmit = e => {
 		e.preventDefault()
 		const token = localStorage.getItem('auth_token');
@@ -37,50 +47,54 @@ function Enterprise_Profile() {
                     </ul>
                 </div>
             </div>
-            <div className='enterprise_user'>
-            {entercontactModalOpen && <Entercontact_Modal setOpenModal={setEntercontactModalOpen} />}  
-            {enterdetailsModalOpen && <Enterdetails_Modal setOpenModal={setEnterdetailsModalOpen} />}  
-    <div className="enterprise">
-        <h1>Nguyen Chi </h1>
-        <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> 
-    </div>
-
-    
-    <div className = "connect">
-        <div className = "enterprise_card">
-            <div className="enterprise_card-header">
-            <h5>Company Contact <i className="fa fa-edit fa-0.5x" onClick={() => {setEntercontactModalOpen(true);}}></i></h5>
-           
-            </div>
-        
-            <div className="enterprise_card-body">
-                <ul>
-                <li><p>Location : Ngoc Ha, Ba Dinh, Ha Noi</p></li>
-                <li><p>Email : chi.ny184049@sis.hust.edu.vn</p></li>
-                <li><p>Phone: 0328481395</p></li>
-                </ul>
-            </div>   
-        </div>  
-         
-    </div>
-    <div className="skills">
-    <div className = "enterprise_card">
-            <div className="enterprise_card-header">
-        <h5>Company Details <i className="fa fa-edit fa-0.5x" onClick={() => {setEnterdetailsModalOpen(true);}}></i></h5>
-            </div>
-            <div className="enterprise_card-body">
-                <h3>  </h3>
-                <ul>
-                    <li><p>Website Url: </p></li>
-                    <li><p>Overview: </p> </li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                </ul>
-            </div>
-    </div>
-    </div>
-</div> 
+            {
+                loading ? 
+                <div class="spinner-border" role="status">
+          			<span class="sr-only">Loading...</span>
+        		</div> :
+                <div className='enterprise_user'>
+                {entercontactModalOpen && <Entercontact_Modal setOpenModal={setEntercontactModalOpen} />}  
+                {enterdetailsModalOpen && <Enterdetails_Modal setOpenModal={setEnterdetailsModalOpen} />}  
+                <div className="enterprise">
+                    <h1>{enterpriseProfile.name}</h1>
+                    {/* <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>  */}
+                </div>
+                <div className = "connect">
+                    <div className = "enterprise_card">
+                        <div className="enterprise_card-header">
+                        <h5>Company Contact <i className="fa fa-edit fa-0.5x" onClick={() => {setEntercontactModalOpen(true);}}></i></h5>
+                    
+                        </div>
+                    
+                        <div className="enterprise_card-body">
+                            <ul>
+                            <li><p>Email : {enterpriseProfile.email}</p></li>
+                            <li><p>Phone : {enterpriseProfile.phone}</p></li>
+                            </ul>
+                        </div>   
+                    </div>  
+                    
+                </div>
+                <div className="skills">
+                <div className = "enterprise_card">
+                        <div className="enterprise_card-header">
+                    <h5>Company Details <i className="fa fa-edit fa-0.5x" onClick={() => {setEnterdetailsModalOpen(true);}}></i></h5>
+                        </div>
+                        <div className="enterprise_card-body">
+                            <h3>  </h3>
+                            <ul>
+                                <li><p>{enterpriseProfile.website_url} </p></li>
+                                <li><p>{enterpriseProfile.overview}</p> </li>
+                                <li><p></p></li>
+                                <li><p></p></li>
+                                <li><p></p></li>
+                            </ul>
+                        </div>
+                </div>
+                </div>
+                </div>
+            }
+             
 </div>
     );
     }

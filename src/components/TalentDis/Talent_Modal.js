@@ -58,7 +58,7 @@ function Talent_Modal(props) {
                          return (
                              <div class="box">
                              <div class="flex-box -exp">
-                                 <div class="content">
+                                 <div class="talent_content">
                                      <div class="talent_name-company">{item.skill.name}</div>
                                      <div class="talent_pos">Level {item.level}</div>
                                      <div class="talent_pos">Experience {item. years_of_experience} years</div>
@@ -71,7 +71,7 @@ function Talent_Modal(props) {
                  <div class="main-title">Education</div>
                  <div class="box">
                      <div class="talent_flex-box -exp">
-                         <div class="content">
+                         <div class="talent_content">
                              <div class="talent_name-company">{talentInfo.education}</div>
                                                        
                              
@@ -81,7 +81,7 @@ function Talent_Modal(props) {
                  <div class="main-title">Language</div>
                  <div class="box">
                      <div class="talent_flex-box -exp">
-                         <div class="content">
+                         <div class="talent_content">
                              <div class="talent_name-company">{talentInfo.language}</div>
                          </div>
                      </div>
@@ -89,7 +89,7 @@ function Talent_Modal(props) {
                  <div class="main-title">Certificate</div>
                  <div class="box">
                      <div class="talent_flex-box -exp">
-                         <div class="content">
+                         <div class="talent_content">
                              <div class="talent_name-company">{talentInfo.certificates}</div>
                          </div>
                      </div>
@@ -99,7 +99,7 @@ function Talent_Modal(props) {
                  
                  <div class="box">
                      <div class="talent_flex-box -exp">
-                         <div class="content">
+                         <div class="talent_content">
                              <div class="talent_name-company">{talentInfo.work_history}</div>
                                
                              </div>
