@@ -60,8 +60,8 @@ function Talent_Modal(props) {
                              <div class="flex-box -exp">
                                  <div class="content">
                                      <div class="talent_name-company">{item.skill.name}</div>
-                                     <div class="pos">Level {item.level}</div>
-                                     <div class="pos">Experience {item. years_of_experience} years</div>
+                                     <div class="talent_pos">Level {item.level}</div>
+                                     <div class="talent_pos">Experience {item. years_of_experience} years</div>
                                  </div>
                              </div>
                              </div>
