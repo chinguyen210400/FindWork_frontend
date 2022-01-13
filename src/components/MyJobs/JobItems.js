@@ -10,6 +10,7 @@ function JobItems (props) {
     const user_id = localStorage.getItem("user_id")
     const token = localStorage.getItem("auth_token")
     const [loading, setloading] = useState(true)
+    
     useEffect(() => {
        axios.get(`api/employee/${user_id}/job/${props.job.job_id}`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
            setjobItem(res.data.employeeJob)
@@ -28,9 +29,14 @@ function JobItems (props) {
                 <h5  className='job_item_text'>{jobItem.job.title}</h5>
                 <p className='job_item_text'>{jobItem.job.description}</p>
                 { jobItem.status == "accepted" &&
-                    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'>Rating</Button>
+                <>
+                 <Button onClick = {props.click4} className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'>Rating</Button>
+                 <Button onClick = {props.click3} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>Report</Button>
+                </>
+                   
+                    
                 }
-                <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>Report</Button>
+               
             </div> 
             <div className='job_item_button' >
                  <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View</Button>

@@ -77,7 +77,7 @@ function UserProfile () {
 				{skillsModalOpen && <Skills_Modal setOpenModal={setSkillsModalOpen} skillList = {skillItemProfile} />}  
 				<div className="resume_left">
 					<div className="resume_image">
-					<img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/>
+					{/* <img src="/images/IMG_0714.JPG" alt="HTML Tutorial"/> */}
 					</div>
 					<div className="resume_bottom">
 						

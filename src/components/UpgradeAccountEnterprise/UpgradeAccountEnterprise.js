@@ -1,8 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
+function UpgradeAccountEnterprise () {
+    const [planInfo, setplanInfo] = useState()
+    const handleInput = e => {
+        e.persist()
+        setplanInfo({...planInfo,[e.target.name] : e.target.value})
+        console.log(planInfo);
+    }
 
-function SecurityEnterprise () {
     return (
         <div className='profile_container'>
             <div className='profile_left'>
@@ -18,22 +25,30 @@ function SecurityEnterprise () {
             </div>
             <div className='billing'>
                 <div className='billing_title'>
-                   <h1>Password & Security</h1> 
+                   <h1>Upgrade Account</h1> 
                 </div>
                 <div className='billing_info'>
                     <div className='billing_method'>
-                        <h2>Add extra layers of security</h2>
+                        <h2>Choose plan</h2>
                     </div>
-    <div className="billing_element">
-      <form className="billingForm">
-        <input className="billing_textInput" type="password" name="password" placeholder="Password"/>
-        <input className="billing_textInput" type="password" name="confirm_password" placeholder="confirm_Password"/>
-      </form>
-    </div>
+                <div className="billing_element">
+                <h4>Your plan info</h4>
+                
+                <form className="billingForm">
+                    <p>Plan</p>
+                    <select name ="plan" onChange = {handleInput} className ="form-control">
+                        <option> Select Plan</option>
+                        <option key= {1} value={1} >1 month</option>
+                        <option key= {6} value={6} >6 months</option>
+                        <option key= {12} value={12} >12 months</option>
+                    </select>  
+                    <div className="billing_save">
+                        <Button type = "submit" className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>Save</Button>
+                    </div>
+                </form>
+                </div>
 
-    <div className="billing_save">
-    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>Save</Button>
-    </div>
+                
 
                 </div>
             </div>
@@ -42,4 +57,4 @@ function SecurityEnterprise () {
 
 }
 
-export default SecurityEnterprise;
+export default UpgradeAccountEnterprise;

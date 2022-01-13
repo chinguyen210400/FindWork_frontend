@@ -31,12 +31,12 @@ function Navbar() {
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             FinWork
           </Link>
-          <div className='nav-search'>
+          {/* <div className='nav-search'>
             <Link to ='/'><i className="fa fa-fw fa-search"></i></Link><input className="textSearch" placeholder="Search"/>
             </div>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
+          </div> */}
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/myjobs' className='nav-links' onClick={closeMobileMenu}>

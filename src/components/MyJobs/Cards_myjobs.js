@@ -6,12 +6,17 @@ import JobItems from "./JobItems";
 import Job_Modal from "./Job_Modal";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import Report_Modal from "./Report_Modal";
+import Rating_Modal from "./Rating_Modal";
 
 function Cards_myjobs () {
     const [modalOpen, setModalOpen] = useState(false);
     const [jobItem,setJobItem] = useState([])
     const [jobItemModal, setjobItemModal] = useState({})
+    const [reportModal, setreportModal] = useState(false)
+    const [ratingModal, setratingModal] = useState(false)
     const [loading, setloading] = useState(true)
+
     const user_id = localStorage.getItem("user_id");
     const token = localStorage.getItem("auth_token")
 
@@ -48,7 +53,7 @@ function Cards_myjobs () {
     else{
         jobsList = jobItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
-                <JobItems key={item.id} click1={() => deleteJobItem(item.id)} click2={() => {setModalOpen(true); setjobItemModal(item) }} job = {item} />
+                <JobItems key={item.id} click1={() => deleteJobItem(item.id)} click2={() => {setModalOpen(true); setjobItemModal(item) } } click3 = {() => {setreportModal(true); setjobItemModal(item) }} click4 = {() => {setratingModal(true); setjobItemModal(item) }}job = {item} />
             );
     })
     }
@@ -56,6 +61,8 @@ function Cards_myjobs () {
     return(
         <div className = "findjob_container">
             {modalOpen && <Job_Modal setOpenModal={setModalOpen} jobItem = {jobItemModal} />}
+            {reportModal && <Report_Modal setOpenModal = {setreportModal} jobItem = {jobItemModal}></Report_Modal>}
+            {ratingModal && <Rating_Modal setOpenModal = {setratingModal}  jobItem = {jobItemModal} ></Rating_Modal>}
         <div className = "findjob_title">
             <div className ="findjob_title_icon" >My Jobs</div>
             <div className="title_search"> 

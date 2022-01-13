@@ -31,6 +31,7 @@ function Proposal_Modal(props) {
     thisClicked.innerText = "Accepting"
     axios.put(`/api/job/${jobId}/employee/${employeeId}`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
       alert(res.data.message)
+      window.location.reload()
     }).catch(err => 
       {
         alert("Cannot accept")
@@ -43,7 +44,7 @@ function Proposal_Modal(props) {
     thisClicked.innerText = "Declining"
     axios.put(`/api/job/${jobId}/employee/${employeeId}`,data,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
       alert(res.data.message)
-      window.location.reload(false)
+      window.location.reload()
     }).catch(err => 
       {
         alert("Cannot decline")

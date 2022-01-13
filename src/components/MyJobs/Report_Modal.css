@@ -1,0 +1,124 @@
+.modalBackground {
+    width: 1000px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+  }
+  
+  .modalContainer {
+    width: 800px;
+    height: 80vh;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow-y: auto;
+    margin-top: -100px;
+  }
+  
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .modal_header {
+    text-align: center;
+    background-color:  rgba(190, 190, 190, 0.842) ;
+  }
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .modalContainer .body .list {
+    border: 1px solid rgba(190, 190, 190, 0.842);
+    padding: 20px;
+  }
+
+  .textInput {
+    padding-left: 10px;
+    height: 40px;
+    width: 1000px;
+    margin-bottom: 10px;
+    align-self: center;
+    font-family: Arial, sans-serif;
+    color: black;
+
+    border-color: rgba(245, 244, 243, 0.842);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+  .modalContainer .body p {
+    font-size: 15px;
+    text-align :start;
+  }
+  
+  .modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalContainer .body .jobadd_skill button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    background-color: white;
+    color: rgb(35, 87, 117);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  
+  .modalContainer .body .jobadd_skill button:hover {
+    background-color: rgb(208, 224, 243);
+  }
+  
+  .modalContainer .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(35, 87, 117);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .modalContainer .footer button:hover {
+    background-color: #fff;
+    color: rgb(35, 87, 117);
+    border: 1px solid rgb(35, 87, 117);
+  }
+
+  .jobadd_skill {
+    margin-top: 30px;
+  }
+
+  .jobadd_skill p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  .label {
+    margin-top: 30px;
+  }
+
+  .button {
+    margin-top: 20px;
+  }

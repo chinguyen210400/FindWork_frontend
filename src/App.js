@@ -26,6 +26,7 @@ import SecurityEnterprise from './components/Security_enterprise/Security_enterp
 import security_enterprise from './components/pages/security_enterprise';
 import billing_enterprise from './components/pages/billing_enterprise';
 import invitedjobs from './components/pages/invitedjobs';
+import upgrade_account_enterprise from './components/pages/upgrade_account_enterprise'
 import FindJobRecent from './components/pages/findjobrecent';
 import FindJobMatch from './components/pages/findjobmatch';
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -39,10 +40,8 @@ function App() {
         <Switch>
           <Route path='/' exact component={homepage}>
             {/* {localStorage.getItem("auth_token") && <HomePage/>} */}
-            {localStorage.getItem('role') === "employee" ? <Redirect to = '/findjob'/>: <Redirect to = '/findtalent'/> }
+            {/* {localStorage.getItem('role') === "employee" ? <Redirect to = '/findjob'/>: <Redirect to = '/findtalent'/> } */}
           </Route>
-
-
           <Route path='/signin' exact component={signin} >
            
           </Route>
@@ -71,6 +70,8 @@ function App() {
           <Route path='/security_employ' exact component={security_employ} />
           <Route path='/security_enterprise' exact component={security_enterprise} />
           <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
+          <Route path='/upgradeaccount_enterprise' exact component={upgrade_account_enterprise} />
+
         </Switch>
     </Router>
       

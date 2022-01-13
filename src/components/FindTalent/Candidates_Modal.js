@@ -24,16 +24,12 @@ function Candidates_Modal(props) {
                 employeeInfo.status == "accepted" && 
                 <div class="contact-info">
                 <div class="item">
-                    +84.91 111 8683
+                    {employeeInfo.employee.phone}
                 </div>
                 <div class="item">
-                    nguyenyenchi@gmail.com
+                    {employeeInfo.employee.email}
                 </div>
-                <div class="item">
-                    Ha Noi, Viet Nam
                 </div>
-            </div>
-
             }
             <div class="box">
                 <div class="main-title">Rating</div>
