@@ -5,6 +5,9 @@ import Candidates_Modal from "./Candidates_Modal";
 import "./Proposal_Modal.css";
 import { useState } from "react";
 import axios from "axios";
+import Rating_Modal from "../MyJobs/Rating_Modal";
+import RatingModal from "./RatingModal";
+import ReportModal from "./ReportModal";
 
 function Proposal_Modal(props) {
   const jobId = props.job.id
@@ -14,6 +17,8 @@ function Proposal_Modal(props) {
   const [status, setstatus] = useState("pending")
   const [employeeInfo, setemployeeInfo] = useState({})
   const [candidatesModalOpen, setCandidatesModalOpen] = useState(false);
+  const [ratingModalOpen, setRatingModalOpen] = useState(false);
+  const [reportModalOpen, setreportModalOpen] = useState(false)
 
   useEffect(() => {
     axios.get(`api/job/${jobId}/employees`, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
@@ -53,6 +58,7 @@ function Proposal_Modal(props) {
   }
 
   const displayButton = (item) => {
+    console.log(item);
     const status = item.status
     const direction = item.offer_direction
     const employeeId = item.employee.user_id
@@ -76,7 +82,8 @@ function Proposal_Modal(props) {
         return  (
         <div>
           <td><Button className='btns' buttonStyle='btn--green' buttonSize='btn--medium'>Accepted</Button></td>
-          <td></td>
+          <td><Button onClick={() => {setRatingModalOpen(true); setemployeeInfo(item)}} className='btns' buttonStyle='btn--yellow' buttonSize='btn--medium'>Rating</Button></td>
+          <td><Button onClick={() => {setreportModalOpen(true); setemployeeInfo(item)}} className='btns' buttonStyle='btn--noti' buttonSize='btn--medium'>Report</Button></td>
         </div>
         )
       else 
@@ -89,6 +96,8 @@ function Proposal_Modal(props) {
     return (
         <div className="job_modalBackground">
            {candidatesModalOpen && <Candidates_Modal setOpenModal={setCandidatesModalOpen} employeeInfo = {employeeInfo}/>}
+           {ratingModalOpen && <RatingModal setOpenModal={setRatingModalOpen} employeeJobInfo = {employeeInfo}></RatingModal>}
+           {reportModalOpen && <ReportModal setOpenModal={setreportModalOpen} employeeJobInfo = {employeeInfo} ></ReportModal>}
         <div className="job_modalContainer">
         <div className="job_titleCloseBtn">
         <Link className="fa fa-angle-left fa-3x link" aria-hidden="true" onClick={() => { props.setOpenModal(false); setloading(true)}}></Link> 
@@ -118,7 +127,6 @@ function Proposal_Modal(props) {
                       <td>{item.employee.overview}</td>
                       <td><Button className='btns' buttonStyle='btn--view' buttonSize='btn--medium'  onClick={() => {setCandidatesModalOpen(true); setemployeeInfo(item)}}>View more</Button></td>
                       {displayButton(item)}
-                     
                       <td></td>
 
                   </tbody>
