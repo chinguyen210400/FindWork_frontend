@@ -1,5 +1,4 @@
 import React  from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 import homepage from './components/pages/homepage';
@@ -14,6 +13,9 @@ import changeprofile from './components/pages/changeprofile'
 import billing_employ from './components/pages/billing_employ';
 import security_employ from './components/pages/security_employ';
 import enterpriseprofile from './components/pages/enterpriseprofile';
+import admin_employee from './components/pages/admin_employee';
+import admin_enterprise from './components/pages/admin_enterprise';
+import admin_report from './components/pages/admin_report';
 import axios from 'axios';
 import SignIn from './components/pages/signin';
 import Billing_enterprise from './components/Billing_enterprise/Billing_enterprise';
@@ -71,6 +73,9 @@ function App() {
           <Route path='/security_enterprise' exact component={security_enterprise} />
           <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
           <Route path='/upgradeaccount_enterprise' exact component={upgrade_account_enterprise} />
+          <Route path='/admin_employee' exact component={admin_employee} />
+          <Route path='/admin_enterprise' exact component={admin_enterprise} />
+          <Route path='/admin_report' exact component={admin_report} />
 
         </Switch>
     </Router>
