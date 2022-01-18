@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { Button } from "../Layouts/Button";
 import EnterpriseItems from "./EnterpriseItems";
 import ReactPaginate from "react-paginate";
+import EnterpriseModal from "./EnterpriseModal";
 import '../TalentDis/Cards_talentdis.css';
-import axios from "axios";
+
 
 function Enterprise_list () {
     const token = localStorage.getItem("auth_token")
+
+    const [enterpriseModalOpen, setEnterpriseModalOpen] = useState(false);
 
     const [enterpriseItem,setEnterpriseItem] = useState([
         {text1:'Chi Nguyen',text2:'This is a list of talent'},
@@ -30,13 +33,14 @@ function Enterprise_list () {
 
     const  enterprisesList = enterpriseItem.slice(pagesVisited, pagesVisited + itemPerPage).map((item,index) => {
                     return (
-                        <EnterpriseItems key={index} />
+                        <EnterpriseItems key={index} text1={item.text1} text2={item.text2} click1={() => {setEnterpriseModalOpen(true) }}/>
                     );
                 }
     )
    
     return (
         <div className = "talent_container">
+             {enterpriseModalOpen && <EnterpriseModal setOpenModal={setEnterpriseModalOpen}/>}
         <div className = "findjob_title">
             <div className="title_search">     
                 <div className="talent_list_title">

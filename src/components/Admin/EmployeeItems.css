@@ -1,4 +1,4 @@
-.enterprise_item {
+.employee_item {
     background-color: #fff;
     border: 2px solid rgba(245, 244, 243, 0.842) ;
     margin-left: 30px;
@@ -9,34 +9,32 @@
   }
   
   
-  .enterprise_item_img {
+  .employee_item_img {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
     
   }
   
-  .enterprise_item_title {
+  .employee_item_title {
     padding: 20px 30px 30px;
     
   }
   
-  .enterprise_item_title h5 {
-  
+  .employee_item_title h5 {
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
-  .enterprise_item_title p {
+  .employee_item_title p {
     font-size: 15px;
     margin: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  
-  .enterprise_button {
+
+  .employee_button {
     margin-top: -10px;
   }
-  
   
   .fa-star {
     color: #ffe920;

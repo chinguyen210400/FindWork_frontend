@@ -91,6 +91,18 @@
     margin: 10px 10px 10px 10px;
     border-radius: 5px;
   }
+
+  .btn--white {
+    background-color: rgb(243, 243, 243);
+    color:rgb(0, 0, 0);
+    padding: 8px 20px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+  }
+
+  .btn--white:hover {
+    background-color: rgb(117, 202, 223);
+  }
   .btn--green {
     background-color: green;
     color:rgb(255, 255, 255);
