@@ -1,4 +1,5 @@
 import React  from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 import homepage from './components/pages/homepage';
@@ -31,6 +32,7 @@ import invitedjobs from './components/pages/invitedjobs';
 import upgrade_account_enterprise from './components/pages/upgrade_account_enterprise'
 import FindJobRecent from './components/pages/findjobrecent';
 import FindJobMatch from './components/pages/findjobmatch';
+import upgradeaccount_employee from './components/pages/upgrade_account_employee';
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -73,7 +75,10 @@ function App() {
           <Route path='/security_enterprise' exact component={security_enterprise} />
           <Route path='/enterpriseprofile' exact component={enterpriseprofile} />
           <Route path='/upgradeaccount_enterprise' exact component={upgrade_account_enterprise} />
-          <Route path='/admin_employee' exact component={admin_employee} />
+          <Route path='/upgradeaccount_employee' exact component={upgradeaccount_employee} />
+
+          <Route path='/admin_employee' exact component={admin_employee}>
+          </Route>
           <Route path='/admin_enterprise' exact component={admin_enterprise} />
           <Route path='/admin_report' exact component={admin_report} />
 

@@ -9,11 +9,13 @@ import Proposal_Modal from "./Proposal_Modal";
 import axios from 'axios'
 import JobSkill_Modal from "./JobSkill_Modal";
 import Skills_Modal from "../UserProfile/Skills_Modal";
+import EditJob_Modal from "./EditJob_Modal";
 function Cards_findtalent () {
 
     const [postJobModalOpen, setPostJobModalOpen] = useState(false);
     const [proposalModalOpen, setProposalModalOpen] = useState(false);
     const [skillModalOpen, setskillModalOpen] = useState(false)
+    const [editJobModalOpen, seteditJobModalOpen] = useState(false)
     const [enterpriseJobList, setenterpriseJobList] = useState([])
     const [loading, setloading] = useState(true)
     const [pageNumber, setPageNumber] = useState(0);
@@ -58,7 +60,8 @@ function Cards_findtalent () {
         jobsList = enterpriseJobList.slice(pagesVisited, pagesVisited + itemPerPage).map((item) => {
             return (
                 <JobItems key={item.id} click1={() => deleteJobItem(item)} job = {item} click2={() => {setProposalModalOpen(true); setjobItemModal(item)}} 
-                click3 = {() => {setskillModalOpen(true);  setjobItemModal(item)}}/>
+                click3 = {() => {setskillModalOpen(true);  setjobItemModal(item)}}
+                click4 = {() => {seteditJobModalOpen(true);  setjobItemModal(item)}}/>
             );
         })
     }
@@ -66,6 +69,7 @@ function Cards_findtalent () {
     return (
         <div className = "findjob_container">
               {postJobModalOpen && <Postjob_Modal setOpenModal={setPostJobModalOpen} />}
+              {editJobModalOpen && <EditJob_Modal setOpenModal={seteditJobModalOpen}  job = {jobItemModal} ></EditJob_Modal>}
               {proposalModalOpen && <Proposal_Modal setOpenModal={setProposalModalOpen} 
               job = {jobItemModal}/>}
               {skillModalOpen && <JobSkill_Modal setOpenModal = {setskillModalOpen} 

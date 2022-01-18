@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import {Button} from '../Layouts/Button';
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 function Billing_enterprise () {
+    const [billingInfo, setbillingInfo] = useState({})
+    const token = localStorage.getItem('auth_token')
+
+    const handleInput = e => {
+        e.persist()
+        setbillingInfo({...billingInfo, [e.target.name]: e.target.value})
+    }
+    
+    const submitBillingInfo = e => {
+        e.preventDefault()
+        axios.post(`/api/bank_account`, billingInfo, {headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
+            alert("Add bank account success")
+        }).catch(err => {
+            alert("Fail")
+        })
+        // window.location.reload()
+    }
+
     return (
         <div className='profile_container'>
             <div className='profile_left'>
@@ -24,22 +44,18 @@ function Billing_enterprise () {
                         <h2>Add a Billing Method</h2>
                     </div>
     <div className="billing_element">
-      <form className="billingForm">
+    <form className="billingForm" onSubmit={submitBillingInfo}>
         <p>Your Name</p>
-        <input className="billing_textInput" type="text" name="name" placeholder="Name"/>
+        <input className="billing_textInput" type="text" name="card_holder_name" onChange = {handleInput} placeholder="Name"/>
         <p>Card Number</p>
-        <input className="billing_textInput" type="text" name="card_number" placeholder="Card_Number"/>
-        <p>Date value</p>
-        <input className="billing_textInput" type="text" name="date" placeholder="Date"/>
+        <input className="billing_textInput" type="text" name="card_number" onChange = {handleInput} placeholder="Card_Number"/>
         <p>Password</p>
-        <input className="billing_textInput" type="password" name="password" placeholder="Password"/>
+        <input className="billing_textInput" type="password" name="password" onChange = {handleInput}  placeholder="Password"/>
+        <div className="billing_save">
+            <Button className='btns' type="submit" buttonStyle='btn--outline' buttonSize='btn--large'>Save</Button>
+        </div>
       </form>
     </div>
-
-    <div className="billing_save">
-    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>Save</Button>
-    </div>
-
                 </div>
             </div>
         </div>
