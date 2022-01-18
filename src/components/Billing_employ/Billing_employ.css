@@ -55,3 +55,7 @@
 .billing_save {
     margin: 30px;
 }
+
+.link {
+    text-decoration: none;
+}

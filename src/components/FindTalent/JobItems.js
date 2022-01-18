@@ -15,7 +15,8 @@ function JobItems (props) {
                 <Button onClick={props.click2} className='btns' buttonStyle='btn--primary' buttonSize='btn--medium'>View Proposals</Button>
             </div> 
             <div className='job_item_button'>
-                <i class="fas fa-edit fa-lg" onClick={props.click3}></i>
+            <Button onClick={props.click3} className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'>Edit Skill</Button>
+                <i class="fas fa-edit fa-lg" onClick={props.click4}></i>
                 <div className='delete_icon'>
                 <i class="fa fa-trash fa-lg" onClick={props.click1} ></i>
             </div>

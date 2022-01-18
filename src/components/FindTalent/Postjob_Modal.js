@@ -5,50 +5,10 @@ import "./Postjob_Modal.css";
 import { useEffect , useState} from "react";
 import axios from "axios";
 function Postjob_Modal(props) {
-    const [categoryList, setcategoryList] = useState([])
-    const [skillList,setskillList] = useState([]);
     const token = localStorage.getItem("auth_token")
-    const [skillInput, setskillInput] = useState([])
     const user_id = localStorage.getItem("user_id")
     const [jobInput, setjobInput] = useState({})
-    // useEffect(() => {
-    //     // const token = localStorage.getItem("auth_token")
-    //     axios.get(`api/category`,{headers : {"Authorization" : `Bearer ${token}`}} ).then(res => {
-    //         console.log(res.data.categories);
-    //         setcategoryList(res.data.categories);
-    //    })
-    // }, [])
 
-    // useEffect(() => {
-    //     // const token = localStorage.getItem("auth_token")
-    //     axios.get(`api/category`,{headers : {"Authorization" : `Bearer ${token}`}} ).then(res => {
-    //         console.log(res.data.categories);
-    //         setcategoryList(res.data.categories);
-    //     })
-    // })
-
-    // function handleCategoryInput(e) {
-    //     e.persist()
-    //     let categoryId = e.target.value
-    //     axios.get(`api/category/${categoryId}/skills`,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
-    //         setskillList(res.data.skills)
-    //         console.log(res.data.skills);
-    //     })
-    // }
-
-    function handleSkillInput(e) {
-        e.persist()
-        setskillInput({...skillInput, [e.target.name]: e.target.value})
-        console.log(skillInput);
-    }
-
-    function submitAddSkill(e){
-        e.persist()
-        console.log(user_id);
-        axios.post(`api/employee/${user_id}/skill`,skillInput,{headers : {"Authorization" : `Bearer ${token}`}}).then(res => {
-            alert("Success\n")
-        })
-    }
     function handleInput(e) {
         e.persist()
         setjobInput({...jobInput, [e.target.name] : e.target.value})
